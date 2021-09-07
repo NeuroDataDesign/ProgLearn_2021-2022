@@ -31,7 +31,7 @@ $$S^R_j = S_{2j+2}$$
 During **testing**, apply $h(\cdot, \cdot)$ to send $v$ right or left until leaf node w/ classifier/regressor. 
 
 During **training**, select type and params for $h(v, \theta)$ via greedy optimization function. Goal: learn the function that best splits $S_j$ by maximizing objective function $I$
-$$\theta_j = \underset{\theta \in T}{\mathrm{argmin}} I(S_j, \theta)$$
+$$\theta_j = \underset{\theta \in \mathcal{T}}{\mathrm{argmin}} I(S_j, \theta)$$
 by searching over the set of possible params $\theta$. 
 
 $I$ could be many things, but one example is purity. Regardless, apply procedure recursively to all nodes to yield:
@@ -71,4 +71,16 @@ Each leaf has some training data, and we can use this to generate posterios (i.e
 ### Randomness Model
 Goal: inject trandomness during training.
 * **Bagging**: train each tree in the forest on different training subsets
-* **Randomized Node Optimization**: 
+* **Randomized Node Optimization**: More efficient optimization scheme over random subset $\mathcal{T_j} \in \mathcal{T}$ parameters. Additionally, $\rho = |\mathcal{T_j}|$ controls the degree of randomness. Optimize each split node for 
+
+$$\theta_j = \underset{\theta \in \mathcal{T_j}}{\mathrm{argmin}} I(S_j, \theta)$$
+
+## 3.4 Combining Trees as Forest Ensemble
+Randomness decorrelates trees --> better generalization and robustness. Again, $\rho$ controls randomness (and by extension, correlation) within forest.
+
+For $T$ trees, $t \in T$ indexes. Combine probability via averaging over trees
+
+$$p(c|v) = \frac{1}{T} \sum^T_{t=1} p_t(c|v)$$
+
+Note that the hyperparameters are extremely important, especially things like stopping criteria. 
+
