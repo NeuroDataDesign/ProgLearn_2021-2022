@@ -37,3 +37,26 @@
 - **Training Set**: ie. set of photos associated with "indoor" or "outdoor" labels. Denoted S0, is a collection of different training data points
 ![image](https://user-images.githubusercontent.com/89429238/132419183-b1c0ac08-9cc4-4c79-bd2e-c5289896c109.png)
 
+### Randomly trained decision trees: Tree Testing (On-line Phase)
+- given previously unseen data point **v**, decision tree hierarchially applies a # of prev selected tests
+- starting at root, each split node applies its associated test function h(.,.) to **v**
+- data point **v** is sent to left or right child based on this binary test
+- **leaf nodes** contain a predictor/estimator (eg. classifier or a regressor) which associates an output (eg. class label or continuous value) with input **v**
+
+### Randomly traiend decision trees: Tree Training (Off-line Phase)
+- split/test function at each internal node needs to learned automatically from example data
+- training phase takes care of selecting type and params of test function h(v,theta) associated with each split node (indexed by j) by optimizing a chosen objective function defined on an avail training set
+- maximize objective function I at the jth split node 
+![image](https://user-images.githubusercontent.com/89429238/132419935-18cfd087-fe62-4bc3-9ca6-eaede15a6485.png)
+- typically performed as simple search over discrete set of samples of possible param settings theta
+![image](https://user-images.githubusercontent.com/89429238/132420024-c2c391b2-4289-4669-b575-aa1357c1a157.png)
+- during training we need to choose tree structure (size and shape)
+- training starts at j=0 (root node), optimum split params above, construct two child nodes (each with different disjoint subset of training set), procedure then applied recursively to all newly constructed nodes and training phase continues until stopping criterion met
+
+#### At the end of the training phase we have:
+1. greedily optimum weak learners (split functions) associated with each node
+2. learned tree structure
+3. different set of training points at each leaf
+
+### Weak learner models
+
