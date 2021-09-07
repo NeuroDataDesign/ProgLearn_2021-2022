@@ -9,7 +9,8 @@ https://www.zendesk.com/blog/machine-learning-and-deep-learning/
     - In deep learning, can make intelligent decisions on own
 
 ## Jovo's Articles
-How to choose a project
+**How to choose a project**
+
 https://bitsandbrains.io/2018/08/31/sig-and-feas.html
 - The three main factors to consider when choosing a project: feasibility, significance, passion
     - Feasibility involves how likely I would be able to complete the project given constraints (energy and time I can invest) and resources (prior knowledge, availability of mentors and other researchers who can help
@@ -17,7 +18,8 @@ https://bitsandbrains.io/2018/08/31/sig-and-feas.html
     - Passion is derived from intrinsic motivation, and making sure that the project I choose is one I will enjoy and therefore naturally put more effort and energy into it, resulting in a better product
 - All of these three factors come together to choosing a project that will be successful and enjoyable in progressing
 
-Figure checklist
+**Figure Checklist**
+
 https://bitsandbrains.io/2018/08/31/sig-and-feas.html
 - Main point 
     - The most important part of a figure is the main point - the main idea that a viewer should be able to draw from looking at the figure
