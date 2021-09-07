@@ -25,6 +25,15 @@
 1. Tests associated with each internal node
 2. Decision-making predictors associated with each leaf
 
+- Decision tree can be thought of as splitting complex problems into a set of simpler ones: **hierarchical piece-wise** model 
 
+- **Split function, test function, weak learner** are used interchangeably in this book 
 
+### Test function at a split node j as a function with binary output:
+![image](https://user-images.githubusercontent.com/89429238/132415312-d3711a36-0146-4138-8194-fa4a4c25e601.png)
+
+### Training points and sets
+- **Training Point**: data point for which the attriibutes we are seeking for may be known and used to computer tree params
+- **Training Set**: ie. set of photos associated with "indoor" or "outdoor" labels. Denoted S0, is a collection of different training data points
+![image](https://user-images.githubusercontent.com/89429238/132419183-b1c0ac08-9cc4-4c79-bd2e-c5289896c109.png)
 
