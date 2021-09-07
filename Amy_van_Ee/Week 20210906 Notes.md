@@ -2,6 +2,7 @@
 
 ## Basic Background
 Machine vs Deep Learning
+
 https://www.zendesk.com/blog/machine-learning-and-deep-learning/
 - Deep learning is a subset of machine learning, but both are forms of artificial intelligence
 - Machine learning involves an algorithm that gets progressively better as we give it more information
