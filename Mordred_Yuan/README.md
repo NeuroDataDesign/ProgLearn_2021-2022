@@ -1,1 +1,1 @@
-Mordred Yuan's progress tracking repo. (NDD 2021-2022)
+Mordred Yuan's progress tracking folder. (NDD 2021-2022)
