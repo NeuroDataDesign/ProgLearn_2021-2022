@@ -21,7 +21,7 @@
 ![image](https://user-images.githubusercontent.com/89429238/132412270-b234179c-0e9e-43d8-8504-a4abac4ef1db.png)
 - The image is injected at the root node, and a test is applied to it 
 
-####Key to good functioning of a decision tree is to establish:
+#### Key to good functioning of a decision tree is to establish:
 1. Tests associated with each internal node
 2. Decision-making predictors associated with each leaf
 
