@@ -9,4 +9,4 @@ This folder contains annotated versions of NeuroData papers and other reference 
   
 ## Folder 3: Textbook
 <code> To be developed </code>
-  This folder contains .md files with notes for the various textbook chapters, thus forming a ready-reference
+This folder contains .md files with notes for the various textbook chapters, thus forming a ready-reference
