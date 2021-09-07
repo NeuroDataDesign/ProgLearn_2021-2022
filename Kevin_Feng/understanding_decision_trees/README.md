@@ -1,4 +1,4 @@
-**THE FILES IN THIS FOLDER ARE FROM THE ARTICLE BELOW**
+**ALL FILES EXCEPT understanding_decision_trees_notes_kf.pdf IN THIS FOLDER ARE FROM THE ARTICLE BELOW**
 
 # understanding-decision-trees 🌳
 
