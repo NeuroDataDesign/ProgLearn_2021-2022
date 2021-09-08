@@ -68,4 +68,74 @@ The aim of these questions is to move to the right **decision space**
 <br>
 
 ### **Mathematical Notations**
+<br>
 
+#### Data points: 
+* Object = Data point = Vector 
+* **v** = (x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>... x<sub>d</sub>)
+* ℝ: Set of Real No. then, v ∈ ℝ<sup>d</sup>
+* Each x<sub>i</sub> represents some attribute of this data point called <code> feature </code>
+* Number of & specific features depend on the application 
+* Dimensionality d can be vey large, we only extract a small portion on an as-needed basis
+* Features of interest: Subset of all features, dimensionality d' 
+* d' << d
+
+<br>
+
+#### Split Functions: 
+* Split function = Test function = Weak learner
+* Test function at node j with binary outputs (0 = false, 1 = true):
+<br> h(**v**, **_θ_**<sub>j</sub>): ℝ<sup>d</sup> x &Tau; -> {0, 1}
+* &theta;<sub>j</sub> ∈ &Tau; denotes split parameters of the j<sup>th</sup>node
+* &Tau;: Space of all split parameters
+ >Role of a split function: <br> The data point **v** arriving at the split node is sent to the left or right child node according to the results of the test/split function
+
+<br>
+
+ #### Training Point
+ > What is a training point? <br>It is a data point for which the attributes were are seeking may be known and used to calculate tree parameters
+* Defined by: 
+    1. **v**: Feature vector (i.e. input)
+    2. **y**: Known label (in supervised learning) (i.e. output)
+* S<sub>n</sub>: Subset of training points reaching node 'n'
+    * The split function divides S<sub>n</sub> into two smaller sets
+    * S<sub>n</sub><sup>L</sup> : subset of training points going to the left child 
+    * S<sub>n</sub><sup>R</sup>: subset of training points going to the right child 
+
+<br>
+
+#### Data points: 
+* Object = Data point = Vector 
+* **v** = (x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>... x<sub>d</sub>)
+* ℝ: Set of Real No. then, v ∈ ℝ<sup>d</sup>
+* Each x<sub>i</sub> represents some attribute of this data point called <code> feature </code>
+* Number of & specific features depend on the application 
+* Dimensionality d can be vey large, we only extract a small portion on an as-needed basis
+* Features of interest: Subset of all features, dimensionality d' 
+* d' << d
+
+<br>
+
+#### Split Functions: 
+* Split function = Test function = Weak learner
+* Test function at node j with binary outputs (0 = false, 1 = true):
+<br> h(**v**, **_θ_**<sub>j</sub>): ℝ<sup>d</sup> x &Tau; -> {0, 1}
+* &theta;<sub>j</sub> ∈ &Tau; denotes split parameters of the j<sup>th</sup>node
+* &Tau;: Space of all split parameters
+ >Role of a split function: <br> The data point **v** arriving at the split node is sent to the left or right child node according to the results of the test/split function
+
+<br>
+
+ #### Training Point
+ > What is a training point? <br>It is a data point for which the attributes were are seeking may be known and used to calculate tree parameters
+* Defined by: 
+    1. **v**: Feature vector (i.e. input)
+    2. **y**: Known label (in supervised learning) (i.e. output)
+* S<sub>n</sub>: Subset of training points reaching node 'n'
+    * The split function divides S<sub>n</sub> into two smaller sets
+    * S<sub>n</sub><sup>L</sup> : subset of training points going to the left child 
+    * S<sub>n</sub><sup>R</sup>: subset of training points going to the right child 
+
+<br>
+
+#### 
