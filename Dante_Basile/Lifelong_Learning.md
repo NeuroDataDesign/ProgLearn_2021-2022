@@ -15,7 +15,7 @@ Dante Basile
 * Omnidirectional Networks (ODIN)
 * Act on arbitrary number of tasks
 * Evaluate with transfer efficiency ${TE}_n^t(f) := \mathbb{E}[R^t (f(\textbf{S}_n^t))] / \mathbb{E}[R^t(f(\textbf{S}_n))]$
-    * Transfer learning took place iff $TE_n^t > 1$
+    * Transfer learning took place iff $TE_n^t(f) > 1$
 * Omnidirectional Structure
     * Representers: New added for each task. Trained on respective task.
     * Voters: New added for each task. Ensemble all representers.
