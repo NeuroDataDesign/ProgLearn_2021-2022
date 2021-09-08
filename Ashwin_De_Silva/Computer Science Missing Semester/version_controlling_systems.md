@@ -1,5 +1,7 @@
 # Version Controlling Systems
 
+The following notes are based on the wonderful git/VCS tutorial which can be found in ![here](https://missing.csail.mit.edu/2020/version-control/)
+
 ## Introduction 
  
 * VCS keeps track of the changes made to the source code. This is done through a series of snapshots.
@@ -102,9 +104,28 @@
 * ```git clone --depth=1``` : shallow clone, without entire version history 
 * ```git add -p``` : interactive staging 
 * ```git rebase -i``` : interactive rebasing 
-* ```git blame``` : show who last edited which line 
+* ```git blame``` : show who last edited which line (and why?)
 * ```git stash``` : temporarily remove modifications to working directory (git stash pop gets the stuff back) 
 * ```git bisect``` : binary search history (e.g. for regressions) 
 * ```.gitignore``` : specify intentionally untracked files to ignore 
+
+## Best practices of writing good commit messages
+
+The best practices below are extracted from ![here](https://chris.beams.io/posts/git-commit/) and ![here](https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html).
+ 
+* Separate subject from the body using a blank line 
+* Limit the subject line to 50 characters 
+* Capitalize the subject line 
+* Do not end the subject line with a period 
+* Subject line should be written as a command (e.g. Fix the bug) 
+* Wrap the body at 72 characters (configure vim to do this!) 
+* Use the body to explain what, why and how 
+
+## Other Resources
+
+* ![How to recover from common git mistakes](https://ohshitgit.com/)
+* When working on big projects/ workflows : ![link1](https://nvie.com/posts/a-successful-git-branching-model/ ) ![link2](https://www.endoflineblog.com/gitflow-considered-harmful ) ![link3](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow )
+* ![ProGit Book](https://git-scm.com/book/en/v2)
+* ![Pull requests in Github](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests )
 
 
