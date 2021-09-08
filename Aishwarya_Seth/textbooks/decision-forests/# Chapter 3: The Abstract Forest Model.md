@@ -13,7 +13,7 @@ Types of Machine Learning Tasks:
 * Active Learning : Learning a general rule with minimum annotations (because expert annotations are expensive) 
 
 
-*** A unified model of decision forests is proposed which can be used to tackle all the common machine learning tasks mentioned above ***
+**_A unified model of decision forests is proposed which can be used to tackle all the common machine learning tasks mentioned above_**
 
 Steps: 
 1. Model definitions & components 
@@ -21,6 +21,9 @@ Steps:
 3. General mathematical notations 
 4. Tree -> Decision Forest
 
+<br>
+<br>
+<br>
 
 ## **Decision Tree Basics**
 
@@ -61,6 +64,8 @@ The aim of these questions is to move to the right **decision space**
 **Key to a good decision tree** is to establish: 
 1. Tests associated with each internal node
 2. Decision making predictors associated with each leaf 
+
+<br>
 
 ### **Mathematical Notations**
 
