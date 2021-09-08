@@ -17,7 +17,7 @@
 
 * The following figure represents a simple Git's data model.
 
-!()[Ashwin_De_Silva/assets/images/git_data_model.png]
+![](https://github.com/Laknath1996/ProgLearn_2021-2022/blob/main/Ashwin_De_Silva/assets/images/git_data_model.png)
 
 * In Git jargon,  
     * A file : blob 
@@ -31,11 +31,11 @@
 
 * Commit history as a DAG: 
 
-!()[Ashwin_De_Silva/assets/images/branching.png]
+![](https://github.com/Laknath1996/ProgLearn_2021-2022/blob/main/Ashwin_De_Silva/assets/images/branching.png)
 
 * The circles represent the individual commits. The arrows represent the 'comes before' relation. (They point to the parent of each commit/ previous commit).
 
-!()[Ashwin_De_Silva/assets/images/merging.png]
+![](https://github.com/Laknath1996/ProgLearn_2021-2022/blob/main/Ashwin_De_Silva/assets/images/merging.png)
 
 * After 3rd commit, history branches in to two (two independently features being developed parallelly) and merges to create a snapshot that incorporates both the features. 
 
