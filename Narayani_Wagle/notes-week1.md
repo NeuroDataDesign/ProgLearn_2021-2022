@@ -30,7 +30,24 @@
   - proposed approach: omnidirectional learning
   - ProgNN - transfer only forwards, not backwards
   - 2 algorithms: a) decision forests, b) deep networks
-- 
+- Classical ML
+  - minimized expected loss
+  - learning algorithm = f that maps dataset to hypothesis 
+  - evaluated based on generalization error
+- lifelong learning
+  - environment of many tasks
+  - sequential, not batch mode, for data arrival
+  - computational complexity constraints
+  - uses existing data to get lower generalization error on new tasks and using new data to get lower generalization error on prior tasks
+  - prior work: 1) updated fixed parametric model as new tasks come in 2) add resources as new tasks come in 
+- omnidirectional algorithms
+  - representer - maps input into internal representation space
+  - voter - maps transformed data into posterior distribution on response space
+  - decider - gets predicted label, ensembled voters
+  - decision forest learns decision trees, each tree structure corresponds to representer and each tree is assigned to a voter, voter outputs tree's guessed probability that observation is in any class
+  - decider outputs likely class averaged over trees
+  - each voter ensembles representers
+  - ODIN - ensemble representations
 
 ## Progressive Learning: A deep learning framework for continual learning
 - 
