@@ -17,4 +17,5 @@
     * add resources as new data arrives
     * both can only really transfer data forward
   * Omnidirectional learning
-    * Builds on progressive neural networks       <span style="color:blue">May be worth looking for papers here</span>.
+    * Builds on progressive neural networks
+    <span style="color:blue">May be worth looking for papers here</span>.
