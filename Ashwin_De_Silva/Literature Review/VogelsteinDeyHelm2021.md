@@ -10,7 +10,7 @@
 
 * This work further uses progressive learning concepts to incorporate resource building and resource recruitment into the proposed algorithms. 
 
-# Potential future directions? 
+# Potential Future directions? 
 
 * How can we expand the proposed learning framework into task-agnostic situations? 
 * How can we integrate tasks from different domains? (for instance, training an algorithm to learn two distinctive computer vision tasks. e.g. task 1: object recognition and task 2: semantic segmentation) 
