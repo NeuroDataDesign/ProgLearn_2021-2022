@@ -84,7 +84,7 @@ Select more confident trees:
 
 
 ### Summary
-
+Key Model Parameters:
 * the maximum allowed tree depth D;
 * the amount of randomness (controlled by ρ) and its type;
 * the forest size T ;
