@@ -51,6 +51,11 @@
 
 ## Progressive Learning: A deep learning framework for continual learning
 - Intro
+  - classical ML - learn from blank slate
+  - continual learning - uses knowledge from prior task to help with current task
+  - catastrophic forgetting - prior task performance gets worse with learning of current tasks
+  - negative forward transfer - prior tasks negatively affect current task performance
+  - continual learning needs strategy to select next task to learn, mechanism to grow capacity of model to learn new tasks, method to maintain knowledge
 - Progressive Learning
 - Curriculum
 - Progression
