@@ -17,7 +17,7 @@ The following note is based on an informative [article](https://bitsandbrains.io
     * legends (label data directly)
     * excess dimensions
 
-* If there's way to reduce the cognitive effort for audience and still make the same claim, follow that way!
+* If there's a way to reduce the cognitive effort for audience and still make the same claim, follow that way!
 
 ## Color
 
