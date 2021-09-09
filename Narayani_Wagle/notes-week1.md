@@ -50,4 +50,11 @@
   - ODIN - ensemble representations
 
 ## Progressive Learning: A deep learning framework for continual learning
-- 
+- Intro
+- Progressive Learning
+- Curriculum
+- Progression
+- Pruning
+- Evaluation
+- Architectures
+- Conclusion
