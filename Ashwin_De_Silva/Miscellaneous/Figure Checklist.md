@@ -27,7 +27,7 @@ The following note is based on an informative [article](https://bitsandbrains.io
     * [blue](https://colorbrewer2.org/#type=sequential&scheme=Blues&n=9) or [orange](https://colorbrewer2.org/#type=sequential&scheme=Oranges&n=9) sequential color scheme for multiple lines changing a single variable
 
 * Tip: if a given algorithm uses blue as its color in one figure, it should use blue for that algorithm in all other figures, and blue should not be used for anything else
-* Use to red to direct the audience to the proposed method.
+* Use red to direct the audience to the proposed method.
 
 ## Title
 
