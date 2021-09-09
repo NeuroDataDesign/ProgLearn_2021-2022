@@ -22,6 +22,15 @@
   - What kinds of things does one do in one's free time?
 
 ## Omnidirectional Transfer for Quasilinear Lifelong Learning
+- classical ML - starts from tabula rasa
+- continual learning - improve/maintain performance on all tasks
+- Intro
+  - catastrophic forgetting - sequential training causes forgetting learning of prior tasks
+  - past approaches to catastrophic forgetting: reallocate resources to learn new knowledge (akin to human adulthood), add new data as it comes in (akin to development in humans)
+  - proposed approach: omnidirectional learning
+  - ProgNN - transfer only forwards, not backwards
+  - 2 algorithms: a) decision forests, b) deep networks
+- 
 
 ## Progressive Learning: A deep learning framework for continual learning
 - 
