@@ -55,8 +55,39 @@ Concepts:
 Energy Models --> weak learners --> determines the prediction and estimation behavior of a decision tree
 
 * Entropy - H - a measure of the uncertainty associated with the random variable we wish to predict
-* Information Gain
+  * discrete probability distributions - Shannon entropy
+  * continuous-valued labels and continuous distributions - differential (continuous) entropy
+* Information Gain 
+  * ![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%201/Screen%20Shot%202021-09-09%20at%2011.40.22%20AM.png)
+  * Maximizing the information gain - select the split parameters which produce the highest confidence (lowest uncertainty) in the final distributions
+
+#### Leaf Prediction Models
+conditional distributions - p(c|v) or p(y|v)
+Maximum A-Posteriori (MAP) estimate
+
+#### The Randomness Model
+
+* Random Training Set Sampling
+  * Bagging - reduce possible overfitting / improve the generalization capabilities of random forests
+* Randomized Node Optimization (RNO)
+  * enables us to train trees on the entire training data
+  * yields marginmaximization properties for the ensemble models
 
 ### 3.4 Combining Trees into a Forest Ensemble
+de-correlation between the individual tree predictions --> improved generalization and robustness
+When ρ = | T |, all trees are identical and as ρ decreases trees become more decorrelated.
+
+Select more confident trees:
+* simple averaging operation - reducing the effect of possibly noisy tree contributions
+* multiply the tree outputs - sharper distributions / less robust to noise
+
+
 
 ### Summary
+
+* the maximum allowed tree depth D;
+* the amount of randomness (controlled by ρ) and its type;
+* the forest size T ;
+* the choice of weak learner model;
+* the training objective function;
+* the choice of features in practical applications.
