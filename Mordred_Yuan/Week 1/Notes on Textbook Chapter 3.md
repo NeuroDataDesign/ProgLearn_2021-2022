@@ -7,6 +7,8 @@ Pro: only need to implement once and make small modifications in applications
 
 ### 3.1 Decision Tree Basics
 
+Decision Tree - a collection of nodes and edges organized in a hierarchical fashion (circles and squares)
+
 
 ### 3.2 Mathematical Notation and Basic Definitions
 
