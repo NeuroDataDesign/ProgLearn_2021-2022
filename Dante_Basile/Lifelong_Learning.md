@@ -1,4 +1,4 @@
-# Lifelong Learning
+# Omnidirectional Transfer for Quasilinear Lifelong Learning
 
 Dante Basile
 
