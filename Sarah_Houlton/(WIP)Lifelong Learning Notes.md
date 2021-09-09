@@ -17,5 +17,13 @@
     * add resources as new data arrives
     * both can only really transfer data forward
   * Omnidirectional learning
-    * Builds on progressive neural networks
-    <span style="color:blue">May be worth looking for papers here</span>.
+    * Builds on progressive neural networks ~*Maybe look for papers here*~
+      * new tasks give additional representative capacity
+      * [Progressive Neural Networks paper](https://arxiv.org/pdf/1606.04671.pdf)
+      * Quadratic space and time complexity
+    * "introduction of representation ensembling"
+      * enables omnidirectional transfer via 'omni-voter' layer
+    * quasi-linear
+    * two complimentary omnidirectional learning algorithms
+      * based on decision forests
+      * based on deep networks  
