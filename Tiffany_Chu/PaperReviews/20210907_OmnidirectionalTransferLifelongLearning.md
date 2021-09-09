@@ -9,7 +9,7 @@ Also, machines struggle to transfer data forwards/backwards - i.e. to generalize
 ## Evaluation Criteria: Forwards and Backwards
 Given a set of N tasks *t* and their associated training data, for a given task *t<sub>n</sub>*, 1 <= *n* <= *N*, we are interested in the following metrics:
 - Forward  transfer efficiency (FTE): the difference in performance between an algorithm trained only on data for task *t<sub>n</sub>* and an algorithm trained on all data for tasks *{t<sub>1</sub>...t<sub>n</sub>}*. If FTE>1, the machine is learning from past tasks. 
-- Backward transfer efficiency (BTE): the difference in performance the difference in performance between an algorithm trained on all data for tasks *{t<sub>1</sub>...t<sub>n</sub>}* and an algorithm trained on all data for tasks *{t<sub>1</sub>...t<sub>N</sub>}*, i.e. all data in the dataset. If BTE>1, the machine uses new data to improve performance on prepvious tasks. Normally, BTE << 1, hence catastrophic forgetting occurs, similar to a machine going on summer break.
+- Backward transfer efficiency (BTE): the difference in performance the difference in performance between an algorithm trained on all data for tasks *{t<sub>1</sub>...t<sub>n</sub>}* and an algorithm trained on all data for tasks *{t<sub>1</sub>...t<sub>N</sub>}*, i.e. all data in the dataset. If BTE>1, the machine uses new data to improve performance on previous tasks. Normally, BTE << 1, hence catastrophic forgetting occurs, similar to a machine going on summer break.
 
 ## Omnidirectional Forests (ODIF)
 
