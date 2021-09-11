@@ -97,3 +97,4 @@ Define linear model:
 - splitting into purer child nodes corresponds to lower child entropies and higher info gain
 - Max info gain helps select split params which produce the highest *confidence (lowest uncertainty)* in final distributions, basis of decision tree training
 - 
+On example 2, bottom of pg 32
