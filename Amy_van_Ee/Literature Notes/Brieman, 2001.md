@@ -58,5 +58,5 @@ https://link.springer.com/article/10.1023/A:1010933404324
 
 **Remarks and conclusions**
 - Random forests are not effective in prediction, but can make for accurate classifiers and regressors 
-    - Adaptvign bagging algorithm can reduce bias, but changes the training set like arcing
+    - Adaptive bagging algorithm can reduce bias, but changes the training set like arcing
     - Forests - can give accurate results without needing to change the training set 
