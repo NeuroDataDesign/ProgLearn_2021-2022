@@ -68,6 +68,7 @@
 
 #### Linear Data Seperation 
 Define linear model:
+
 ![image](https://user-images.githubusercontent.com/89429238/132929874-cb0277fd-dc98-41c3-b576-ed3f8acd9c99.png)
 
 - [dot] is the indicator function
