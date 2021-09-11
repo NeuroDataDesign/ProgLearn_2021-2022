@@ -58,3 +58,7 @@ https://bitsandbrains.io/2018/08/31/sig-and-feas.html
 - Table
     - A figure is preferred, and the table can be saved in the appendix
 
+
+## Additional Reading
+- Fayek et al. 2020. Progressive learning: A deep learning framework for continual learning
+
