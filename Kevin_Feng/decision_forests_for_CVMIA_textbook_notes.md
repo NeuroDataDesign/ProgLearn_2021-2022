@@ -96,5 +96,14 @@ Define linear model:
 
 - splitting into purer child nodes corresponds to lower child entropies and higher info gain
 - Max info gain helps select split params which produce the highest *confidence (lowest uncertainty)* in final distributions, basis of decision tree training
-- 
-On example 2, bottom of pg 32
+
+- For continuous-valued labels and continuous distributions, def of information gain remains the same, but **differential (continuous) entropy** is used in place of Shannon entropy: 
+
+![image](https://user-images.githubusercontent.com/89429238/132931691-279d0da9-9f5b-48f6-8354-dca385530a4c.png)
+ - *y* is a continuous label of interest and *p* is the probability density function estimated from the training points in set *S*
+ - in discrete case *p(c)* defined as empirical distribution computed from training set, in continuous case *p(y)* defined either using parametric distributions or non-parametric methods
+ - Differential entropy of *d*=variate Gaussian can be derived analytically as:
+
+![image](https://user-images.githubusercontent.com/89429238/132931789-f86bf666-37dd-47d8-b86b-c1911576121a.png)
+
+
