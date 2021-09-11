@@ -70,5 +70,30 @@
 Define linear model:
 
 ![image](https://user-images.githubusercontent.com/89429238/132929874-cb0277fd-dc98-41c3-b576-ed3f8acd9c99.png)
-
 - [dot] is the indicator function
+
+#### Non-linear Data Separation
+- more complex weak leaners obtained by replacing hyperplanes with higher degree of freedom surfaces, ie in 2D we could use conic sections:
+- ![image](https://user-images.githubusercontent.com/89429238/132930543-ace9b1d0-63e8-48b7-8459-e87da633d54a.png)
+
+- low dim weak learners liek this can be used for data orig reside in very high dim space (d >> 2), selector function \phi can select diff, small set of features and they can be diff for diff nodes
+- Degrees of freedom of weak learner influences heavily the forest generalization properties
+
+#### Energy model
+- through its influence on the choice of weak learners, energy model determines the prediction and estimation behavior of a decision tree
+- information gain associated with tree split node is defined as reduction in uncertainty achieved by splitting training data arriving at nodes into multiple child subsets
+- information gain commonly defined as follows:
+
+![image](https://user-images.githubusercontent.com/89429238/132930877-b68bb5c8-fe9d-4205-9590-f0bab7d01590.png)
+- H is the entropy: measure of unvertainty associated with random var we wish to predict
+- Weighting entropy by cardinality of child sets avoids splitting off children containg very few points
+- Splitting training data into purer nodes increases information on the data set and reduces the *uncertainty* of prediction 
+-  For discrete probability distributions we use the **Shannon entropy**:
+
+![image](https://user-images.githubusercontent.com/89429238/132931025-3c111782-155b-4f50-9eaf-0f886b4255d6.png)
+
+- *S* is the set of training points, *c* indicates class label, *C* set of all classes, *p(c)* indicates empirical distribution extraced from training points within set *S*
+
+- splitting into purer child nodes corresponds to lower child entropies and higher info gain
+- Max info gain helps select split params which produce the highest *confidence (lowest uncertainty)* in final distributions, basis of decision tree training
+- 
