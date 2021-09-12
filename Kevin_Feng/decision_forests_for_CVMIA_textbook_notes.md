@@ -66,20 +66,20 @@
 - **\psi :** defines geometric primitive used to seperate the data (eg. axis-aligned hyperplane, oblique hyperplane, general surface)
 - **\tau :** caputres thresholds for the inequalities used in the binary test
 
-#### Linear Data Seperation 
+### Linear Data Seperation 
 Define linear model:
 
 ![image](https://user-images.githubusercontent.com/89429238/132929874-cb0277fd-dc98-41c3-b576-ed3f8acd9c99.png)
 - [dot] is the indicator function
 
-#### Non-linear Data Separation
+### Non-linear Data Separation
 - more complex weak leaners obtained by replacing hyperplanes with higher degree of freedom surfaces, ie in 2D we could use conic sections:
 - ![image](https://user-images.githubusercontent.com/89429238/132930543-ace9b1d0-63e8-48b7-8459-e87da633d54a.png)
 
 - low dim weak learners liek this can be used for data orig reside in very high dim space (d >> 2), selector function \phi can select diff, small set of features and they can be diff for diff nodes
 - Degrees of freedom of weak learner influences heavily the forest generalization properties
 
-#### Energy model
+### Energy model
 - through its influence on the choice of weak learners, energy model determines the prediction and estimation behavior of a decision tree
 - information gain associated with tree split node is defined as reduction in uncertainty achieved by splitting training data arriving at nodes into multiple child subsets
 - information gain commonly defined as follows:
@@ -106,4 +106,57 @@ Define linear model:
 
 ![image](https://user-images.githubusercontent.com/89429238/132931789-f86bf666-37dd-47d8-b86b-c1911576121a.png)
 
-#### Leaf Predicion Models
+### Leaf prediction model
+- unseen point traverses tree until it lands at a leaf, the input point is likely end up in a leaf associated with training points which are all similar to itsself because the split nodes act on features
+- associated label must also be similarr to that of th training points in that leaf
+
+
+### Randomness Model
+- two popular ways to inject randomess into trees during training phase
+1. random training set sampling (eg. bagging)
+2. randomized node optimization
+
+#### Bagging 
+- in bagged training intro'd as way of reducing opssible overfitting and improving generalization capabilities of rand forests
+- Train each tree in a forest on a different training subsets, sampled at random from the same labeled database
+- This helps avoid specializing the selected params to single training set and has been shown to improve generalization 
+- faster training than having to use entire labeled set, but not using all avail training data for all trees seems wasteful
+
+#### Randomized Node Optimization (RNO)
+- Under randomness model, training a tree is achieved by optimizing each split node *j* as:
+
+![image](https://user-images.githubusercontent.com/89429238/132966474-5d4d8f9b-9fee-49e4-b12f-d6e92bde2688.png)
+
+where \Tau_j is a small random subset of \Tau
+- in some cased \Tau = \infinity, so we define \rho = \Tau_j 
+- \rho belongs to {1,...,\Tau} controls the degree of randomness in a tree and (usually) its value is fixed for all nodes
+- In practical applications one might want to randomize none, some, or all the params \phi, \psi, \tau. eg one might want to randomize the \phi selector function parameters and the \psi parameters that define the orientation of a weak learner hyperplane, but search over a predefined set of thresholds \tau
+
+![image](https://user-images.githubusercontent.com/89429238/132966640-82b2aa8a-6c36-4d94-a1c9-9828153e307b.png)
+- \rho = \Tau trees identical
+- \rho decreases, trees become more decorrelated
+
+### Combining Trees into a Forest Ensemble 
+- a random decision forest is an ensemble of *randomly trained* decision trees
+- in forest with T trees, use *t* belongs to {1,...,T} to index each component tree
+- all trees trained independently (possibly in parallel)
+- during testing, each test point **v** is simultaneously pushed through all trees until it reaches the corresponding leaves (can also be done in parallel -> high computational efficiency)
+- can combine all tree predictions into one by averaging eg:
+
+![image](https://user-images.githubusercontent.com/89429238/132969133-76c12475-a9f8-4296-8802-22d87df39d1d.png)
+
+- Combinined distributions are more heavily influenced by most confident/informative trees
+- averaging out many tree posteriors also had advantage of reducing effect of possibly noisy tree contributions
+- product based ensemnble model produces sharper distributions and may be less robust to noise
+![image](https://user-images.githubusercontent.com/89429238/132969180-f7e0f97a-48f6-4559-aae7-1c485d7a1700.png)
+
+### Key Model Parameters (params that most influece behavior of a decision forest)
+- the maximum allowed tree depth D
+- the amount of randomness (controlled by \rho) and its type
+- the forest size (T)
+- the choice of a weak learner model
+- the training objective function
+- the choice of features in practical applications
+
+## Chapter 4: Classification Forests
+
