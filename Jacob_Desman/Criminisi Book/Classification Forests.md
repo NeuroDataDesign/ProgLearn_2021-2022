@@ -8,7 +8,7 @@ Sources:
 
 **Related**: [[Abstract Forest Model]]
 
-**Tags**: #ml #ndd #trees #forest
+**Tags**: #ml #ndd #trees #forest #textbook 
 
 ## 4.2 Specializing the Decision Forest Model for Classification
 Goals:
