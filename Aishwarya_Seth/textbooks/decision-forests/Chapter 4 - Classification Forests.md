@@ -84,7 +84,8 @@ And input **v** is represented as multi-dimensional vector of feature responses 
 * Leaf & Ensemble Prediction Models 
     * Tree leaf yields the posterior _p<sub>t</sub>_(_c_|**v**)
     * Forest output is defined as: 
-        <img src="https://latex.codecogs.com/svg.image?\textit{p}&space;=&space;(\textit{c}|\textbf{v})&space;=&space;\frac{1}{T}\sum_{t&space;=&space;1}^{T}p_{t}(\textit{c}|\textbf{v})" title="\textit{p} = (\textit{c}|\textbf{v}) = \frac{1}{T}\sum_{t = 1}^{T}p_{t}(\textit{c}|\textbf{v})" />
+    <br>
+    <img src="https://latex.codecogs.com/svg.image?\textit{p}&space;=&space;(\textit{c}|\textbf{v})&space;=&space;\frac{1}{T}\sum_{t&space;=&space;1}^{T}p_{t}(\textit{c}|\textbf{v})" title="\textit{p} = (\textit{c}|\textbf{v}) = \frac{1}{T}\sum_{t = 1}^{T}p_{t}(\textit{c}|\textbf{v})" />
     
 <br>
         
