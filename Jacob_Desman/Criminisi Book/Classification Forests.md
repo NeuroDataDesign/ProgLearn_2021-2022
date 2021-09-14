@@ -16,9 +16,9 @@ Goals:
 2. Find some mapping for a set of training data and labels which functions similarly for some unseen test data. 
 
 Optimize parameters of weak learner at node $j$ and use discrete information gain as objective function (see [[Abstract Forest Model#Energy Models|abstract version]]):
-$$\theta_j = \underset{\theta \in T_{j}}{\mathrm{argmin}} I(S_j, \theta)$$
+$$\theta_j = \underset{\theta \in \mathcal{T}_{j}}{\mathrm{argmin}} I(S_j, \theta)$$
 
-$$I(S_k, \theta) = H(S_j) - \sum_{i\in \{L,R\}} \frac{S^i_j}{S_j}H(S^i_j)$$
+$$I(S_k, \theta) = H(S_j) - \sum_{i\in \{L,R\}} \frac{|S^i_j|}{|S_j|}H(S^i_j)$$
 
 $$H(S) = - \sum_{c \in C} p(c)\log(p(c))$$
 

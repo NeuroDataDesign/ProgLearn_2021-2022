@@ -34,14 +34,14 @@ Output is average of all tree outputs, as usual: $p(y|v) = \frac{1}{T} \sum^T_t 
 
 Again, use $\rho = \mathcal{T}_j$ to denote a random selection of split parameters, hence randomized node optimization model.
 
-### The Training Objective Function
+### The Training Objective Function ([[Density Forests#The Objective Function|See Density Forests]])
 Objective function (same as classification):
 
-$$\theta_j = \underset{\theta \in T_{j}}{\mathrm{argmin}} I(S_j, \theta)$$
+$$\theta_j = \underset{\theta \in \mathcal{T}_{j}}{\mathrm{argmax}} I(S_j, \theta)$$
 
 However, the $I$ objective function can change. Some methods use minimization of least squares, but the book uses a Gaussian density model.
 
-$$I(S_k, \theta) = H(S_j) - \sum_{i\in \{L,R\}} \frac{S^i_j}{S_j}H(S^i_j)$$
+$$I(S_k, \theta) = H(S_j) - \sum_{i\in \{L,R\}} \frac{|S^i_j|}{|S_j|}H(S^i_j)$$
 
 Note that the book derives the regression gain. The derivation is simple (pages 51-52) and the 1d input/output along with general form are shown below:
 

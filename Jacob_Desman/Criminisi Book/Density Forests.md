@@ -17,12 +17,12 @@ Sources:
 What is a *density* forest? - A collection of trees which cluster through simple prediction models.
 - Involves deterministic clustering
 - Forest posterior is combination of tree posteriors; each input data point explained by multiple clusters (one per tree)
-	- TODO(jacob): I don't understand this
+	-  Note(jacob): I think this means that the Gaussians defined by the relevant leaves across different trees are averaged?
 
 ### The Objective Function
 Referring back to the classic [[Abstract Forest Model#Energy Models|optimization equation]]:
 
-$$\theta_j = \underset{\theta \in T_{j}}{\mathrm{argmax}} I(S_j, \theta)$$
+$$\theta_j = \underset{\theta \in \mathcal{T}_{j}}{\mathrm{argmax}} I(S_j, \theta)$$
 
 $$I(S_k, \theta) = H(S_j) - \sum_{i\in \{L,R\}} \frac{|S^i_j|}{|S_j|}H(S^i_j)$$
 
@@ -30,7 +30,7 @@ $$I(S_k, \theta) = H(S_j) - \sum_{i\in \{L,R\}} \frac{|S^i_j|}{|S_j|}H(S^i_j)$$
 
 $$H(S) = \frac{1}{2} \log\left((2\pi e)^d \right) |\Lambda(S)|$$
 
-$$I(S_j, \theta) = \log(|\Lambda(S_j)|) - \sum_{i\in\{L, R\}} \frac{|S^i_j|}{S_j} \log(|\Lambda(S^i_j)|)$$
+$$I(S_j, \theta) = \log(|\Lambda(S_j)|) - \sum_{i\in\{L, R\}} \frac{|S^i_j|}{|S_j|} \log(|\Lambda(S^i_j)|)$$
 
 - Note that $| \cdot |$ is the determinant for matrix args and cardinality for set args
 - Determinant of covariance matrix --> volume of ellipsoid for cluster --> maximizing $I$ compacts clusters
