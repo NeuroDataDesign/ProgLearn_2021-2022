@@ -4,9 +4,9 @@ Created: 9/2/2021
 Updated: 9/7/2021
 
 Sources:
-* [Decision Forests for Computer Vision and Medical Image Analysis](https://link.springer.com/book/10.1007/978-1-4471-4929-3), Chapter 3
+* [Decision Forests for Computer Vision and Medical Image Analysis](https://link.springer.com/book/10.1007/978-1-4471-4929-3), Chapter 4
 
-**Tags**: #ml #trees #ndd #forest
+**Tags**: #ml #trees #ndd #forest #textbook
 
 Trees are good for lots of tasks, such as classificaiton, regression, density estimation, manifold learning, semi-supervised learning, active learning, and certainly more.
 
@@ -52,14 +52,14 @@ Note that $\phi$ can sample $d>>2$ space into any dimension we want
 
 ### Energy Models
 **Information gain**:
-$$I = H(S) - \sum_{i\in \{L,R\}} \frac{S^i}{S}H(S^i)$$
+$$I = H(S) - \sum_{i\in \{L,R\}} \frac{|S^i|}{|S|}H(S^i)$$
 where $|\cdot|$ is cardinality of set.
 
 **Entropy of discrete distributions**:
 $$H(S) = - \sum_{c \in C} p(c)\log(p(c))$$
 c = Class label, C = set of all classes, $p(c)$ = emperical distribution as normalized histogram
 
-**Entropy of discrete distributions**:
+**Entropy of continuous distributions**:
 $$H(S) = -\int p(y)\log(p(y))dy$$
 
 **Gaussian based** --> approx p(y) simply

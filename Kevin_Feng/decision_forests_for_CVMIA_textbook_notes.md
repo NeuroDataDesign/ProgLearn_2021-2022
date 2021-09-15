@@ -59,4 +59,138 @@
 3. different set of training points at each leaf
 
 ### Weak learner models
+**Parameters of weak learner model:**
+![image](https://user-images.githubusercontent.com/89429238/132929705-0b37192a-be7a-487e-8f45-62ce2001233a.png)
 
+- **Filter (selector) function:** selecets some feautres of choice out of the entire vector **v**
+- **\psi :** defines geometric primitive used to seperate the data (eg. axis-aligned hyperplane, oblique hyperplane, general surface)
+- **\tau :** caputres thresholds for the inequalities used in the binary test
+
+### Linear Data Seperation 
+Define linear model:
+
+![image](https://user-images.githubusercontent.com/89429238/132929874-cb0277fd-dc98-41c3-b576-ed3f8acd9c99.png)
+- [dot] is the indicator function
+
+### Non-linear Data Separation
+- more complex weak leaners obtained by replacing hyperplanes with higher degree of freedom surfaces, ie in 2D we could use conic sections:
+- ![image](https://user-images.githubusercontent.com/89429238/132930543-ace9b1d0-63e8-48b7-8459-e87da633d54a.png)
+
+- low dim weak learners liek this can be used for data orig reside in very high dim space (d >> 2), selector function \phi can select diff, small set of features and they can be diff for diff nodes
+- Degrees of freedom of weak learner influences heavily the forest generalization properties
+
+### Energy model
+- through its influence on the choice of weak learners, energy model determines the prediction and estimation behavior of a decision tree
+- information gain associated with tree split node is defined as reduction in uncertainty achieved by splitting training data arriving at nodes into multiple child subsets
+- information gain commonly defined as follows:
+
+![image](https://user-images.githubusercontent.com/89429238/132930877-b68bb5c8-fe9d-4205-9590-f0bab7d01590.png)
+- H is the entropy: measure of unvertainty associated with random var we wish to predict
+- Weighting entropy by cardinality of child sets avoids splitting off children containg very few points
+- Splitting training data into purer nodes increases information on the data set and reduces the *uncertainty* of prediction 
+-  For discrete probability distributions we use the **Shannon entropy**:
+
+![image](https://user-images.githubusercontent.com/89429238/132931025-3c111782-155b-4f50-9eaf-0f886b4255d6.png)
+
+- *S* is the set of training points, *c* indicates class label, *C* set of all classes, *p(c)* indicates empirical distribution extraced from training points within set *S*
+
+- splitting into purer child nodes corresponds to lower child entropies and higher info gain
+- Max info gain helps select split params which produce the highest *confidence (lowest uncertainty)* in final distributions, basis of decision tree training
+
+- For continuous-valued labels and continuous distributions, def of information gain remains the same, but **differential (continuous) entropy** is used in place of Shannon entropy: 
+
+![image](https://user-images.githubusercontent.com/89429238/132931691-279d0da9-9f5b-48f6-8354-dca385530a4c.png)
+ - *y* is a continuous label of interest and *p* is the probability density function estimated from the training points in set *S*
+ - in discrete case *p(c)* defined as empirical distribution computed from training set, in continuous case *p(y)* defined either using parametric distributions or non-parametric methods
+ - Differential entropy of *d*=variate Gaussian can be derived analytically as:
+
+![image](https://user-images.githubusercontent.com/89429238/132931789-f86bf666-37dd-47d8-b86b-c1911576121a.png)
+
+### Leaf prediction model
+- unseen point traverses tree until it lands at a leaf, the input point is likely end up in a leaf associated with training points which are all similar to itsself because the split nodes act on features
+- associated label must also be similarr to that of th training points in that leaf
+
+
+### Randomness Model
+- two popular ways to inject randomess into trees during training phase
+1. random training set sampling (eg. bagging)
+2. randomized node optimization
+
+#### Bagging 
+- in bagged training intro'd as way of reducing opssible overfitting and improving generalization capabilities of rand forests
+- Train each tree in a forest on a different training subsets, sampled at random from the same labeled database
+- This helps avoid specializing the selected params to single training set and has been shown to improve generalization 
+- faster training than having to use entire labeled set, but not using all avail training data for all trees seems wasteful
+
+#### Randomized Node Optimization (RNO)
+- Under randomness model, training a tree is achieved by optimizing each split node *j* as:
+
+![image](https://user-images.githubusercontent.com/89429238/132966474-5d4d8f9b-9fee-49e4-b12f-d6e92bde2688.png)
+
+where \Tau_j is a small random subset of \Tau
+- in some cased \Tau = \infinity, so we define \rho = \Tau_j 
+- \rho belongs to {1,...,\Tau} controls the degree of randomness in a tree and (usually) its value is fixed for all nodes
+- In practical applications one might want to randomize none, some, or all the params \phi, \psi, \tau. eg one might want to randomize the \phi selector function parameters and the \psi parameters that define the orientation of a weak learner hyperplane, but search over a predefined set of thresholds \tau
+
+![image](https://user-images.githubusercontent.com/89429238/132966640-82b2aa8a-6c36-4d94-a1c9-9828153e307b.png)
+- \rho = \Tau trees identical
+- \rho decreases, trees become more decorrelated
+
+### Combining Trees into a Forest Ensemble 
+- a random decision forest is an ensemble of *randomly trained* decision trees
+- in forest with T trees, use *t* belongs to {1,...,T} to index each component tree
+- all trees trained independently (possibly in parallel)
+- during testing, each test point **v** is simultaneously pushed through all trees until it reaches the corresponding leaves (can also be done in parallel -> high computational efficiency)
+- can combine all tree predictions into one by averaging eg:
+
+![image](https://user-images.githubusercontent.com/89429238/132969133-76c12475-a9f8-4296-8802-22d87df39d1d.png)
+
+- Combinined distributions are more heavily influenced by most confident/informative trees
+- averaging out many tree posteriors also had advantage of reducing effect of possibly noisy tree contributions
+- product based ensemnble model produces sharper distributions and may be less robust to noise
+![image](https://user-images.githubusercontent.com/89429238/132969180-f7e0f97a-48f6-4559-aae7-1c485d7a1700.png)
+
+### Key Model Parameters (params that most influece behavior of a decision forest)
+- the maximum allowed tree depth D
+- the amount of randomness (controlled by \rho) and its type
+- the forest size (T)
+- the choice of a weak learner model
+- the training objective function
+- the choice of features in practical applications
+
+## Chapter 4: Classification Forests
+### Specializing the Decision Forest Model for Classification 
+- **Classification:**  given a labeled set of training data learn a general mapping which associates previously unseen test data with their corresponding classes
+- **Class Re-balancing:** some applications have an unbalanced distribution of classes in the training set S_0 (ie background pixels domiate other object pixels) which can have a detrimental effect on the training forest. Can be mitaged by resampling the training data to have a roughly uniform train distribution of can use the known prior class distribution to weight the contribution of each class by its inverse frequency when computing the info gain at each split node
+- larger forests lead to more conidence and less uncertainty
+- tree > SVM and boosting because same classification model can handle binary and multi-class problems
+- large tree depth **D** can lead to overfitting -> changning this value is one way to control overfitting
+- tree depths that are too shallow produce washed-out, low-confidence posteriors
+- Using multiple trees helps alleviate overfitting but does not cure it completely, must be careful when choosing D
+
+### The Effect of the Weak Learner model on forest behavior
+![image](https://user-images.githubusercontent.com/89429238/133354696-3f334baa-8c69-4c5b-828b-a508fbcee6c4.png)
+
+### The effect of randomness (*p*, \rho)
+- lowering *p* yields much fewer separating lines/curves available to each node during training
+- This increases the randmoness of each tree and reduces their correlation
+- larger randomness yields a much lower overall confidence (most noticeable in shallower trees)
+- more complex weak learners are sampled from larger parameter spaces so finding discriminative sets of parameter values may be time consuming
+
+### Maximum Margin Classification with Forests
+- Maximum margin solution: a line placed directly in the middle of a gap that seperates two classes 
+
+![image](https://user-images.githubusercontent.com/89429238/133361816-268e7d36-b0fc-45f6-a99a-6e32594e01e7.png)
+
+### Effect of randomnesse on optimal seperation
+- given sloppy or inaccurate training data, we may want to increase randomness (decrease *p*) to obtain smoother and more spread-out posteriors. The effeect of individual training points is weaker compared to the entire mass of the training data
+
+### Influence of the Weak Learner Model
+- more complex weak learners affect shape and orientation of the hard classification surface as well as the uncertain region
+
+### Maximum Margin with Multiple Classes
+- works similarily to two class example
+- RNO controls max - margin behavior simply by changing p 
+- advantage of bagging is increased training speed due to reduced training set size
+
+## Chapter 5: Regression Forests
