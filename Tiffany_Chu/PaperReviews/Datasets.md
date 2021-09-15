@@ -1,0 +1,1 @@
+Ning, W., Lei, S., Yang, J. et al. Open resource of clinical data from patients with pneumonia for the prediction of COVID-19 outcomes via deep learning. Nat Biomed Eng 4, 1197–1207 (2020). https://doi.org/10.1038/s41551-020-00633-5
