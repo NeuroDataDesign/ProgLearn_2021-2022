@@ -182,5 +182,15 @@ where \Tau_j is a small random subset of \Tau
 
 ![image](https://user-images.githubusercontent.com/89429238/133361816-268e7d36-b0fc-45f6-a99a-6e32594e01e7.png)
 
+### Effect of randomnesse on optimal seperation
+- given sloppy or inaccurate training data, we may want to increase randomness (decrease *p*) to obtain smoother and more spread-out posteriors. The effeect of individual training points is weaker compared to the entire mass of the training data
 
+### Influence of the Weak Learner Model
+- more complex weak learners affect shape and orientation of the hard classification surface as well as the uncertain region
 
+### Maximum Margin with Multiple Classes
+- works similarily to two class example
+- RNO controls max - margin behavior simply by changing p 
+- advantage of bagging is increased training speed due to reduced training set size
+
+## Chapter 5: Regression Forests
