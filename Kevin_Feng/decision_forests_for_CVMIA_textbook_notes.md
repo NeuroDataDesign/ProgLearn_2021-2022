@@ -159,4 +159,28 @@ where \Tau_j is a small random subset of \Tau
 - the choice of features in practical applications
 
 ## Chapter 4: Classification Forests
+### Specializing the Decision Forest Model for Classification 
+- **Classification:**  given a labeled set of training data learn a general mapping which associates previously unseen test data with their corresponding classes
+- **Class Re-balancing:** some applications have an unbalanced distribution of classes in the training set S_0 (ie background pixels domiate other object pixels) which can have a detrimental effect on the training forest. Can be mitaged by resampling the training data to have a roughly uniform train distribution of can use the known prior class distribution to weight the contribution of each class by its inverse frequency when computing the info gain at each split node
+- larger forests lead to more conidence and less uncertainty
+- tree > SVM and boosting because same classification model can handle binary and multi-class problems
+- large tree depth **D** can lead to overfitting -> changning this value is one way to control overfitting
+- tree depths that are too shallow produce washed-out, low-confidence posteriors
+- Using multiple trees helps alleviate overfitting but does not cure it completely, must be careful when choosing D
+
+### The Effect of the Weak Learner model on forest behavior
+![image](https://user-images.githubusercontent.com/89429238/133354696-3f334baa-8c69-4c5b-828b-a508fbcee6c4.png)
+
+### The effect of randomness (*p*, \rho)
+- lowering *p* yields much fewer separating lines/curves available to each node during training
+- This increases the randmoness of each tree and reduces their correlation
+- larger randomness yields a much lower overall confidence (most noticeable in shallower trees)
+- more complex weak learners are sampled from larger parameter spaces so finding discriminative sets of parameter values may be time consuming
+
+### Maximum Margin Classification with Forests
+- Maximum margin solution: a line placed directly in the middle of a gap that seperates two classes 
+
+![image](https://user-images.githubusercontent.com/89429238/133361816-268e7d36-b0fc-45f6-a99a-6e32594e01e7.png)
+
+
 
