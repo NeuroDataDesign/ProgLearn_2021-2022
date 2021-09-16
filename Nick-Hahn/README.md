@@ -7,4 +7,4 @@
     - Notes: [Classification Forests](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_2/ch4.pdf)
     - Notes: Omnidirectional Transfer for Quasilinear Lifelong Learning (continued)
     - Notes: Breiman 2001
-    - Jupyter Notebook:   
+    - Understanding the Decision Tree Structure Notebook: [nbviewer](https://nbviewer.jupyter.org/github/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_2/classification_forests.ipynb)   
