@@ -24,6 +24,52 @@
   - function output = true or false to send to a child node
   - randomly trained decision trees - 2 phases (training or testing)
   - on-line phase (testing) - each split node applies test function to v until data point reaches leaf, leaf node has predictor that associates label with the input
-  - off-line phase (training) - greedy approach to optimization, 
+  - off-line phase (training) - greedy approach to optimizing obj func
+  - tree structure - can have diverse stopping criteria which determines how and when to stop growing branches of tree
+  - linear data separation - linear model, axis-aligned weak learners are decision stumps
+  - nonlinear data separation - higher degree of freedom surfaces
+  - energy models - entropy/information gain
+  - leaf prediction models - training estimates optimal week learners an dtree structures, testing had unseen point traverse tree until it reaches leaf
+  - randomness model - added during training phase using random training set sampling (bagging) or randomized node optimization
+  - bagging - reduces overfitting, improves generalization of random forests, train each tree in forest on diff training subset which are randomly sampled, faster than using entire labeled dataset, cons: not using all data --> waste
+  - randomized node optimization - optimization done at each node wrt to parameter space, not very efficient since parameter space can be big
+  - forest ensemble - random decision forest is ensemble of randomly trained decision trees, de-correlation btwn tree preds --> better generalization + robustness
 - Chapter 4
 ## Progressive Learning: A deep learning framework for continual learning
+- Abstract
+  - learning system solves new tasks using prior learning and tasks
+  - 3 procedures: curriculum, progression, pruning
+  - curriculum - select tasks for set of candidate tasks
+  - grow model capacity by adding new params that leverage params learned in prior tasks
+  - pruning - counteracts growth in param numbers as more tasks are learned, prevents negative forward transfer thus prior knowledge doesn't worsen new task performance
+- Introduction
+  - common - learn from tabula rasa
+  - continual learning - accumulate knowledge and repurpose
+  - challenges: catastrophic forgetting, negative forward transfer
+  - negative forward transfer - prior tasks have negative effects or current tasks
+  - catastrophic forgetting - prior task performance gets worse when new tasks are learned
+  - progressive learning - deep learning framework for continual learning
+  - curriculum, progression, pruning
+  - pruning is greedy layer-wise so it adjusts pruning layer by layer to deal with the growth in params and prevent negative forward transfer
+- Progressive Learning: Curriculum
+  - determine ordering of tasks to learn wrt to knowledge at the time
+  - use the performance of prior tasks to select new task
+- Progressive Learning: Progression
+  - increase model capacity through adding new params --> accomodate new tasks
+  - leverage params in prior tasks while learning new task without catastrophic forgetting
+  - train new multi-layered nn for each tasks with random param initialization --> progressive block
+  - progressive block gets input from prior layer in block and all prior blocks
+  - catastrophic forgetting can be prevented by only training newly added parameters of a progressive block while holding the prior block params constant
+- Progressive Learning: Pruning
+  - counteract param growth as more tasks are learning
+  - remove weights in progressive block after each progression
+  - tasks are related usually but if not, then negative forward transfer can occur
+  - pruning gets rid of negative forward transfer
+  - initial layers in progressive blocks have low level features common across tasks so these are more likely to be pruned without ruining model performance
+  - greedy layer-wise pruning sed to prune weightes in layers of progressive block
+- Discussion and future work
+  - progressive learning is a method by which to select new tasks to learn to make learning easier, grow model capacity to accomodate new tasks to learn, and accumulate, maintain, and use knowledge to learn future tasks without losing prior task performance
+  - limitations - no method to do backward knowledge transfer )new task knowledge makes prior task performance better)
+- Conclusion
+  - continual learning can advance  ML
+  - progressive learning was evaluated with supervised classification tasks for image and speech recognition
