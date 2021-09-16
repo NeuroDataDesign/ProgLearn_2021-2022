@@ -194,3 +194,39 @@ where \Tau_j is a small random subset of \Tau
 - advantage of bagging is increased training speed due to reduced training set size
 
 ## Chapter 5: Regression Forests
+- used for non-linear regression of dependent variables given independent input, where both input and output may be multi-dimensional
+- output label to be associated with input data point is continuous so training labels also need to be continuous
+
+### Specializing the Decision Forest Model for Regression
+- **Problem statement:** given a labeled set of training data, learn a general mapping which associates previously unseen, independent test data opints with their dependent continuous output prediction
+- A regression tree splits a complex non-linear regression problem into a set of smaller problem which can be more easily handled by simpler models (eg. linear ones)
+- **Regression Forest:**
+
+![image](https://user-images.githubusercontent.com/89429238/133526769-0025d56b-3000-469a-8fba-5b571dfda2fa.png)
+
+### The Training Objective Function
+- forest training achieved by optimizing an energy function defined over a training set *S _0* of data and associated continuous labels
+- split node j optimized as: \theta_j = argmax I (S_j, \theta), \theta belongs to T_j
+- Main diff between classification and regression forests is in form of objective function I
+- Information gain associated with jth split node is:
+
+![image](https://user-images.githubusercontent.com/89429238/133527365-f26822e9-e8f5-4371-8267-6849b06a2456.png)
+
+- S_j = set of training data arriving at node j, SL_j and SR_j are left and right split sets
+- Given training set S_0, avg entropy for generic trainig subset S is defined as:
+
+![image](https://user-images.githubusercontent.com/89429238/133527484-b06b6f19-1be8-4e0f-91f7-d010eef251b9.png)
+
+### The Effect of Forest Size, T
+- more trees = smoother mean curves 
+
+![image](https://user-images.githubusercontent.com/89429238/133531071-6b8c45c2-83cc-4f4b-8c2b-f3299d499084.png)
+
+### The Effect of Tree Depth, D
+- too shallow, underfit
+- too deep, overfit
+
+### Spatial Smoothness and Testing Uncertainty
+![image](https://user-images.githubusercontent.com/89429238/133531870-c41cd559-e3c6-47ac-b317-84e756fb2a5c.png)
+
+## Chapter 6: Density Forests

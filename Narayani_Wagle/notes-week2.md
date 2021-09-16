@@ -24,6 +24,6 @@
   - function output = true or false to send to a child node
   - randomly trained decision trees - 2 phases (training or testing)
   - on-line phase (testing) - each split node applies test function to v until data point reaches leaf, leaf node has predictor that associates label with the input
-  - off-line phase (training) - 
+  - off-line phase (training) - greedy approach to optimization, 
 - Chapter 4
 ## Progressive Learning: A deep learning framework for continual learning
