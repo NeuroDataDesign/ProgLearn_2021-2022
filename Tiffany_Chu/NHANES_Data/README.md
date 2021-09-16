@@ -34,5 +34,3 @@
 |q_smoking.csv|Smoking - Cigarette Use|||[P_SMQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_SMQ.htm)|
 |q_smoking_recent.csv|Smoking - Recent Tobacco Use|||[P_SMQRTU.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_SMQRTU.htm)|
 |q_smoking_secondhand.csv|Smoking - Secondhand Smoke Exposure|||[P_SMQSHS.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_SMQSHS.htm)|
-![image](https://user-images.githubusercontent.com/13206445/133649059-44bed4eb-3b6b-43de-83a2-1facd9a7fe9c.png)
-
