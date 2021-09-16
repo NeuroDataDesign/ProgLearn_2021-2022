@@ -17,7 +17,7 @@ https://link.springer.com/article/10.1023/A:1010933404324
       - dependence of each tree on eachother (correlation between them based on the margin function)
     - Accuracy can be improved by minimizing correlation but maximizing/maintaining strength
 
-** Using random features**
+**Using random features**
 - "Adaboost" random forest performs very well <- investigate this model more
 - Bagging - fit many models on different subsets of a training dataset, then combining predictions from all of these models
     - Random forest adds on by randomly selecting different subsets of features in data samples
