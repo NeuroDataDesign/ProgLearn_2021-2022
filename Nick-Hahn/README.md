@@ -6,5 +6,5 @@
  - Week 2: September 16, 2021
     - Notes: [Classification Forests](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_2/ch4.pdf)
     - Notes: Omnidirectional Transfer for Quasilinear Lifelong Learning (continued)
-    - Notes: Breiman 2001
-    - Understanding the Decision Tree Structure Notebook: [nbviewer](https://nbviewer.jupyter.org/github/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_2/classification_forests.ipynb)   
+    - Notes: [Breiman 2001](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_2/Breiman2001.pdf)
+    - Code: Understanding the Decision Tree Structure Notebook: [nbviewer](https://nbviewer.jupyter.org/github/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_2/classification_forests.ipynb)   
