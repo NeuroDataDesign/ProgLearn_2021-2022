@@ -57,3 +57,50 @@ Criminisi and Shotton, 2013.
 -  Combining trees into forest ensemble
     -   randomly trained decision trees together form a random forest - important that the trees are randomly different so de-correlation of tree predictions and therefore better generalization
 -   Key parameters of the model - tree depth, randomness and type, size of forest, weak learner model type, training objective function, features chosen
+
+**Chapter 4: Classification Forests**
+- Classification: take in a data point and associate it with a discrete class
+- Classification algorithms
+    - Support Vector Machine (SVM): supervised machine learning, linear model for classification (and regression)
+    - Boosting: many iterations, in each "boost" to focus on training examples that not work as well on
+    - Advantageous to combine many simple learners
+- Specializing the decision forest model for classification
+    - Optimize the parameters of the weak learner at each split node
+    - Unbalanced data where the class labels are not even distributed in the training set can negatively impact forest training
+        - In image segmentation, for example, we can have more background than object pixels
+        -  Methods: resample the training data to create more uniform distributions or weight the contribution of each class accordingly 
+    - Randomness can be added by implementing randomized node optimization
+    - Probabilistic output is also provided, since the class prediction and the class distribution can be returned after implementing a random forest model and using it on data
+- Effect of model parameters
+    - Accuracy and generalization depend on the forest depth, size, type of weak learner, and amount of randomness injected
+    - Don't want overconfident predictions - having a larger forest size of different trees can reslt in a smoother posterior and allow for more generalization 
+    - With an increase in tree depth, there is an increase in overall confidence in prediction
+- Maximum margin classification
+    - Bagging allows for the injection of randomness by getting random subsets of the training data, as well as reduced training times due to increased speed with smaller training sets
+
+**Chapter 5: Regression Forests**
+- Random forests can also be used to estimate continuous variables, and in particular regression forests use non-linear regression to do so
+- Non-linear regression in literature
+    - Least squares techniques minimize error over training points
+    - Random sample consensus (RANSAC) estimates a model's parameters by randomly sampling data
+- Specializing the decision forest model
+    - The main difference with the random forest classifier is jutst that the output is continuous
+    - This consists of independently trained regression trees, just like with the classification forest - and we can see that a forest performs better than one fully developed tree
+    - A non-linear regression problem is split into smaller problems that more simple models can handle
+    - Prediction model
+        - A probability density function over a continuous variable can be used to make decisions at nodes
+    - Ensemble model
+        - The output is an average of all outputs from each tree
+    - Randomness model
+        - A randomized node optimization can be used here just as it was for the classifier
+    - Training objective function
+        - The main difference between the classifier and regressor here is the objective functio, which we aim to optimize
+    - Weak learner
+        - Just as with the classifier, three models are considered: axis-aligned hyperplanes, oriented hyperplanes, conic sections
+- Effect of model parameters
+    - Forest size
+        - A larger forest results in smoother uncertainty and prediction mean curve
+    - Tree depth
+        - A regression forest with too few levels may under-fit, whereas one with too many can over-fit
+    - Spatial smoothness and testing uncertainty
+        - Authors performed experiments to see that uncertainty increased moving away from training data
