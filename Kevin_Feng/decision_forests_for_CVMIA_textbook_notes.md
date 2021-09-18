@@ -230,3 +230,56 @@ where \Tau_j is a small random subset of \Tau
 ![image](https://user-images.githubusercontent.com/89429238/133531870-c41cd559-e3c6-47ac-b317-84e756fb2a5c.png)
 
 ## Chapter 6: Density Forests
+- ch 4-5 discussed use of decision forests with labeled training data (supervised), here discusses forests in unlabeled scenarios
+- goal to learn PDF p(v) which generated the data, closely related to data clustering
+- **Problem statement:** given a set of unlabeled obervations we wish to estimate the probability density function from which such data have been generated 
+- **Density forest:** collection of randomly trained clustering trees, leaves contain simple prediction models such as Gaussians
+
+### The Training Objective Function
+- given collection of S_0 = {v} (absence of training labels)
+- emply randomized node optimization, optimizing the jth split node as done before:
+
+![image](https://user-images.githubusercontent.com/89429238/133905791-92978823-9f76-405c-be0e-2a3236e73df5.png)
+- Define *unsupervised* entropy H(S) of a set points S, differential (continuous) entropy of d-dimensional Gaussian show as:
+
+![image](https://user-images.githubusercontent.com/89429238/133905862-a8d70c93-df53-487b-a49f-99a216403c27.png)
+
+- A tree density is a piece wise Gaussian, so output of tth tree is 
+
+![image](https://user-images.githubusercontent.com/89429238/133906023-414564eb-c2d3-4825-aed6-6c90348fb636.png)
+
+and partition function Z_t is
+
+![image](https://user-images.githubusercontent.com/89429238/133906033-21f0e24d-d3bf-4303-8e75-904f8a1cb0ff.png)
+
+### Ensemble model
+- forest density is aberage of all tree densities 
+![image](https://user-images.githubusercontent.com/89429238/133906099-f369ebaa-517e-44f9-a0c6-fc8080185483.png)
+
+### Effect of tree depth D
+- forests that are unnecessarily deep -> produce small, high freq artifacts from training noise
+- ie 2 visual clusters but if you have depth set high, insead of 2 circles you'll have a bunch of small sub circles in each of the two main circles
+
+### Effect of forest size T
+- increasing forest size always improves smoothness of the density and the forest generalization, even for deep trees
+- in practice, set T to a sufficiently large value w/o worrying too much about optimizing its value, may come at an increased computational cost
+
+### Density forest vs non-parametric estimators (parzen, kNN)
+- forest density looks the best, other two arent as smooth and produce artifacts
+
+### vs GMM EM
+- forest density produced the most visually appealing results, but adding randomness to the EM algo improves the smoothness of the output density considerably
+
+### Efficiency 
+- cost of randmoly drawing N samples under forest model:
+- N X (2J+K)
+- with J (almost negligible) of radnomly generating a scalar number and K the cost of drawing a d-dimensional vector from a multivariate Gaussian distribution
+- Despite added richness in heirarchical struction of deisity forest, its sampling complexity is very much comparable to that of a random-restart GMM
+
+### Results
+- randmon points generated from the learned forests produce visually convincing results for simpler Gaussian mixture dists as well as more complext densities like spirals and other convolved shapes
+- reconstruction error decreases with forest size
+- overall error start increasing again after an optimal value D (suggests overfitting for larger tree depths)
+
+## Chapter 7: Manifold Forests (pg. 91)
+
