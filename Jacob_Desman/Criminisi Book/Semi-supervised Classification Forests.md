@@ -4,7 +4,7 @@ Created: 9/19/2021
 Updated: 9/19/2021
 
 Sources:
-* [Decision Forests for Computer Vision and Medical Image Analysis](https://link.springer.com/book/10.1007/978-1-4471-4929-3), Chapter 9
+* [Decision Forests for Computer Vision and Medical Image Analysis](https://link.springer.com/book/10.1007/978-1-4471-4929-3), Chapter 8
 
 **Related**: [[Abstract Forest Model]]
 
