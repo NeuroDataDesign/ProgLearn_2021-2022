@@ -282,4 +282,54 @@ and partition function Z_t is
 - overall error start increasing again after an optimal value D (suggests overfitting for larger tree depths)
 
 ## Chapter 7: Manifold Forests (pg. 91)
+- delves further into issue of learning structure of high dim data as well as mapping it onto a lower dim space, while preserving spatial relationships between points = **manifold learning**, closely related to dimensionality reduction and embedding
+- PCA is a simple and common example, based on the computation of directions of maximum data spread, is a linear model so has considerable limitations
+- **Problem statement:** Given a set of k unlabeled observations {v_1, v_2,....,v_i,...v_k} with v_i belong the R^d we wish to find a smooth mapping f:R^d -> R^Dprime with f(v_i) = v_iprime that approximately preserves the obersvations' relative geodesic distances, with dprime << d.
 
+### High level structure of the forest-based embedding algo
+1. decision forest is used to infer efficiently the kxk affinity matrix w between all pairs of imput unlabeled data points
+2. given w, dimensionality reduction is performed by applying any know technique (eg Lapacian eigenmaps)
+
+### Training objective function
+- also use randomized node optimization by maxing the cont info gain measure from ch6 with I defined as for density forests also from ch6
+
+### Predictor model
+For density model, stats for all training points arriving at each leaf node are summarized with a single multivariate Gaussian:
+
+![image](https://user-images.githubusercontent.com/89429238/133912159-93a7024a-b72f-4779-84bd-6550f94a78a9.png)
+
+### Affinity model
+- unlike others, in manifold learning, need to estimate measure of similarity, affinity, or distance between data points so we can try and preserve those inter-point distances after mapping
+- see pg 83 for equations and definitions 
+- binary affinity model most interesting and says: give a tree t and two points v_i and v_j we assign perfect affinity (affinity = 1, distance = 0) to the pair (v_i, v_j) if those two points end up in the same cluster (leaf) and null affinity (infinite distance) otherwise
+
+### The Ensemble Model
+- in a forest of *T* trees its affinity matrix is defined as: 
+
+![image](https://user-images.githubusercontent.com/89429238/133912262-75505ae3-74ae-4b8c-8065-5ae779108d3b.png)
+
+- the averaging operation in above has the effect of adding robustness to the pairwise addinities across the graph of all points
+
+### Estimating the Embedding Function
+- estimating the mapping function can be done with any existing non-linear dimensionality reduction technique, use Laplacian eigenmaps here
+- given W, a low dimensional embedding is found using:
+
+![image](https://user-images.githubusercontent.com/89429238/133912336-dcd224ae-cbf9-47a1-9470-276d1cb7a4b2.png)
+
+- \upsilon = normalizing diagonal matrix (often called a "degree" matrix), such that \upsilon_ii = sum(W_ij) 
+- mapping function **f** found via eigen-decomposition of L
+- **f** remains implicitly defined by its *k* corresponding point pairs through the eigenvector matrix E
+
+![image](https://user-images.githubusercontent.com/89429238/133912373-89509780-7194-44bd-ae86-5da36a25a0af.png)
+
+### Mapping previously unseen points 
+- instead of retraining manifold, approx technique consists of interpolating the point position given the already avail embedding
+- given prev unseen point **v** and an already trained manifold forest we wish to find the corresponding point **v**' in the low-dim space, point **v**' computer as follows:
+
+![image](https://user-images.githubusercontent.com/89429238/133912414-e5f83fe9-5635-4118-abf8-7da242ff6b2d.png)
+
+### Properties and advantages
+- eg. dist between beach and forest small cuz they both have trees but dist between beach city big cuz they dont share many similarities (image example)
+- do not need to manually specifiy features to use for a manifold forest, can define a generic family of features, then tree training process with auto select discriminative features and corresponding parameters for each node of the forest, so as to greedily optimize the info gain measure
+
+### Effect of Forest Size
