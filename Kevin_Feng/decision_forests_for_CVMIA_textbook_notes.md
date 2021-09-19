@@ -332,4 +332,4 @@ For density model, stats for all training points arriving at each leaf node are 
 - eg. dist between beach and forest small cuz they both have trees but dist between beach city big cuz they dont share many similarities (image example)
 - do not need to manually specifiy features to use for a manifold forest, can define a generic family of features, then tree training process with auto select discriminative features and corresponding parameters for each node of the forest, so as to greedily optimize the info gain measure
 
-### Effect of Forest Size
+### Effect of Forest Size pg101
