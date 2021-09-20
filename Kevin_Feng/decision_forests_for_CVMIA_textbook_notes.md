@@ -333,3 +333,21 @@ For density model, stats for all training points arriving at each leaf node are 
 - do not need to manually specifiy features to use for a manifold forest, can define a generic family of features, then tree training process with auto select discriminative features and corresponding parameters for each node of the forest, so as to greedily optimize the info gain measure
 
 ### Effect of Forest Size pg101
+- more trees increase asccuracy of mappings and the ordering and position of mapped points is more correctly estimated
+
+### Manifold learning in higher dimensions
+- 3D images can be converted to 2D manifolds and 2D color maps that can be used to visualize the evolution of such a surface directly in the original 3D space
+
+### Discovering the Manifold Intrinsic Dimensionality 
+- d' at the elbow should be chose because at a certain point d'+1 does not provide that much more info
+- high values of T produce more prominent elbows
+- Gaussian affinities produce slighly sharper elbows than binary ones
+
+![image](https://user-images.githubusercontent.com/89429238/133947276-c985ca82-1965-4282-bec5-24d9e0c5475b.png)
+
+### Summary
+- choose forest depth D carefully, param influences number of cluster and smoothness of recovered mapping
+- choose weak learner model to guide way in which diff clusters are sep'd
+- increasing forest size T should always result in highers test accuracy
+
+## Chapter 8: Semi-supervised Classification Forests
