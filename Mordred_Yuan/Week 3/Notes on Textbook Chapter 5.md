@@ -1,67 +1,73 @@
-### Chapter 5 Introduction: Regression Forests
+### Chapter 5 : Regression Forests
 
-Goal: automatically associate an input data point v with a discrete class c ∈ {ck}
+### Introduction
+
+Goal: the probabilistic estimation of continuous variables
+less popular than classification forests
 
 Properties:
-* Multiple classes
-* Probabilistic output
-* Generalize well to previously unseen data
-* Efficient
-* Margin-maximizing behavior under certain conditions
-* The quality of the posterior and associated confidence can be controlled via the choice of the specific parameters
-### 4.1 Classification Algorithms in the Literature
+* output label is continuous
+* training labels also continuous
 
-* Support Vector Machine(SVM)
-* Boosting - linear combination of many weak classifiers
 
-Problem: Cannot deal with multi class problems
+### 5.1 Non-linear Regression in the Literature
 
-Classification Forests: 
-* yield good generalization, even in problems with high dimensionality
-* practical vision and medical applications
+linear regression
+* not appropriate when trying to model most natural phenomena which are often non-linear
+* sensitivity to input noise
 
-### 4.2 Specializing the Decision Forest Model for Classification
-Classification: Given a labeled set of training data learn a general mapping which associates previously unseen test data with their corresponding classes.
+RANSAC
+* estimation of multiview epipolar geometry and image registration transformations
+* disadvantage: out-put is nonprobabilistic
 
-Training point: (v, c)
+support vector regression
+* ensembles of relevance vector machines (RVMs)
+* boosted ridge regression
+* Gaussian processes
 
-Input: v = (x1, . . . , xd ) ∈ Rd
 
-#### The Training Objective Function
-optimizing the parameters of the weak learner at each split node j: θj = argmax I (Sj , θ). θ ∈ Tj
+### 5.2 Specializing the Decision Forest Model for Regression
+Classification: Given a labeled set of training data, learn a general mapping which associates previously unseen, independent test data points with their dependent, continuous output prediction.
 
-Information Gain 
-  * ![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%201/Screen%20Shot%202021-09-09%20at%2011.40.22%20AM.png)
-  * Maximizing the information gain - select the split parameters which produce the highest confidence (lowest uncertainty) in the final distributions
+Training point: (v, y)
 
-Entropy: H(S)=− Σ p(c) log p(c) c∈C 
+probability density function p(y|v)
 
-(p(c): the normalized empirical histogram of labels corresponding to the training points in S)
+Imput: v = (x1, . . . , xd ) ∈ Rd
 
-Fig: Classification training data and tree training.
-![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%202/Screen%20Shot%202021-09-16%20at%2011.27.23%20AM.png)
 
-#### Class Re-balancing
-unbalanced distribution of classes
-
-Solutions:
-* resampling the training data so as to have roughly uniform training distributions
-* use the known prior class distribution to weight the contribution of each class by its inverse frequency when computing the information gain at each split node
-
-#### Randomness
-randomized node optimization
-
-#### The Leaf and Ensemble Prediction Models
-probabilistic output - predict an entire class distribution
-
+#### The Prediction Model
+output confidence as well as its actual value
 ![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%202/Screen%20Shot%202021-09-16%20at%2011.37.27%20AM.png)
 
-### 4.3 Effect of Model Parameters
-#### The Effect of the Forest Size on Generalization
-![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%202/Screen%20Shot%202021-09-16%20at%2011.47.39%20AM.png)
-b. axis-aligned weak learn
+leaf probability pt (y|v) can be
+multi-modal
 
-c. classification posteriors (quality of uncertainty)
+#### The Ensemble Model
+the forest output is the average of all tree outputs
+
+#### Randomness Model
+randomized node optimization model
+parameter ρ = |Tj |
+
+#### The Training Objective Function
+The main difference between classification and regression forests is in the form of
+the objective function I.
+
+regression information gain formula: (valid only for the case of a probabilistic linear prediction model)
+![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%202/Screen%20Shot%202021-09-16%20at%2011.37.27%20AM.png)
+
+#### The Weak Learner Model
+1. axis-aligned hyperplanes,
+2. oriented hyperplanes, 
+3. conic sections
+![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%202/Screen%20Shot%202021-09-16%20at%2011.47.39%20AM.png)
+
+
+### 4.3 Effect of Model Parameters
+#### The Effect of the Forest Size
+![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%202/Screen%20Shot%202021-09-16%20at%2011.47.39%20AM.png)
+
 
 #### Multiple Classes and Training Noise
 conic section weak learner model - yields smoother posteriors
