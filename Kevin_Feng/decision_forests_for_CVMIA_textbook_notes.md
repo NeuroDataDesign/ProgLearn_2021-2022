@@ -351,3 +351,7 @@ For density model, stats for all training points arriving at each leaf node are 
 - increasing forest size T should always result in highers test accuracy
 
 ## Chapter 8: Semi-supervised Classification Forests
+- Tries to transfer existing ground truth labels to the unlabeled and already available data
+- Transductive classification task: given a set of both labeled and unlabeled data points, we wish to associate a class label to all the already available data points
+- Unlike inductive classification, here all unlabeled test data are already avail during training 
+- 
