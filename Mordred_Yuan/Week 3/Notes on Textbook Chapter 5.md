@@ -66,51 +66,18 @@ regression information gain formula: (valid only for the case of a probabilistic
 
 ### 4.3 Effect of Model Parameters
 #### The Effect of the Forest Size
-![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%202/Screen%20Shot%202021-09-16%20at%2011.47.39%20AM.png)
-
-
-#### Multiple Classes and Training Noise
-conic section weak learner model - yields smoother posteriors
-
-noise increases -> a larger overall uncertainty in the testing posterior
+y(x) = E[y|x] = 	integral y · p(y|x)dy
+- as the number of trees increases both the prediction mean curve and its uncertainty become smoother
 
 #### The Effect of the Tree Depth
-tree depth increases -> the overall prediction confidence also increases
 
+D = 1 counld lead to underfitting
 D (a large value) -> overfitting
 
-#### The Effect of the Weak Learner
-Choice of different weak learners:
-![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%202/Screen%20Shot%202021-09-16%20at%2012.04.15%20PM.png)
-
-* axis-aligned weak learner produces overconfident predictions
-* conic sections yield a possibly more intuitive decrease of confidence with distance from training data
-
-Depend on specific application
-
-#### The Effect of Randomness
-* Larger randomness reduces the blocky artifacts of the axis-aligned weak learner and produces more rounded decision boundaries
-* larger randomness yields a much lower overall confidence
-
-### 4.4 Maximum Margin Classification with Forests
-SVM - margin-maximizing surface
-
-Random Forests:
-h(v, θj ) = [φ(v) > τ] with φ(v) = x1
-
-not individual tree, instead the combination of multiple trees that at the limit T →∞ produces the desired max-margin behavior
-![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%202/Screen%20Shot%202021-09-16%20at%2012.26.34%20PM.png)
-
-* The Effect of Randomness on Optimal Separation
-  * not guaranteed to split the data perfectly and thus they may yield a sub-optimal information gain
-  * parameter ρ is very similar to that of “slack” variables in SVM
-* Influence of the Weak Learner Model
-* Maximum Margin with Multiple Classes
-* The Effect of the Randomness Model
-  * bagging and RNO
-  * RNO randomness model - use all available training data and enables us to control the maximum margin behavior simply, by means of changing ρ.
-
+#### Spatial Smoothness and Testing Uncertainty
+The forest is capable of capturing
+multi-modal behavior in the gaps
 
 ### Summary
-the abstract decision forest model introduced in Chap. 3 --> multi-class classification
+the abstract decision forest model introduced in Chap. 3 --> regression
 
