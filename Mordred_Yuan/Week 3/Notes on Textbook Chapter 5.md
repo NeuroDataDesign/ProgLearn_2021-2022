@@ -38,7 +38,8 @@ Imput: v = (x1, . . . , xd ) ∈ Rd
 
 #### The Prediction Model
 output confidence as well as its actual value
-![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%202/Screen%20Shot%202021-09-16%20at%2011.37.27%20AM.png)
+
+![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%203/Screen%20Shot%202021-09-22%20at%201.49.54%20AM.png)
 
 leaf probability pt (y|v) can be
 multi-modal
@@ -54,14 +55,17 @@ parameter ρ = |Tj |
 The main difference between classification and regression forests is in the form of
 the objective function I.
 
-regression information gain formula: (valid only for the case of a probabilistic linear prediction model)
 ![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%202/Screen%20Shot%202021-09-16%20at%2011.37.27%20AM.png)
+
+regression information gain formula: (valid only for the case of a probabilistic linear prediction model)
+
+![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%203/Screen%20Shot%202021-09-22%20at%202.01.15%20AM.png)
 
 #### The Weak Learner Model
 1. axis-aligned hyperplanes,
 2. oriented hyperplanes, 
 3. conic sections
-![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%202/Screen%20Shot%202021-09-16%20at%2011.47.39%20AM.png)
+![alt_text](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Mordred_Yuan/Week%203/Screen%20Shot%202021-09-22%20at%202.15.40%20AM.png)
 
 
 ### 4.3 Effect of Model Parameters
