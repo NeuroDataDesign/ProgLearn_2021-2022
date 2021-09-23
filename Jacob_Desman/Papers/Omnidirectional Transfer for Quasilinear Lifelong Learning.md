@@ -5,6 +5,10 @@ Updated: 9/7/2021
 
 **Related**: [[Abstract Forest Model]]
 
+**References**: [Source](https://arxiv.org/abs/2004.12908)
+
+**Tags**: #paper #ml 
+
 ## Introduction
 Traditional machine learning is optimized for a single task or multiple tasks simulatneously. It is more difficult to **sequentially** optimize for multiple tasks. **"Catastrophic forgetting"** is a typical issue is performance drops when trained on new tasks. 
 
