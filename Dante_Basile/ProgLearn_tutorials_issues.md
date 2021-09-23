@@ -12,12 +12,18 @@ Dante Basile
 
 EYezerets, Hao
 
-## Gaussian XOR and Gaussian R-XOR ExperimentR
+## Gaussian XOR and Gaussian R-XOR Experiment
 
 ### Problem:
 
-`ValueError: could not broadcast input array from shape (1000,2) into shape (1000,)`
+`UserWarning: constrained_layout not applied because axes sizes collapsed to zero.  Try making figure larger or axes decorations smaller.`
 
-Error may be within helper function in `xor_rxor_functions.py`
+### Contact:
+
+## Gaussian XOR and Gaussian XNOR Experiment
+
+### Problem:
+
+`UserWarning: constrained_layout not applied because axes sizes collapsed to zero.  Try making figure larger or axes decorations smaller.`
 
 ### Contact:
