@@ -6,7 +6,6 @@ from math import log2, ceil
 import seaborn as sns
 import matplotlib.pyplot as plt
 from matplotlib.ticker import ScalarFormatter
-
 from proglearn.forest import LifelongClassificationForest, UncertaintyForest
 from proglearn.sims import *
 from proglearn.progressive_learner import ProgressiveLearner
@@ -25,29 +24,29 @@ def get_colors(colors, inds):
     return c
 
 
-def plot_xor_rxor(data, labels, title):
+def plot_xor_xnor(data, labels, title):
     colors = sns.color_palette("Dark2", n_colors=2)
     fig, ax = plt.subplots(1, 1, figsize=(8, 8))
     ax.scatter(data[:, 0], data[:, 1], c=get_colors(colors, labels), s=50)
     ax.set_xticks([])
     ax.set_yticks([])
     ax.set_title(title, fontsize=30)
-    # plt.tight_layout()
+    plt.tight_layout()
     ax.axis("off")
     plt.show()
 
 
-def run(mc_rep, n_test, n_trees, n_xor, n_rxor, mean_error, std_error, mean_te, std_te):
+def run(mc_rep, n_test, n_trees, n_xor, n_xnor, mean_error, std_error, mean_te, std_te):
     for i, n1 in enumerate(n_xor):
         # print('starting to compute %s xor\n'%n1)
+        # run experiment in parallel
         error = np.array(
             Parallel(n_jobs=-1, verbose=0)(
-                delayed(experiment)(
-                    n1, 0, task2_angle=np.pi / 4, max_depth=ceil(log2(n1))
-                )
+                delayed(experiment)(n1, 0, max_depth=ceil(log2(n1)))
                 for _ in range(mc_rep)
             )
         )
+        # extract relevant data and store in arrays
         mean_error[:, i] = np.mean(error, axis=0)
         std_error[:, i] = np.std(error, ddof=1, axis=0)
         mean_te[0, i] = np.mean(error[:, 0]) / np.mean(error[:, 1])
@@ -55,18 +54,18 @@ def run(mc_rep, n_test, n_trees, n_xor, n_rxor, mean_error, std_error, mean_te, 
         mean_te[2, i] = np.mean(error[:, 0]) / np.mean(error[:, 4])
         mean_te[3, i] = np.mean(error[:, 2]) / np.mean(error[:, 5])
 
+        # initialize learning on n-xor data
         if n1 == n_xor[-1]:
-            for j, n2 in enumerate(n_rxor):
-                # print('starting to compute %s rxor\n'%n2)
-
+            for j, n2 in enumerate(n_xnor):
+                # print('starting to compute %s nxor\n'%n2)
+                # run experiment in parallel
                 error = np.array(
                     Parallel(n_jobs=-1, verbose=0)(
-                        delayed(experiment)(
-                            n1, n2, task2_angle=np.pi / 4, max_depth=ceil(log2(750))
-                        )
+                        delayed(experiment)(n1, n2, max_depth=ceil(log2(750)))
                         for _ in range(mc_rep)
                     )
                 )
+                # extract relevant data and store in arrays
                 mean_error[:, i + j + 1] = np.mean(error, axis=0)
                 std_error[:, i + j + 1] = np.std(error, ddof=1, axis=0)
                 mean_te[0, i + j + 1] = np.mean(error[:, 0]) / np.mean(error[:, 1])
@@ -244,7 +243,7 @@ def plot_error_and_eff(n1s, n2s, mean_error, mean_te, TASK1, TASK2):
     ################################
     # Plots of Generalization Error
     ################################
-    algorithms = ["XOR Forest", "RXOR Forest", "Odif ", "RF"]
+    algorithms = ["XOR Forest", "XNOR Forest", "Odif ", "RF"]
 
     fontsize = 30
     labelsize = 28
@@ -292,7 +291,7 @@ def plot_error_and_eff(n1s, n2s, mean_error, mean_te, TASK1, TASK2):
 
     ##############
 
-    algorithms = ["XOR Forest", "RXOR Forest", "Odif", "RF"]
+    algorithms = ["XOR Forest", "XNOR Forest", "Odif", "RF"]
 
     ax1 = fig.add_subplot(gs[7:, 7:13])
 
@@ -325,7 +324,7 @@ def plot_error_and_eff(n1s, n2s, mean_error, mean_te, TASK1, TASK2):
     ax1.text(400, np.mean(ax1.get_ylim()), "%s" % (TASK1), fontsize=26)
     ax1.text(900, np.mean(ax1.get_ylim()), "%s" % (TASK2), fontsize=26)
 
-    ax1.set_title("RXOR", fontsize=30)
+    ax1.set_title("XNOR", fontsize=30)
 
     ################################
     # Plots of Transfer Efficiency
@@ -358,10 +357,10 @@ def plot_error_and_eff(n1s, n2s, mean_error, mean_te, TASK1, TASK2):
         "log Forward/Backward \n Transfer Efficiency (FTE/BTE)", fontsize=fontsize
     )
     ax1.legend(loc="upper right", fontsize=20, frameon=False)
-    ax1.set_yticks([0.2, 0.6, 1, 1.2])
-    ax1.set_ylim(0.2, 1.2)
+    ax1.set_yticks([0.05, 1, 2.5])
+    ax1.set_ylim(0.05, 2.52)
     ax1.set_xlabel("Total Sample Size", fontsize=fontsize)
-    log_lbl = np.round(np.log([0.2, 0.6, 1, 1.2]), 2)
+    log_lbl = np.round(np.log([0.05, 1, 2.5]), 2)
     labels = [item.get_text() for item in ax1.get_yticklabels()]
 
     for ii, _ in enumerate(labels):
@@ -383,7 +382,7 @@ def plot_error_and_eff(n1s, n2s, mean_error, mean_te, TASK1, TASK2):
     colors = sns.color_palette("Dark2", n_colors=2)
 
     X, Y = generate_gaussian_parity(750, angle_params=0)
-    Z, W = generate_gaussian_parity(750, angle_params=np.pi / 4)
+    Z, W = generate_gaussian_parity(750, angle_params=np.pi / 2)
 
     ax = fig.add_subplot(gs[:6, 4:10])
     clr = [colors[i] for i in Y]
@@ -403,125 +402,5 @@ def plot_error_and_eff(n1s, n2s, mean_error, mean_te, TASK1, TASK2):
 
     ax.set_xticks([])
     ax.set_yticks([])
-    ax.set_title("Gaussian R-XOR", fontsize=30)
+    ax.set_title("Gaussian XNOR", fontsize=30)
     ax.axis("off")
-
-
-def bte_v_angle(angle_sweep, task1_sample, task2_sample, mc_rep):
-    mean_te = np.zeros(len(angle_sweep), dtype=float)
-    for ii, angle in enumerate(angle_sweep):
-        error = np.array(
-            Parallel(n_jobs=-1, verbose=0)(
-                delayed(experiment)(
-                    task1_sample,
-                    task2_sample,
-                    task2_angle=angle * np.pi / 180,
-                    max_depth=ceil(log2(task1_sample)),
-                )
-                for _ in range(mc_rep)
-            )
-        )
-
-        mean_te[ii] = np.mean(error[:, 0]) / np.mean(error[:, 1])
-    return mean_te
-
-
-def plot_bte_v_angle(mean_te):
-    angle_sweep = range(0, 90, 1)
-
-    sns.set_context("talk")
-    fig, ax = plt.subplots(1, 1, figsize=(8, 8))
-    ax.plot(angle_sweep, mean_te, linewidth=3, c="r")
-    ax.set_xticks([0, 45, 90])
-    ax.set_xlabel("Angle of Rotation (Degrees)")
-    ax.set_ylabel("Backward Transfer Efficiency (XOR)")
-    ax.hlines(1, 0, 90, colors="gray", linestyles="dashed", linewidth=1.5)
-
-    ax.set_yticks([0.9, 1, 1.1, 1.2])
-    ax.set_ylim(0.89, 1.22)
-    log_lbl = np.round(np.log([0.9, 1, 1.1, 1.2]), 2)
-    labels = [item.get_text() for item in ax.get_yticklabels()]
-
-    for ii, _ in enumerate(labels):
-        labels[ii] = str(log_lbl[ii])
-
-    ax.set_yticklabels(labels)
-
-    right_side = ax.spines["right"]
-    right_side.set_visible(False)
-    top_side = ax.spines["top"]
-    top_side.set_visible(False)
-
-
-def bte_v_nsamples(task2_sample_sweep, task1_samples, task2_angle, mc_rep):
-    mean_te = np.zeros((len(task1_samples), len(task2_sample_sweep)), dtype=float)
-
-    for jj, task1_sample in enumerate(task1_samples):
-        for ii, sample_no in enumerate(task2_sample_sweep):
-            error = np.array(
-                Parallel(n_jobs=-1, verbose=0)(
-                    delayed(experiment)(
-                        task1_sample, sample_no, task2_angle=task2_angle, max_depth=None
-                    )
-                    for _ in range(mc_rep)
-                )
-            )
-
-            mean_te[jj, ii] = np.mean(error[:, 0]) / np.mean(error[:, 1])
-
-    return mean_te
-
-
-import seaborn as sns
-import matplotlib.pyplot as plt
-from matplotlib.ticker import ScalarFormatter
-
-
-def plot_bte_v_nsamples(mean_te):
-    task2_sample_sweep = (2 ** np.arange(np.log2(60), np.log2(5010) + 1, 0.25)).astype(
-        "int"
-    )
-
-    sns.set_context("talk")
-    fig, ax = plt.subplots(1, 1, figsize=(8, 8))
-    ax.plot(task2_sample_sweep, mean_te[0], linewidth=3, c="r", label="100 XOR")
-    ax.plot(
-        task2_sample_sweep, mean_te[1], ls="--", linewidth=3, c="r", label="1000 XOR"
-    )
-    ax.plot(
-        task2_sample_sweep, mean_te[2], ls=":", linewidth=3, c="r", label="5000 XOR"
-    )
-    ax.hlines(1, 60, 5200, colors="gray", linestyles="dashed", linewidth=1.5)
-    ax.set_xscale("log")
-    ax.set_xticks([])
-    # ax.set_yticks([0.87,0.9,0.93])
-    ax.tick_params(labelsize=26)
-    ax.get_xaxis().set_major_formatter(ScalarFormatter())
-    ax.text(50, np.mean(ax.get_ylim()) - 0.082, "50", fontsize=26)
-    ax.text(500, np.mean(ax.get_ylim()) - 0.082, "500", fontsize=26)
-    ax.text(5000, np.mean(ax.get_ylim()) - 0.082, "5000", fontsize=26)
-
-    ax.text(
-        50,
-        np.mean(ax.get_ylim()) - 0.09,
-        "Number of $25^\circ$-RXOR Training Samples",
-        fontsize=24,
-    )
-    ax.set_ylabel("Backward Transfer Efficiency (XOR)", fontsize=24)
-
-    ax.set_yticks([0.94, 1, 1.04, 1.08])
-    ax.set_ylim(0.93, 1.08)
-    log_lbl = np.round(np.log([0.94, 1, 1.04, 1.08]), 2)
-    labels = [item.get_text() for item in ax.get_yticklabels()]
-
-    for ii, _ in enumerate(labels):
-        labels[ii] = str(log_lbl[ii])
-
-    ax.set_yticklabels(labels)
-
-    right_side = ax.spines["right"]
-    right_side.set_visible(False)
-    top_side = ax.spines["top"]
-    top_side.set_visible(False)
-
-    ax.legend(fontsize=20, frameon=False)
