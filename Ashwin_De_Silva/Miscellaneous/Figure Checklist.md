@@ -33,8 +33,45 @@ The following note is based on an informative [article](https://bitsandbrains.io
 
 * Provides context such as sample size, dimensionality, dataset/simulation name, etc.
 
+## Axes
 
+* Show the minimal possible number of numbers on the x- and y-axis
+* Are the number of significant digits reasonable (eg, the number of significant digits cannot reasonably be larger than the sample size)?
+* Axis labels should be words, not symbols, not abbreviations, so one need not read the caption to understand the figure.
+* Are your axes ‘tight’?
+* Is the aspect ratio correct?
 
+## Caption
+
+* Begin with a sentence stating what the figure is demonstrating 
+* If there are panels, one sentence explains the collective take home message of all the panels.
+* Define all acronyms used in the figure.
+* End by pointing out particularly interesting aspects of the figure that one should note
+
+## Lines and Markers
+
+* If there are multiple lines/dots, is each a different line style and color?
+* Are all lines sufficiently thick?
+* Are the markers different?
+* If errorbars make sense, are they there? If there, does the caption explain whether they are standard error?
+
+## Aesthetics
+
+* Use vector graphics 
+* Reectify alignment issues
+* If it’s a pie chart, can you replace it with a stacked barchart (or something else)?
+* When you are comparing multiple approaches across multiple settings, group by the key comparison
+* Is there enough whitespace?
+
+## Multipanel Figures
+
+* Remove redundant axes and labels
+* Are the captions complete?
+
+## Table
+
+* Can it be converted to a figure? Put the table in appendix if there would be an information loss.
+* Are the rows sorted reasonably?
 
 
 
