@@ -1,4 +1,4 @@
-CSV|XPT|Data Description| # Obs| # Vars|Documentation
+CSV|XPT|Data Description|#Obs| #Vars|Documentation
 --------|---------|----------------|-------|-------|-------------
 [demog.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/demog.csv)|[P_DEMO.xpt](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/tree/main/Tiffany_Chu/NHANES_Data/XPT/)|Demographic Variables and Sample Weights|15560|29|[P_DEMO Doc](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_DEMO.htm)
 [bmx.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/bmx.csv)|[P_BMX.xpt](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/tree/main/Tiffany_Chu/NHANES_Data/XPT/)|Body Measures|14300|22|[P_BMX Doc](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_BMX.htm)
