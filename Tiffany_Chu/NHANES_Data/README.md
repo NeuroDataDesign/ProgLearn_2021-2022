@@ -1,36 +1,37 @@
-|Filename|Data Description|# Obs| # Vars|Documentation|
-|--------|----------------|-----|-------|-------------|
-|demog.csv|Demographic Variables and Sample Weights|||[P_DEMO Doc](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_DEMO.htm)|
-|bmx.csv|Body Measures|||[P_BMX Doc](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_BMX.htm)|
-|lab_biopro.csv|Standard Biochemistry Profile|||[P_BIOPRO.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_BIOPRO.htm)|
-|lab_cbc.csv|Complete Blood Count with 5-Part Differential in Whole Blood|||[P_HDL.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_HDL.htm)|
-|lab_cholesterol_hdl.csv|Cholesterol - High - Density Lipoprotein (HDL)|||[P_TCHOL.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_TCHOL.htm)|
-|lab_cholesterol_total.csv|Cholesterol - Total|||[P_CBC.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_CBC.htm)|
-|lab_cytomegalovirus.csv|Cytomegalovirus IgG & IgM Antibodies - Serum|||[P_CMV.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_CMV.htm)|
-|lab_fasting_q.csv|Fasting Questionnaire|||[P_FASTQX.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_FASTQX.htm)|
-|lab_ferritin.csv|Ferritin|||[P_FERTIN.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_FERTIN.htm)|
-|lab_glucose|Plasma Fasting Glucose|||[P_GLU.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_GLU.htm)|
-|lab_glycohemoglobin.csv|Glycohemoglobin|||[P_GHB.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_GHB.htm)|
-|lab_hscrp.csv|High-Sensitivity C-Reactive Protein|||[P_HSCRP.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_HSCRP.htm)|
-|lab_insulin.csv|Insulin|||[P_INS.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_INS.htm)|
-|lab_iron_status_serum.csv|Iron Status - Serum|||[P_FETIB.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_FETIB.htm)|
-|lab_urine_albcr.csv|Albumin & Creatinine - Urine|||[P_ALB_CR.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_ALB_CR.htm)|
-|lab_urine_flowrate.csv|Urine Flow Rate|||[P_UCFLOW.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_UCFLOW.htm)|
-|lab_urine_pregnancy.csv|Urine Pregnancy Test|||[P_UCPREG.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_UCPREG.htm)|
-|q_aspirin.csv|Preventive Aspirin Use|||[P_RXQASA.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_RXQASA.htm)|
-|q_bloodpressure.csv|Blood Pressure & Cholesterol|||[P_BPQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_BPQ.htm)|
-|q_cardiovascular.csv|Cardiovascular Health|||[P_CDQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_CDQ.htm)|
-|q_depression.csv|Mental Health - Depression Screener|||[P_DPQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_DPQ.htm)|
-|q_dermatology.csv|Dermatology|||[P_DEQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_DEQ.htm)|
-|q_diabetes.csv|Diabetes|||[P_DIQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_DIQ.htm)|
-|q_earlychildhood.csv|Early Childhood|||[P_ECQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_ECQ.htm)|
-|q_healthinsurance.csv|Health Insurance|||[P_HIQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_HIQ.htm)|
-|q_kidney.csv|Kidney Conditions - Urology|||[P_KIQ_U.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_KIQ_U.htm)|
-|q_medicalconditions.csv|Medical Conditions|||[P_MCQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_MCQ.htm)|
-|q_pesticide.csv|Pesticide Use|||[P_PUQMEC.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_PUQMEC.htm)|
-|q_physactive.csv|Physical Activity|||[P_PAQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_PAQ.htm)|
-|q_reproductive.csv|Reproductive Health|||[P_RHQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_RHQ.htm)|
-|q_sleep.csv|Sleep Disorders|||[P_SLQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_SLQ.htm)|
-|q_smoking.csv|Smoking - Cigarette Use|||[P_SMQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_SMQ.htm)|
-|q_smoking_recent.csv|Smoking - Recent Tobacco Use|||[P_SMQRTU.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_SMQRTU.htm)|
-|q_smoking_secondhand.csv|Smoking - Secondhand Smoke Exposure|||[P_SMQSHS.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_SMQSHS.htm)|
+Filename|Data Description| # Obs| # Vars|Documentation
+--------|----------------|-------|-------|-------------
+[demog.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/demog.csv)|Demographic Variables and Sample Weights|15560|29|[P_DEMO Doc](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_DEMO.htm)
+[bmx.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/bmx.csv)|Body Measures|14300|22|[P_BMX Doc](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_BMX.htm)
+[lab_biopro.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/lab_biopro.csv)|Standard Biochemistry Profile|10409|41|[P_BIOPRO.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_BIOPRO.htm)
+[lab_cbc.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/lab_cbc.csv)|Complete Blood Count with 5-Part Differential in Whole Blood|13772|22|[P_HDL.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_HDL.htm)
+[lab_cholesterol_hdl.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/lab_cholesterol_hdl.csv)|Cholesterol - High - Density Lipoprotein (HDL)|12198|3|[P_TCHOL.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_TCHOL.htm)
+[lab_cholesterol_total.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/lab_cholesterol_total.csv)|Cholesterol - Total|12198|3|[P_CBC.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_CBC.htm)
+[lab_cytomegalovirus.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/lab_cytomegalovirus.csv)|Cytomegalovirus IgG & IgM Antibodies - Serum|1574|4|[P_CMV.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_CMV.htm)
+[lab_fasting_q.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/lab_fasting_q.csv)|Fasting Questionnaire|13772|19|[P_FASTQX.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_FASTQX.htm)
+[lab_ferritin.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/lab_ferritin.csv)|Ferritin|11983|3|[P_FERTIN.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_FERTIN.htm)
+[lab_glucose](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/lab_glucose)|Plasma Fasting Glucose|5100|4|[P_GLU.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_GLU.htm)
+[lab_glycohemoglobin.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/lab_glycohemoglobin.csv)|Glycohemoglobin|10409|2|[P_GHB.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_GHB.htm)
+[lab_hscrp.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/lab_hscrp.csv)|High-Sensitivity C-Reactive Protein|13772|3|[P_HSCRP.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_HSCRP.htm)
+[lab_insulin.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/lab_insulin.csv)|Insulin|5090|5|[P_INS.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_INS.htm)
+[lab_iron_status_serum.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/lab_iron_status_serum.csv)|Iron Status - Serum|10409|9|[P_FETIB.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_FETIB.htm)
+[lab_urine_albcr.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/lab_urine_albcr.csv)|Albumin & Creatinine - Urine|13027|8|[P_ALB_CR.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_ALB_CR.htm)
+[lab_urine_flowrate.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/lab_urine_flowrate.csv)|Urine Flow Rate|13027|10|[P_UCFLOW.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_UCFLOW.htm)
+[lab_urine_pregnancy.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/lab_urine_pregnancy.csv)|Urine Pregnancy Test|1750|2|[P_UCPREG.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_UCPREG.htm)
+[q_aspirin.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_aspirin.csv)|Preventive Aspirin Use|6500|4|[P_RXQASA.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_RXQASA.htm)
+[q_bloodpressure.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_bloodpressure.csv)|Blood Pressure & Cholesterol|10195|11|[P_BPQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_BPQ.htm)
+[q_cardiovascular.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_cardiovascular.csv)|Cardiovascular Health|6433|17|[P_CDQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_CDQ.htm)
+[q_depression.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_depression.csv)|Mental Health - Depression Screener|8965|11|[P_DPQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_DPQ.htm)
+[q_dermatology.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_dermatology.csv)|Dermatology|5810|6|[P_DEQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_DEQ.htm)
+[q_diabetes.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_diabetes.csv)|Diabetes|14986|28|[P_DIQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_DIQ.htm)
+[q_earlychildhood.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_earlychildhood.csv)|Early Childhood|5365|10|[P_ECQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_ECQ.htm)
+[q_healthinsurance.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_healthinsurance.csv)|Health Insurance|15560|14|[P_HIQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_HIQ.htm)
+[q_kidney.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_kidney.csv)|Kidney Conditions - Urology|9232|16|[P_KIQ_U.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_KIQ_U.htm)
+[q_medicalconditions.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_medicalconditions.csv)|Medical Conditions|14986|63|[P_MCQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_MCQ.htm)
+[q_pesticide.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_pesticide.csv)|Pesticide Use|12198|3|[P_PUQMEC.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_PUQMEC.htm)
+[q_physactive.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_physactive.csv)|Physical Activity|9693|17|[P_PAQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_PAQ.htm)
+[q_reproductive.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_reproductive.csv)|Reproductive Health|5314|32|[P_RHQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_RHQ.htm)
+[q_sleep.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_sleep.csv)|Sleep Disorders|10195|11|[P_SLQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_SLQ.htm)
+[q_smoking.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_smoking.csv)|Smoking - Cigarette Use|11137|16|[P_SMQ.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_SMQ.htm)
+[q_smoking_recent.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_smoking_recent.csv)|Smoking - Recent Tobacco Use|10409|25|[P_SMQRTU.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_SMQRTU.htm)
+[q_smoking_secondhand.csv](https://raw.githubusercontent.com/NeuroDataDesign/ProgLearn_2021-2022/main/Tiffany_Chu/NHANES_Data/CSV/q_smoking_secondhand.csv)|Smoking - Secondhand Smoke Exposure|15560|15|[P_SMQSHS.htm](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_SMQSHS.htm)
+
