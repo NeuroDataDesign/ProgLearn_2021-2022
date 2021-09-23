@@ -27,4 +27,17 @@ Chapter 4: Classification Forests
   - weak learners affect shape and oreitnation of classification surface
 
 Chapter 5: Regression Forests
-- 
+- specializing decision forest model for regression
+  - each input has a continuous multivariate label
+  - goal: estimate probability density function
+  - regression forests are collection of randomly trained regression trees
+  - need to use something in place of the pre-stored empirical class posterior for the classification forests
+  - use polynomial function 
+  - output confidence and value
+  - ensemble model - forest output is avg of all tree outputs
+  - randomness model - randomized node optimization used, amount of randomness used is controlled by a parameter
+  - training objective function - minimize least-square function
+  - weak learner model - axis-aligned hyperplanes, oriented hyperplanes, conic sections
+- effect of model parameters
+  - more trees -> smoother prediction mean and uncertainty curves
+  - low depth --> underfit
