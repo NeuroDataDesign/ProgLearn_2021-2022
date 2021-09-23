@@ -9,8 +9,8 @@
     - Notes: [Breiman 2001](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_2/Breiman2001.pdf)
     - Code: Understanding the Decision Tree Structure Notebook: [nbviewer](https://nbviewer.jupyter.org/github/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_2/classification_forests.ipynb)   
 - Week 3: September 23, 2021
-    - Notes: [Sparse Projection Oblique Randomer Forests]()
-    - Notes: [Manifold Oblique Random Forests]()
-    - Notes: [Regression Forests & Density Forests]()
-    - Notebook/Tutorial: [Gaussian XOR and Gaussian R-XOR Experiment]()
-    - Notebook/Tutorial: [Spiral Experiment]()
+    - Notes: [Sparse Projection Oblique Randomer Forests](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_3/SPORF.pdf)
+    - Notes: [Manifold Oblique Random Forests](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_3/MORF.pdf)
+    - Notes: [Regression Forests & Density Forests](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_3/ch5_and_6.pdf)
+    - Notebook/Tutorial: [Gaussian XOR and Gaussian R-XOR Experiment](https://nbviewer.jupyter.org/github/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_3/Gaussian_XOR_and_Gaussian_R_XOR_Experiment%281%29.ipynb)
+    - Notebook/Tutorial: [Spiral Experiment](https://nbviewer.jupyter.org/github/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_3/Spiral_Experiment.ipynb)
