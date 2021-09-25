@@ -354,4 +354,62 @@ For density model, stats for all training points arriving at each leaf node are 
 - Tries to transfer existing ground truth labels to the unlabeled and already available data
 - Transductive classification task: given a set of both labeled and unlabeled data points, we wish to associate a class label to all the already available data points
 - Unlike inductive classification, here all unlabeled test data are already avail during training 
-- 
+- **transductive classification** task summ'd as follows: given a set of both labeled and unlabeled data points, we wish to associate a class label to all the already available unlabeled data points
+- givgen input point **v** we wish to associate it with a discrete class label *c* 
+- figure overview of transduction over induction:
+
+![image](https://user-images.githubusercontent.com/89429238/134747657-b6d5178f-4936-4057-be1e-a4d681d5025b.png)
+
+### training objective function
+- main difference from other forest types is that objective function *I* must encourage both: (i) separation of the labeled training data, (ii) seperating different high-density regions from one another, which can be achieved by maxing the following mixed info gain:
+
+![image](https://user-images.githubusercontent.com/89429238/134747974-8e405b22-14a1-4ba5-8b6d-4259244315c7.png)
+
+- I^s is a supervised term and depends on labeled training data points only
+- I^u is unsupervised term and depends on all data points, both labeled and unlabeled
+- \alpha, scalar which is user defined and spec's relative weight between the above two terms
+
+### Transductive forest posterior 
+![image](https://user-images.githubusercontent.com/89429238/134751271-c2030abd-8bd1-444b-bb66-e5b4d17acc93.png)
+
+### Induction from transduction
+- two ways to go from transduction to induction without further training
+1. apply the geodesic-based algo to every new test input point and propage labels that way, this involves T shortest path computations for each new point v
+2. simpler alt involves contructing an inductive posterior from the exisiting partitions of the feature space, details next
+- after transduction forest training we are left with T trees and their corresponding partitions
+- after label propagation we have also attached a class label to all available data
+- just line in supervised classification, counting the examples of each class arriving at each leaf defines the tree posteriors p_t(c|v)
+- these act upon the entire feature space in which a point v lives and not just the already avail training points
+
+### Inductive forest class posterior
+
+![image](https://user-images.githubusercontent.com/89429238/134751679-7269627a-b563-4553-bffa-bc668cfc9034.png)
+
+- training here has been achieved by maxing a mixed info gain which takes into consideration both supervised and unsupervised, already avail data
+- building this form of inductive tree posterior is efficient as it does not require training a whole new classifier
+
+
+- semi supervised forests are not interative
+- they are driven by a clear objective function 
+
+### Effect of additional supervision and active learning 
+- adding new manually annotated data points in regions with high uncertainty produces a much more confident posterior, but adding it close to the exisiting supervised set would not make much of a difference
+- *Confidence* of the prediction and not the class prediction itself which guides the selection of additional data to be annotated
+
+### Comparison with Transductive SVM's
+![image](https://user-images.githubusercontent.com/89429238/134752508-d2d084bf-ae64-4bbe-bbb2-a6357e489faf.png)
+
+### Handling multiple classes
+- hierarchical structure of semi supervised forests allows em to take 2 class and mult class tasks no prob
+
+![image](https://user-images.githubusercontent.com/89429238/134752651-7315522e-46cb-4378-9e2c-322d60c4023c.png)
+
+### Effect of tree depth
+- increasing tree depth (to an extent) produce more accurate and confident results
+- more manually anoo'd points prod better dileantion of each individual spiral arm
+
+![image](https://user-images.githubusercontent.com/89429238/134752626-72be25ec-85d3-4eb8-90ab-73f5f98e3ca1.png)
+
+# Part II Applications in Computer Vision and Medical Image Analysis
+## Ch.9 Keypoint Recognition using random forests and random ferns
+- pg 120
