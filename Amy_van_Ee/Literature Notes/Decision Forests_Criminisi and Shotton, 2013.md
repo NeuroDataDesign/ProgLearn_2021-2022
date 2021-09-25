@@ -104,3 +104,16 @@ Criminisi and Shotton, 2013.
         - A regression forest with too few levels may under-fit, whereas one with too many can over-fit
     - Spatial smoothness and testing uncertainty
         - Authors performed experiments to see that uncertainty increased moving away from training data
+
+**Chapter 6: Density Forests**
+- Density estimation in the literature
+- Specializing the forest model for density estimation
+- Effect of model parameters
+- Comparison with alternative algorithms
+- Sampling from the genrative model 
+
+**Chapter 7: Manifold Forests**
+- Manifold learning and dimensionality reduction in the literature
+- Specializing the forest model for manifold learning
+- Experiments and the effect of model parameters
+
