@@ -107,6 +107,12 @@ Criminisi and Shotton, 2013.
 
 **Chapter 6: Density Forests**
 - Density estimation in the literature
+    - Here we focus on using forests in situations where the scenarios are unlabeled 
+    - Given a set of observations that are unlabeled, we want to estimate the probability density function (pdf) from which the data has been made
+    - Density forests are collections of randomly trained clustering trees
+    - This is a generalization of the Gaussian mixture model (GMM)
+        - each tree has multiple hard clustered data partitions
+        - the forest posterior is a combination of tree posteriors
 - Specializing the forest model for density estimation
 - Effect of model parameters
 - Comparison with alternative algorithms
