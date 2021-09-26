@@ -412,4 +412,10 @@ For density model, stats for all training points arriving at each leaf node are 
 
 # Part II Applications in Computer Vision and Medical Image Analysis
 ## Ch.9 Keypoint Recognition using random forests and random ferns
-- pg 120
+- **viewset:** set of all possible appearances of each individual object keypoint as a class
+- Why are ferns better than forets for 3D object detection and rigid object pose estimation problems?
+Faster run time and faster training time to train because naive Bayesian approach.
+- What are ferns?
+Ferns are non-hierarchical structures than can be used to profitably replace forests to classify the patches.
+
+## Wide-baseline point matching as a classification problem pg 121
