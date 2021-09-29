@@ -14,3 +14,5 @@
     - Notes: [Regression Forests & Density Forests](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_3/ch5_and_6.pdf)
     - Notebook/Tutorial: [Gaussian XOR and Gaussian R-XOR Experiment](https://nbviewer.jupyter.org/github/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_3/Gaussian_XOR_and_Gaussian_R_XOR_Experiment%281%29.ipynb)
     - Notebook/Tutorial: [Spiral Experiment](https://nbviewer.jupyter.org/github/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_3/Spiral_Experiment.ipynb)
+- Week 4: September 30, 2021 
+  - Notebook/Tutorial [XOR XNOR Experiment](https://nbviewer.jupyter.org/github/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_4/xor_xnor.ipynb) 
