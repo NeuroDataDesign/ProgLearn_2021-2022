@@ -5,4 +5,5 @@
   - https://stackoverflow.com/questions/54106071/how-can-i-set-up-a-virtual-environment-for-python-in-visual-studio-code
 - Tried running "posterior estimates" tutorial
   - UncertaintyForest - tree_construction_proportion and kappa were not recognized so had to remove
-  - Also needed to install ipywidgets
+  - "max_depth" is not defined?
+  - Make sure to run the files in the virtual environment... 
