@@ -8,6 +8,16 @@ Hey! Welcome to my progress tracking folder. This includes the defintions of don
 
 * [Decision Forests Theory Notes](https://github.com/Laknath1996/ProgLearn_2021-2022/tree/main/Ashwin_De_Silva/Decision%20Forests%20Theory%20Notes)
 
+* ProgLearn Tutorials
+
 * [Miscellaneous](https://github.com/Laknath1996/ProgLearn_2021-2022/tree/main/Ashwin_De_Silva/Miscellaneous)
+
+
+## Interesting Issues/ Directions to Work on!
+
+* Kernel Density Forests and Networks (In-Progress)
+* Task Agnostic Learning (not started yet)
+* Out-of-Distribution Learning (discussions with Jovo's collaborators)
+* Contributing to the Graph-Stats draft
 
 
