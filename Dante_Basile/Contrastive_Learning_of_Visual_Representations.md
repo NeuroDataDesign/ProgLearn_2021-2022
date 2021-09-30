@@ -14,6 +14,8 @@ Dante Basile
 ## Contrastive learning framework
 * Uses contrastive loss to maximize agreement between the results of different augmentations
     * Loss function: $\mathcal{l}_{i, j} = -\log{ \frac{\exp{(\texttt{sim}(\textbf{z}_i, \textbf{z}_j) / \tau)}} {\sum_{k=1}^{2N}{\mathbb{I}_{[k \not{=} i]} \exp{\texttt{sim}(\textbf{z}_i, \textbf{z}_k) / \tau)}}} }$
+    * $(i, j)$ is a positive pair. $z_i$ is the network's contrastive loss projection head output for sample $i$. $N$ samples with another $N$ augmentations, one for each sample, $2N$ data points total. $\tau$ is the temperature parameter.
+    * The final loss is computed across all positive pairs $(i, j)$ and $(j, i)$ in a mini-batch
 * Positive pair: two augmented images from the same sample
 * Negative pair: two augmented images from different samples
 * One positive pair (anchor), many negative pairs
