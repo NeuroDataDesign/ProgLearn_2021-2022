@@ -1,0 +1,6 @@
+- [#289: Add Progressive Reinforcement Capabilities (potentially via Q-Learning)](https://github.com/neurodata/ProgLearn/issues/289)
+  - [Q Learning Keras](https://keras.io/examples/rl/deep_q_network_breakout/)
+  - [Deepmind Q Learning Paper](https://www.nature.com/articles/nature14236)
+- [#34: support streaming (and possibly parallel) decision tree option](https://github.com/neurodata/ProgLearn/issues/34)
+  - [Mining High-Speed Data Streams](https://homes.cs.washington.edu/~pedrod/papers/kdd00.pdf) 
+  - other papers listed in issue comments
