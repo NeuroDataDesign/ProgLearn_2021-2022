@@ -118,3 +118,58 @@
   * choice of weak learner model
   * training objective fn
   * choice of features in practical applications 
+
+# Chapter 4
+## 4.1
+* support vector machines (SVM)
+  * one of the most widely used classification algorithms
+  * in binary classification problems, it guarantees maximum margin separation
+  * good generalization w/ relatively little training data
+* boosting
+  * builds strong classifiers as linear combos of weak classifiers
+* SVM and boosting don't do well in multiple class problems
+## 4.2
+* each training point is (v, c)
+  * v is input test data
+  * c is class label
+### 4.2.1
+* training classification tree by maximizing info gain produces trees where entropy of class distributions associated w/ nodes decreases when going from root to leaves
+* yields increasing certainty of prediction
+### 4.2.2
+* one class may overpower other classes
+* can be mitigated by resampling data to have uniform distribution
+* or use known prior class distribution to weigh contribution of each class by its inverse frequency
+### 4.2.3
+* randomness injected by randomized node optimization
+### 4.2.4
+* classification forests produce probabilistic outputs
+* entire class distribution
+## 4.3
+* forest size, depth, randomness, and weak learner type affect performance
+### 4.3.1
+* increasing forest size leads to smoother posteriors
+* few trees means each tree is overconfident
+### 4.3.2
+* picking an appropriate learner type helps the fit
+* e.g conic for a spiral
+### 4.3.3
+* D should be chosesn carefully
+* shallow D can be inaccurate
+* too deep leads to overfitting
+### 4.3.4
+* decision forests are flexible enough to produce different confidence behaviors and show how to control them
+* axis aligned may be more efficient but less accurate
+### 4.3.5
+* which weak learner to choose depends on efficiency as well as accuracy
+## 4.4
+* each tree is not guaranteed to produce maximum margin separation
+  * the combo of multiple trees at the limit T -> infinity produces max-margin behavior
+  * in practice T + P must be large enough
+### 4.4.2
+* linear weak learners still produce globally non-linear classification
+### 4.4.3
+* conic learners uncertainty region evolves in a curved fashion away from training data
+### 4.4.4
+* bagging and random node optimization together produce a greater result
+* training set randomization leads to smoother posteriors whose optimal boundary doesn't coincide with max margin
+* bagging advantage is increased training speed 

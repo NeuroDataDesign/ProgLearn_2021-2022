@@ -104,3 +104,38 @@ Criminisi and Shotton, 2013.
         - A regression forest with too few levels may under-fit, whereas one with too many can over-fit
     - Spatial smoothness and testing uncertainty
         - Authors performed experiments to see that uncertainty increased moving away from training data
+
+**Chapter 6: Density Forests**
+- Density estimation in the literature
+    - Here we focus on using forests in situations where the scenarios are unlabeled 
+    - Given a set of observations that are unlabeled, we want to estimate the probability density function (pdf) from which the data has been made
+    - Density forests are collections of randomly trained clustering trees
+    - This is a generalization of the Gaussian mixture model (GMM)
+        - each tree has multiple hard clustered data partitions
+        - the forest posterior is a combination of tree posteriors
+    - The original dataset is split into compact clusters such that the centers are in areas with high density
+- Specializing the forest model for density estimation
+    - Differences between the probability density model and a conventional Gaussian mixture model include that the ensemble involves mixing that is uniform across the trees, and this has its benefits
+- Effect of model parameters
+    - Deeper trees result in more splits and smaller Gaussians and ultimately overfitting
+    - A larger forest helps accommodate for if individual trees over-fit more, which is in part due to the randomness of tree density estimation
+- Comparison with alternative algorithms
+    - Compared to the method of k-nearest neighbor density estimation, the random forest produces a smoother outcome
+    - Randomness results in better results, whether it be randomness from the forst model or Gaussian mixture
+
+**Chapter 7: Manifold Forests**
+- Manifold learning and dimensionality reduction in the literature
+    -    Manifold learning involves dimensional reduction and embedding
+    -    Manifold forests include
+        -    computational efficiency, discriminative features are automatically selected via optimization based on information, and benefits from being a general forest model
+- Specializing the forest model for manifold learning
+    - The task of manifold forests is to perform a smooth mapping that saves the observations' relative geodesic distsances given a set of unlabeled observations
+    - Like density forests, manifold forests are groups of clustering trees - but these require additional components, like affinity between data points, that density forests do not 
+    - A manifold forest determines the affinity between pairs of input unlabeled data points, and then given this, dimensionality reduction is performed
+    - THe model tries to preserve the inter-point distances after mapping
+        - mahalanobis, gaussian, and binary affinity are different methods for this
+    - The pairwise affinities of the tree structure itself can be used when dealing with complex data for which pairwise distances are difficult to find
+    - The slowest part of this model is solving the eigen-system, but only a few eigenvectors are necessary, and coupled with a sparse matrix in calculations, this makes for a very computationally efficient model
+- Experiments and the effect of model parameters
+    - Larger forests result in models that are more robust to noise
+
