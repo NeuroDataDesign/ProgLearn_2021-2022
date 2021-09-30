@@ -16,3 +16,4 @@
     - Notebook/Tutorial: [Spiral Experiment](https://nbviewer.jupyter.org/github/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_3/Spiral_Experiment.ipynb)
 - Week 4: September 30, 2021 
   - Notebook/Tutorial [XOR XNOR Experiment](https://nbviewer.jupyter.org/github/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_4/xor_xnor.ipynb) 
+  - Notebook/Tutorial [CIFAR](https://nbviewer.jupyter.org/github/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_4/rotation_cifar.ipynb)
