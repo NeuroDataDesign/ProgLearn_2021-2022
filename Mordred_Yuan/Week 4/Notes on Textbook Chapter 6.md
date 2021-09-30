@@ -69,5 +69,14 @@ here via maximum likelihood (eq 6.6)
 
     
 ### 6.3 Effect of Model Parameters: 
-Tree Depth: Deep trees create further splits & smaller Gaussians, therefore overfitting (i.e. fit to the noise)
-Forest size: Increasing forest size improves smoothness and generalization (even if individual trees overfit)
+* Tree Depth: Deeper trees create further splits and smaller Gaussians --> overfitting (noise)
+* Forest size: Increasing forest size improves smoothness and generalization (even if individual trees overfit)
+* A larger forest helps accommodate for if individual trees over-fit more, which is in part due to the randomness of tree density estimation
+
+
+### 6.4 Comparison with alternative algorithms
+* k-nearest neighbor density estimation - RF produces a smoother outcome
+* efficiency - despite the added richness in the hierarchical structure of the density forest, its sampling
+complexity is very much comparable to that of a random-restart GMM
+* Randomness --> better results, whether it be randomness from the forst model or Gaussian mixture
+
