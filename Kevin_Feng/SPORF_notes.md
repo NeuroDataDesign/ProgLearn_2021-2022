@@ -47,4 +47,19 @@ SPORF addresses all above
 - GI computed in straightforward fashion cuz random projections sparse with only two discrete weightings of =/-1
 - sparse raandom proj's cheap to computer
 
-pg 5/6 section 3.2 training and hyper param tuning 
+section 3.2 training and hyper param tuning 
+- eaech algo uses 500 trees 
+- split objective is to max reduction of Gini impurity
+- trees fully grown, unpruned (nodes are split until pure)
+- *d*, number of candidate split direstions evaluated at each split node, is the first param tuned
+- SPORF and F-RC trained for d=p^2
+- second hyperparam *\lambda*, the average sparsity of univariate projections sampled at each split node
+
+**SPORF bridges the gap between RF and exisiting oblique methods**
+
+SPORF and other oblique forests are proposed to be "more consistent" than Brieman's original RF
+- results from their testing suggest that relaxing the constraint of axis-alignment of splits may allow oblique forests to be consisten across on a wider set of classification problems, also highlights why oblique forests are advantageous
+
+### Simulated datasets
+- perform variet of experiments on 3 simulated classifcation problems: **sparse parity**, **orthant**, and **trunk**
+- **sparse parity:** miltivaraite generalization of the noisy XOR problem
