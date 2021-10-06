@@ -94,3 +94,16 @@ Time complexity similar to RF but can take longer if d > p
 Space complexity is the same as RF
 
 Storage complexity is similar to RF
+
+Comparison of training times:
+
+![image](https://user-images.githubusercontent.com/89429238/136125833-52cf15e2-aa1b-4542-a028-b310b1c8978d.png)
+
+Exectution time and scaling:
+
+![image](https://user-images.githubusercontent.com/89429238/136125874-7c96b8c0-19cc-4844-9f2f-302ae0ccd927.png)
+
+### Conclusion
+- one limitation of using sparse random projections to generate the candidate oblique splits is that it
+will never find informative splits in cases for which the signal is contained in a dense linear combination of features or nonlinear combinations of features
+- overall comp efficieint and scalable when compared to prev tree ensemble implementations
