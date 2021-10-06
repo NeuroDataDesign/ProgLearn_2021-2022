@@ -63,3 +63,34 @@ SPORF and other oblique forests are proposed to be "more consistent" than Briema
 ### Simulated datasets
 - perform variet of experiments on 3 simulated classifcation problems: **sparse parity**, **orthant**, and **trunk**
 - **sparse parity:** miltivaraite generalization of the noisy XOR problem
+- **orthant:** in R^p is a generalization of quadrant in R^2
+- **trunk:** balanced two class problem in which each class is distributed as a p-dimensional multivariate gaussian with identity covariance matrices
+
+SPORF performs as well or better than other algos on both sparse parity and orthant probs
+- only method of the four that performs well on all the simulated data settings
+
+SPORF is robust to hyperparameter selection
+
+SPORF learns important features
+- mean decrease of gini importance
+- computed during training with minimal additional computation
+- for a partifular feature, defined as the sum of the reduction in gini impurity over all splits of all trees made on that feature
+- sporf learns features that are more important than any of the observed features and those features are interpretable, as they are sparse linear combinations of the observed features
+
+![image](https://user-images.githubusercontent.com/89429238/136123938-bedefc89-832c-4b87-b264-8d477219f058.png)
+
+
+### Real empirical data performance
+sporf best overall classification performance on a large suite of benchmark datasets
+
+![image](https://user-images.githubusercontent.com/89429238/136123920-b22e8883-bc5a-490a-9121-4982d70cd62b.png)
+
+Identified default hyperparams: d = p, \lambda = 3/p
+
+SPORF is robust to high dimensional noise
+
+Time complexity similar to RF but can take longer if d > p
+
+Space complexity is the same as RF
+
+Storage complexity is similar to RF
