@@ -45,7 +45,7 @@ https://ieeexplore.ieee.org/document/4318108
   - Else
     - Sibling nodes become leaf nodes labelled with the majority class among the records in their parent that would have flowed down to them
     
-## Conclusion
+# Conclusion
 - Streaming RF algorithm is an extension of standard RF
   - Comparable classification accuracy to standard RF despite seeing each data record once
 - Stream algorithms can never see all of the data 
