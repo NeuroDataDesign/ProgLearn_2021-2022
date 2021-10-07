@@ -1,0 +1,58 @@
+# Chapter 9
+- Keypoint recognition: consider all possible appearance of an individual object as a class called a view set.
+  - Done so by extracting interest points from an image and generating possible appearances under different distortion
+- For pose and illumination changes, new views of an object were generated with rendering techniques given a small number of reference images.
+- Random Classification Trees
+- Node Tests
+  - Difference in intensity between two pixels near a key point calculated. Does not require normalization of pixel intensities
+- Building the Trees
+  - Trees constructed top-down via greedy algorithm to separate best examples
+  - Pick random set of location in each patch
+  - Random tests sufficient and makes learning time reasonable
+  - Orientation normalization not necessary but reduces number of trees, creating a tradeoff
+- Keypoint Recognition
+  - Random Ferns
+    - Optimizes for conditional probability of class given a patch surrounding a keypoint of an image.
+    - Computed via Bayes Rule
+    - $$\hat{Y}(\mathbf{v})\arg\max_c \prod_{f=1}^F p(F_f | c)$$
+  - Training the Ferns
+    - Estimate conditional probabilities for each fern and class.
+    - Maximum likelihood estimation by calculating proportion of training samples of a certain class that evaluates to a certain value to the total number of samples for a certain class.
+    - Correct for lack of training samples of a particular class and fern value by introducing regularization terms.
+    - $$p_P,c = \frac{N_{k,c} + N_r}{N_c + KN_r}$$
+- Comparing Random Forests, Random Ferns, and SIFT
+  - Ferns vs. Trees
+    - Ferns can be considered simplified trees
+    - Trees average posteriors while ferns rely on products of conditional probabilities
+    - Memory and runtime compromise between trees and ferns.
+- Discussion
+  - A single fern rejecting a keypoint class can counter the combined effect of other ferns that give a weak response.
+  - Increases necessity for larger training data and help for regularization
+# Chapter 10
+- Image retrieval: given training set of images without labeling, retrieve images similar to a new query image.
+- Image annotation: given training set of images with pixel-wise labeling, build model that predicts class of every class in a new unseen image.
+- Interest point detection: given annotated images with interest points, train models to localize interest points in new unseen images
+- Random Subwindow-Based Image Analysis
+  - Supervised methods have limitations such as limited feature size.
+  - Alternative approaches
+    - Extract random subwindows from images and transform into fixed number of features
+    - Train model on subwindows
+    - Compute output prediction of new image from predictions of constituent subwindows
+  - Training
+    - Subwindow extraction: possibly overlapping fixed size subwindows extracted within training images, usually done over a uniform sampling distribution
+    - Subwindow transformation: image transformation and normalization applied
+    - Feature extraction: vector of features extracted from each subwindow
+    - Output computation: output of each subwindow computed
+    - Training: Supervised learning applied on training sample of subwindows
+  - Prediction
+    - Subwindow extraction, transformation, and feature extraction: subwindow extracted and transformed into feature vector.
+    - Per-subwindow output computation: compute prediction of each subwindow
+    - Output aggregation of subwindows: prediction learned by supervised learning model over all subwindows and aggregated for final prediction
+- Extremely Randomized Trees
+  - Increases randomization when splitting decision tree nodes to improve accuracy by reducing variance and training time.
+  - Trees built independently and split functions limited to CART-like axis-aligned splits
+  - Split function optimization at each node done by selecting set of random candidate splits and identifying best one.
+  - Tree stopped growing when output or feature vector constant in node
+- Multiple Output Trees
+  - Tree that outputs a vector instead of a scalar
+  - Only modifies objective function for evaluating splits and how predictions computed on tree leaves

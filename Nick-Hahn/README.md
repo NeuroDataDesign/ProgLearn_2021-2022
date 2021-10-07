@@ -18,3 +18,6 @@
   - Notebook/Tutorial [XOR XNOR Experiment](https://nbviewer.jupyter.org/github/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_4/xor_xnor.ipynb) 
   - Notebook/Tutorial [CIFAR](https://nbviewer.jupyter.org/github/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_4/rotation_cifar.ipynb)
   - Potential Issues: [Issues](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_4/potential_issues.md), [Q Learning Annotated Paper](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_4/qlearning.pdf)
+- Week 5: October 7, 2021
+  - Notes: [Streaming Decision Trees & Forests](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_5/streaming_trees_and_forests.md)
+  - [Mining High Speed Data Streams](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_5/highspeeddatastreams.pdf)

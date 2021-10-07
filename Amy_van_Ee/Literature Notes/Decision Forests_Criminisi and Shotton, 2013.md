@@ -139,3 +139,22 @@ Criminisi and Shotton, 2013.
 - Experiments and the effect of model parameters
     - Larger forests result in models that are more robust to noise
 
+**Chapter 8: Semi-supervised Classification Forests**
+- Introduction and semi-supervised learning in literature 
+    - Regression and classification use decision forests in supervised problems, density and manifold estimation use decision forests in unsupervised problems
+    - Semi-supervised: only have a small set of available labeled training data points, and a large set of unlabeled
+        - very applicable in medical settings where cannot diagnose all data
+    - Transductive learning - use underlying data distribution, vs inductive learning where not have test data available during training
+    - We need to separate different known class labels and ensure classification boundaries only go through regions of low data density
+- Specializing the Decision Forest Model for semi-supervised classification
+    - Problem statement: given both labeled and unlabeled data points, we want to associate the unlabeled data points that are already available with a particular class label
+    - Semi-supervised forest - a transductive forest that has trees trained on partially labeled data (some labeled, some unlabeled)
+- Transduction trees for classifying already available data
+    - Transduction is first performed in which labels are propagated, using annotated data points to then annotate the originally un-annotated data points
+- Induction from transduction
+    - This method involves the development of a general probabilitistic classifcation rule
+    - Should not use newly labeled data as ground truth and develop an inductive classifier from scratch
+    - Two alternatives but simplest is to make an inductive posterior using feature space partitions that already exist
+- Examples, Model Parameters
+    - Compared to transductive SVMs, the forest captures more uncertainty, with more noise in the input translating to lower prediction confidence
+    - Increasing tree depth results in more accurate and confident output
