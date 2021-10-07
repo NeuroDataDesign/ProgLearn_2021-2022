@@ -1,0 +1,4 @@
+- [#39](https://github.com/neurodata/ProgLearn/issues/39) - implement scene segmentation 
+- [#290](https://github.com/neurodata/ProgLearn/issues/289) - Add Progressive Reinforcement Capabilities (potentially via Q-Learning
+- [#67](https://github.com/neurodata/ProgLearn/issues/67) - Explore induced bias(interpolation & extrapolation) phenomenon in different machine learning models
+- [#421](https://github.com/neurodata/ProgLearn/issues/421) - Implementing feature importance
