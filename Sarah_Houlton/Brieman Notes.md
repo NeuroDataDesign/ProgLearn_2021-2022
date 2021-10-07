@@ -55,4 +55,42 @@
 * each time a categorical variable is selected to split, select a random subset of categories of the variable and define a sub variable that is 1 when the value of the variable is in the subset and 0 outside
 
 ## Empirical results on strength and correlation
-* 
+* In small datasets, the strength remains constant after a certain number of inputs
+* test set errors show a small drop to begin, then a general, gradual increase
+* with larger datasets, the strength continues to increase longer the stil plateaus
+* better random forests have lower correlation between classifiers and higher strength
+
+## Conjecture: Adaboost is a random forest
+* Adaboost is a deterministic algorithm that selects the weights on the training set for input to the next classifier based on the misclassifications in the previous classifiers
+* Adaboost can be equivalent to a random forest where the weights on the training set are selected at random from the distribution Qpi
+* This wouldl explain why adaboost does not overfit as more trees are added to the ensemble
+
+## The effects of output noise
+* to test robustness with respect to noise, randomly altering 1 in 20 labels
+* adaboost deteriorates markedly with the noise, random forest has small changes
+* in adaboosst, incorrect labeling gets magnified, not so in random forest
+
+## Data with many weak inputs
+* data sets with many weak inputs are common
+  * medical diagnosis
+  * document retrieval
+* with many weak inputs test data
+  * bayes classifier has a 6.2% error rate
+  * forest-RI with a high strength and low correlation - 2.8%
+  * forest-RI have the ability to work with very weak classifiers as long as correlation is low
+  
+## Exploring the random forest mechanism
+* dependent variables affect prediciton error
+  * if both are noised separately, they will give the same increase in error rate
+  * once one is a predictive variable, using the other will not result in a decreased error rate
+  
+## Empirical results in regression
+* correlation increases slowly as the number of features increases
+* a relatively large number of features are required to reduce PG(tree) and get new optimal testset error
+* various combinations of randomness can be added to see what works best
+
+## Remarks and conclusions
+* random forests are an effective tool in prediction
+  * especially with the right kind of randomness
+* forests can compete with arcing type algorithms
+* different injections of randomness produce different results 
