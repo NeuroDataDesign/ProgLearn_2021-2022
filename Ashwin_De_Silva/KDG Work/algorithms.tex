@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+
+\begin{document}
+
+\begin{algorithm}
+\caption{Fit a Kernel Density Network to the Data}\label{alg:cap}
+\hspace*{\algorithmicindent} \textbf{Input:} $(X, y)  \in \mathbb{R}^{n \times d} \times \mathcal{Y}^K$ where $K = \{1, \dots, K \}$ \\
+\hspace*{\algorithmicindent} \textbf{Output:} 
+\begin{algorithmic}[1]
+\Procedure{fit}{$X, y$}
+    \For{$k = 1, \dots, K$}
+        \State $X_k \gets $ rows of $X$ s.t. $y=k$
+        \State $\mathcal{P}_k \gets$ \Call{getPolytopes}{$X_k$}
+    \EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}
