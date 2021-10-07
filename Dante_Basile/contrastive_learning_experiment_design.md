@@ -7,6 +7,7 @@ Dante Basile
 * [CIFR](https://www.cs.toronto.edu/~kriz/cifar.html)
     * CIFR-10
     * CIFR-100
+* Replicate Gaussian XOR from Proglearn Tutorials
 
 ## Design
 * Task division
