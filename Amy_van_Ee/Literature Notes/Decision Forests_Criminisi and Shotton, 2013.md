@@ -158,3 +158,32 @@ Criminisi and Shotton, 2013.
 - Examples, Model Parameters
     - Compared to transductive SVMs, the forest captures more uncertainty, with more noise in the input translating to lower prediction confidence
     - Increasing tree depth results in more accurate and confident output
+
+**Chapter 9: Keypoint Recognition Using Random Forests and Random Ferns**
+- Introduction
+    - Goal is to move much of computational burden to training phase so run-time detection fast and reliable
+    - method: match interest points taken from tarining images with interest points taken from input images acquired at run-time
+        - match interest points by make affine-invariant desriptors of image patches surrounding the points, compare across many images
+- Wide-Baseline Point Matching as a Classification Problem
+    -   Method is to match keypoints in an input image to those in a target object
+- Keypoint Recognition with Classification Forests
+    - Random Classification Forests
+        - A negative side to using classification forests is their greedy use of memory, with memory size increasing exponentially with depth and linearly with number of trees
+    - Node Tests
+        - A simple binary test is performed between two pixel intensities at two points adjacent to the keypoint 
+    - Building the Tree
+        - Many trees are used to increase the rate of recognition
+        - Instead of top-down construction of trees, they will be made by randomly picking a set, and this results in a faster and simpler method
+- Keypoint Recognition with Random Ferns
+    - Random Ferns
+        - The approach is powerful because groups of binary tests are combined thereby improving classification rates, not based on a feature of the tree structure itself
+    - Training the Ferns
+        - This involves estimating the class conditional probabilities for each fern and class
+- Comparing Random Forests, Random Ferns, and SIFT
+    - Empirical Comparisons of Trees and Ferns
+        - To convert a tree into a fern, the tree must perform the same test across a hierarchy level (so same test independent of path chosen), and the hierarchy structure is removed to just have feature values at each level 
+        - Ferns are essentially simplified trees
+    - Empirical Comparisons Between SIFT and Ferns
+        - Ferns are much faster, but SIFT does not require training which can be advantageous
+- Discussion
+    - Compared to averaging probabilities like in random forests, ferns that use Naïve-Bayesian combination of classifiers perform better
