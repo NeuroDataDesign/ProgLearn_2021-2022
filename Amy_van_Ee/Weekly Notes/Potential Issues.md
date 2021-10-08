@@ -14,5 +14,6 @@
 * Run the recruitment experiment on image datasets in LLF_tidy_images #435
 * implement scene segmentation #39 <-- 
 * ...
+
 Note: Try to choose issues that will allow me to learn more and develop my skills...
 
