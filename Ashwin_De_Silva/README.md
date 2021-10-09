@@ -20,4 +20,22 @@ Hey! Welcome to my progress tracking folder. This includes the defintions of don
 * Out-of-Distribution Learning (discussions with Jovo's collaborators)
 * Contributing to the Graph-Stats draft
 
+## Weekly Progress
+
+### Week of 2021-9-6
+
+* Organize my progress tracking folder 
+    * DoD: [folder](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/tree/main/Ashwin_De_Silva)
+* Refresh knowledge about version controlling and git
+    * DoD: [notes](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Ashwin_De_Silva/Computer%20Science%20Missing%20Semester/version_controlling_systems.md)
+* Read Jovo’s blog on how to choose a project
+    * DoD: [notes](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Ashwin_De_Silva/Miscellaneous/How%20to%20Choose%20a%20Project%3F.md)
+* Read the omnidirectional transfer paper
+    * DoD: [notes](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Ashwin_De_Silva/Literature%20Review/VogelsteinDeyHelm2021.md)
+* Read Jovo’s blog on figure checklist
+    * DoD: [notes](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Ashwin_De_Silva/Miscellaneous/Figure%20Checklist.md)
+
+
+
+
 
