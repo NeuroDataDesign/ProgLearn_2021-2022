@@ -173,3 +173,48 @@
 * bagging and random node optimization together produce a greater result
 * training set randomization leads to smoother posteriors whose optimal boundary doesn't coincide with max margin
 * bagging advantage is increased training speed 
+
+# Chapter 5
+* Regression forests are used for the non-linear regression of dependent variables given independent input
+* less popular than classification forests
+* need continuous labels
+## 5.1
+* linear regression is sensitive to input noise
+* There are a few different approaches that increase the robustness of linear regression
+## 5.2
+* regression task is
+  * given a labeled set of training data, learn a general mapping which associates previously unseen, independent test data points with their dependent,continuous output prediction
+* regression task is inductive like classification, but continuous
+* training points are a pair (x,y)
+* regression forests are collections of regression trees
+### 5.2.1
+* form of the prediction at leaves is dictated by prediciton model
+* regression forests can have various prediction models, for example
+  * polynomial function
+  * probability density function
+### 5.2.2
+* forest output is the average of the tree outputs
+### 5.2.3
+* randomized node optimization model is used
+* controlled by p = |Tj|
+### 5.2.4
+* forest training is achieved by optimizing an energy function defined over a training set S0 of data and associated continuous labels
+* continuous formulation of information gain
+* functional form of the differential entropy of a Gaussian density
+* produces a point estimate of y rather than a fully probabilistic output
+* using an information theoretic formulation allows us to view classification and regression forests as instances of the same, abstract forest model
+### 5.2.5
+* 3 types of weak learners
+  * axis-aligned hyperplanes
+  * oriented hyperplanes
+  * conic sections
+## 5.3.1
+* smoothness of the interpolating curve is controlled here by the forest size T
+## 5.3.2
+* a depth of 1 is linear regression
+* too deep a depth leads to overfitting
+## 5.3.3
+* smooth interpolating behavior of the mean prediction in contrast to the more jagged nature of the mode
+* uncertainty increases away from training data
+## 5.4
+* this chapter specialized the abstract forest for regression

@@ -47,4 +47,63 @@ SPORF addresses all above
 - GI computed in straightforward fashion cuz random projections sparse with only two discrete weightings of =/-1
 - sparse raandom proj's cheap to computer
 
-pg 5/6 section 3.2 training and hyper param tuning 
+section 3.2 training and hyper param tuning 
+- eaech algo uses 500 trees 
+- split objective is to max reduction of Gini impurity
+- trees fully grown, unpruned (nodes are split until pure)
+- *d*, number of candidate split direstions evaluated at each split node, is the first param tuned
+- SPORF and F-RC trained for d=p^2
+- second hyperparam *\lambda*, the average sparsity of univariate projections sampled at each split node
+
+**SPORF bridges the gap between RF and exisiting oblique methods**
+
+SPORF and other oblique forests are proposed to be "more consistent" than Brieman's original RF
+- results from their testing suggest that relaxing the constraint of axis-alignment of splits may allow oblique forests to be consisten across on a wider set of classification problems, also highlights why oblique forests are advantageous
+
+### Simulated datasets
+- perform variet of experiments on 3 simulated classifcation problems: **sparse parity**, **orthant**, and **trunk**
+- **sparse parity:** miltivaraite generalization of the noisy XOR problem
+- **orthant:** in R^p is a generalization of quadrant in R^2
+- **trunk:** balanced two class problem in which each class is distributed as a p-dimensional multivariate gaussian with identity covariance matrices
+
+SPORF performs as well or better than other algos on both sparse parity and orthant probs
+- only method of the four that performs well on all the simulated data settings
+
+SPORF is robust to hyperparameter selection
+
+SPORF learns important features
+- mean decrease of gini importance
+- computed during training with minimal additional computation
+- for a partifular feature, defined as the sum of the reduction in gini impurity over all splits of all trees made on that feature
+- sporf learns features that are more important than any of the observed features and those features are interpretable, as they are sparse linear combinations of the observed features
+
+![image](https://user-images.githubusercontent.com/89429238/136123938-bedefc89-832c-4b87-b264-8d477219f058.png)
+
+
+### Real empirical data performance
+sporf best overall classification performance on a large suite of benchmark datasets
+
+![image](https://user-images.githubusercontent.com/89429238/136123920-b22e8883-bc5a-490a-9121-4982d70cd62b.png)
+
+Identified default hyperparams: d = p, \lambda = 3/p
+
+SPORF is robust to high dimensional noise
+
+Time complexity similar to RF but can take longer if d > p
+
+Space complexity is the same as RF
+
+Storage complexity is similar to RF
+
+Comparison of training times:
+
+![image](https://user-images.githubusercontent.com/89429238/136125833-52cf15e2-aa1b-4542-a028-b310b1c8978d.png)
+
+Exectution time and scaling:
+
+![image](https://user-images.githubusercontent.com/89429238/136125874-7c96b8c0-19cc-4844-9f2f-302ae0ccd927.png)
+
+### Conclusion
+- one limitation of using sparse random projections to generate the candidate oblique splits is that it
+will never find informative splits in cases for which the signal is contained in a dense linear combination of features or nonlinear combinations of features
+- overall comp efficieint and scalable when compared to prev tree ensemble implementations
