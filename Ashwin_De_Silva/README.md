@@ -16,6 +16,9 @@ Hey! Welcome to my progress tracking folder. This includes the defintions of don
 ## Interesting Issues/ Directions to Work on!
 
 * Kernel Density Forests and Networks (In-Progress)
+    * Prepare the pseudocode for the KDN algorithm #9
+    * Use a CNN model for KDN and run experiments on CIFAR-100. #4
+    * Show the robustness of KDG against data contamination. #7
 * Task Agnostic Learning (not started yet)
 * Out-of-Distribution Learning (discussions with Jovo's collaborators)
 * Contributing to the Graph-Stats draft
