@@ -99,7 +99,7 @@ Hey! Welcome to my progress tracking folder. This includes the defintions of don
 
 * Refresh knowledge on computational complexity 
     * [notes](https://github.com/Laknath1996/ProgLearn_2021-2022/blob/main/Ashwin_De_Silva/Miscellaneous/Computational%20Complexity.pdf)
-* Work on Issue neurodata/kdg#4
+* Work on Issue neurodata/kdg#9
     * Pseudocode [LaTeX](https://github.com/Laknath1996/ProgLearn_2021-2022/blob/main/Ashwin_De_Silva/KDG%20Work/algorithms.tex) [pdf] (https://github.com/Laknath1996/ProgLearn_2021-2022/blob/main/Ashwin_De_Silva/KDG%20Work/algorithms.pdf)
 
 
