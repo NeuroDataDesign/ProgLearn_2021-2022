@@ -90,15 +90,43 @@
  - In both batch and streaming, ensembles tend to improve prediction accuracy and are often easy to parallelize
  - In streaming, they are easy to scale and can be made to adapt to change by pruning underperforming parts of the ensemble and adding new classifiers 
  - Ensemble methods include weighting/voting existing classifiers (weighted majority and stacking), creating ensebles by transforming the input distribution before giving it to a base algorithm (bagging and boosting), and methods that use Hoeffding Trees as the base classifiers.
- 
- 
- 
- 
- ### ADWIN bagging 
- - [New ensemble methods for evolving data streams](https://researchcommons.waikato.ac.nz/handle/10289/3982)
- - an extension of bagging that is able to create and replace ne classifiers when the data stream is evolving and the class label distribution is changing 
 
+### Bagging 
+- review: A base learning algorithm is used to infer M different models that are potentially different because they are trained with different bootstrap samples. Each sample is created by drawing random samples with replacement from the original training set. The resulting meta-model makes a prediction by taking the simple majority vote of the predictions of the M classifiers created in this way.
+- Online Bagging:
+ <img width="723" alt="Screen Shot 2021-10-13 at 12 43 41 PM" src="https://user-images.githubusercontent.com/85964755/137185493-e93582b4-05cc-46cd-81f2-1dda09b4f7c0.png">
+- A problem with the above approach is that it is not designed to react to changes in the stream, unless the base classifiers themseleves are highly adaptive
+- ADWIN bagging improves on Online Bagging
 
+ ### ADWIN (ADaptive sliding WINdow) bagging 
+- [New ensemble methods for evolving data streams](https://researchcommons.waikato.ac.nz/handle/10289/3982)
+- an extension of bagging that is able to create and replace new classifiers when the data stream is evolving and the class label distribution is changing 
+- uses M instances of ADWIN to monitor error rates of base classifiers, when one detects a change, the worst classifier in the ensemble is removed and a new classifier is added to it ("replace the loser")
+
+### Leveraging Bagging 
+- adding randomness to the input seems to improve performance because it increases diversity/variance of the base classifiers
+- additional randomness can be introduced 
+    - by sampling with distributions other than Poisson(1) Herbert K. H. Lee and Merlise A. Clyde. Lossless online Bayesian bagging. Journal of Machine Learning Research, 5:143–151, 2004.
+    - sub bagging (resampling without replacement) P.Buhlmann and B.Yu. Analyzing bagging. Annals of Statistics,30:927–961,2003.
+- Albert Bifet, Geoffrey Holmes, and Bernhard Pfahringer. Leveraging bagging for evolv- ing data streams. In Machine Learning and Knowledge Discovery in Databases, European Conference, ECML PKDD 2010, Barcelona, Spain, September 20–24, 2010, Proceedings, Part I, pages 135–150, 2010.
+### Boosting
+- boosting algorithms combine multiple base models trained with samples of the input to achieve lower classification error. Unlike bagging, the models are created sequentially rather than in parallel, with the construction of each new model depending on the performance of the previously constructed models. The intuitive idea of boosting is to give more weight to the examples misclassified by the current ensemble of classifiers, so that the next classifier in the sequence pays more attention to these examples.
+- seqeuntial nature makes boosting more difficiult than bagging to transfer to streaming
+- Online boosting (see refs below) updates ech model with a weight computed depending on the performance of the previous classifiers. 
+- Streaming setting favors bagging over boosting
+- Nikunj C. Oza and Stuart J. Russell. Experimental comparisons of online and batch ver- sions of bagging and boosting. In Proceedings of the Seventh ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (KDD 01), San Francisco, CA, USA, August 26–29, 2001, pages 359–364, 2001.
+- Nikunj C. Oza and Stuart J. Russell. Online bagging and boosting. In Proceedings of the Eighth International Workshop on Artificial Intelligence and Statistics, AISTATS 2001, Key West, Florida, US, January 4–7, 2001, 2001.
+- 
+
+## Ensembles of Hoeffding Trees
+### Hoeffding Option Trees 
+- HOT contains regular nodes that test one attribute and option nodes that apply no test and simply branch into several subtrees
+- when an instance reaches an option node, it continues descending through all its children, eventually reaching several leaves and the output of the tree is then determined by a vote among all the leaf nodes reached 
+- Option nodes are introduced when the splitting criterion of the Hoeffding Tree algorithm seems to value several attributes similarly after receiving a rea- sonable number of examples.
+
+### Random Forests 
+- Streaming implementations of random forests have not faired well against various bagging and boosting algorithms in streaming settings 
+- However, Adaptive Random Forests show promise (Gomes **Adaptive random forests for evolving data stream classification 2017**
 
 
 
