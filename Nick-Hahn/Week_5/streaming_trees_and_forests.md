@@ -83,8 +83,23 @@
  - [Adaptive hoeffding trees](https://www.cs.upc.edu/~gavalda/papers/ida2009slides.pdf)
  - an extension of the Hoeffding tree that is able to create and replace new branches when the data stream is evolving and the class label distribution or instance distribution is changing 
 
+# Notes continued (Week 6)
 
+[Machine Learning for Data Streams by Albert Bifet Chapter 7](https://direct.mit.edu/books/book/4475/Machine-Learning-for-Data-Streamswith-Practical)
  ## Ensembles 
+ - In both batch and streaming, ensembles tend to improve prediction accuracy and are often easy to parallelize
+ - In streaming, they are easy to scale and can be made to adapt to change by pruning underperforming parts of the ensemble and adding new classifiers 
+ - Ensemble methods include weighting/voting existing classifiers (weighted majority and stacking), creating ensebles by transforming the input distribution before giving it to a base algorithm (bagging and boosting), and methods that use Hoeffding Trees as the base classifiers.
+ 
+ 
+ 
+ 
  ### ADWIN bagging 
  - [New ensemble methods for evolving data streams](https://researchcommons.waikato.ac.nz/handle/10289/3982)
  - an extension of bagging that is able to create and replace ne classifiers when the data stream is evolving and the class label distribution is changing 
+
+
+
+
+
+
