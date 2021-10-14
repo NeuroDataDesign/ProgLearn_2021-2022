@@ -23,7 +23,6 @@
   - probability model used sparse coding (wavelet coding), stochastic context free grammars (SCFG) with descriptive models lke markov random fields and graphical models
 - objective 2 - scalable and recursive top-down/bottom-up computation
   - 
-- 
 
 # Deep Learning in Radiology: https://www.jacr.org/article/S1546-1440(17)30969-9/fulltext
 ## Introduction
