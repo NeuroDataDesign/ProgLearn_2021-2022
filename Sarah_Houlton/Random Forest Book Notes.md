@@ -218,3 +218,63 @@
 * uncertainty increases away from training data
 ## 5.4
 * this chapter specialized the abstract forest for regression
+
+# 6
+* given unlabeled data, estimate unobserved generative model
+## 6.1
+* Gaussian mixture model
+  * complex distributions can be approximated via a collection of simple gaussian components
+  * parameters are estimated via the Expectation Maximization algorithm
+* non-parametric density estimation techniques are kernel-based algorithms
+  * Parzen - Rosenblatt windows estimator
+## 6.2
+* each input data point is a multi-dimensional feature response vector
+* desired output is entire probability density function
+* density forest is a collection of randomly trained clustering trees
+* leaves contain simple prediction models like Gaussians
+### 6.2.1
+* train each individual tree in the forest independently
+* For a set of data points in feature space, the determinant of the covariance matrix is a function of the volume of the ellipsoid corresponding to that cluster
+* original dataset splits into compact clusters
+* centers of clusters tends to be placed in areas of high density
+### 6.2.2
+* In the case of axis-aligned weak learners it is possible to compute the partition
+function via the cumulative multivariate normal distribution function
+* the cumulative multivariate normal does not have a closed form solution
+### 6.2.3
+* forest density is given by the average of all tree densities
+### 6.2.4
+* input point v belongs deterministically to only one of its leaves
+* in a forest with T trees a point v belongs to T components
+* ensemble model induces a uniform mixing across different trees
+## 6.3
+### 6.3.1
+* deeper trees create further splits and smaller gaussians, overfitting 
+* deeper trees tend to fit the noise of the training data, rather than the underlying nature
+### 6.3.2
+* even if individual trees overfit, the addition of further trees tends to produce smoother densities
+### 6.3.3
+* parameter D can be used to compromise between the ouput smoothness and the ability to capture structural details
+## 6.4
+### 6.4.1
+* multiple trees increases smoothness
+### 6.4.2
+* use of randomness improves results
+* possible issues with EM getting stuck in local minima is not present in forest model
+### 6.4.3
+* GMM model has cost TxKxG, where T is number of random restarts, K is number of Gaussian components, and G is cost of evaluating v under each Gaussian
+* estimating p(v) under density forest w/ T trees of max depth D has cost
+  * T x (D x B + G)
+## 6.5
+* efficient sampling of random data under the learned model
+* drawing one random sample involves generating at most D random numbers from uniform distributions plus sampling a d- dimensional vector
+* slightly faster version is obtained by compounding all the probabilties associated with individual edges at different levels together
+### 6.5.1
+* cost of randomly drawing N smaples under forest model is N x (2J + K)
+* cost of drawing N smaples under random-restart GMM is identical
+* despite added richness, sampling complexity of a density forest is comparable to that of a GMM
+## 6.6 
+* reconstruction error decreases with the forest size
+* overall error starts increasing again after an optimal value of D
+## 6.7
+* forests can be used for density estimation
