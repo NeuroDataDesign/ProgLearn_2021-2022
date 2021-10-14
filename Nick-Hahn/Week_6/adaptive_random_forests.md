@@ -27,5 +27,14 @@ A data stream *S* presents, every *u* time units, new unlabeled instances *x^t* 
 ### ARF Algorithm
 <img width="650" alt="Screen Shot 2021-10-13 at 2 48 23 PM" src="https://user-images.githubusercontent.com/85964755/137202812-cc13494b-7e9a-42b7-ba87-9919a62f4f6b.png"><img width="650" alt="Screen Shot 2021-10-13 at 2 49 06 PM" src="https://user-images.githubusercontent.com/85964755/137202919-aa1e00fd-a218-4787-bbc9-f1ba41505f65.png">
 
+### ARF[M] vs ARF[S]
+- In ARF, training a tree with an instance includes updates to the underlying drift detector, incrementing its estimate test-then-train accuracy, and, if a warning is signalled, starting a new background tree which can all be executed independently for each tree / sepearate threads
+- ARF[M] is a parallel implementation and ARF[S] is a serial implementation 
+- ARF[M] is around 3times faster than ARF[S] and there is no loss in classification performance/results exactly the same
 
-### Conclusion
+### Experiments 
+- experiments evaluated in terms of memory, time and classification performance
+- ARF obtains good classification performance on both delayed and immediate settings, especially on real world data sets
+- ARF can be used to process data streams with a large number of features, such as SPAM data set with almost fourty thousand features, using a relatively small number of trees (in our experiments 100)
+- ARF can train its base trees in parallel without affecting its classification performance. This is an implementation concern, but it is useful to investigate and make it available along with the algorithm as scalability is often a concern
+- ARF might not be able to improve on data sets where all features are necessary to build a reasonable model.
