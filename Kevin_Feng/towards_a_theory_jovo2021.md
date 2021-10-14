@@ -41,3 +41,4 @@ Weak OOD learnablility
 
 ![image](https://user-images.githubusercontent.com/89429238/137251623-340fb484-66d4-4fe5-bbdb-045e6d119620.png)
 
+(pg10)
