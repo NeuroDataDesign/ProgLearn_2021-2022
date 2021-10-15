@@ -1,24 +1,73 @@
 \documentclass{article}
+\usepackage[a4paper, total={7in, 8in}]{geometry}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{bm}
+
 
 
 \begin{document}
 
 \begin{algorithm}
 \caption{Fit a Kernel Density Network to the Data}\label{alg:cap}
-\hspace*{\algorithmicindent} \textbf{Input:} $(X, y)  \in \mathbb{R}^{n \times d} \times \mathcal{Y}^K$ where $K = \{1, \dots, K \}$ \\
-\hspace*{\algorithmicindent} \textbf{Output:} 
+\hspace*{\algorithmicindent} \textbf{Input:} (1) $(\mathbf{X}, \mathbf{y})  \in \mathbb{R}^{n \times d} \times \mathcal{Y}^n$ where $\mathcal{Y} = \{1, \dots, K \}$ \\
+\hspace*{\algorithmicindent} \textbf{Output:} (1) Gaussian mixture means $\mu$ of each class, Gaussian mixture covariances, (2) $\Sigma$ of each class
 \begin{algorithmic}[1]
-\Procedure{fit}{$X, y$}
+\Function{fit}{$\mathbf{X}, \mathbf{y}$}
+    \State $\theta \gets$ NN.\Call{fit}{$\mathbf{X}, \mathbf{y}$} \Comment{$\theta = \{ \mathbf{W}_i, \mathbf{b}_i \}_{i=1}^{L}$ is the set of parameters of the NN with $L$ layers}
+    \State Let $\mu, \Sigma$ be $k$-length arrays
     \For{$k = 1, \dots, K$}
-        \State $X_k \gets $ rows of $X$ s.t. $y=k$
-        \State $\mathcal{P}_k \gets$ \Call{getPolytopes}{$X_k$}
+        \State Let $\mu_k, \Sigma_k$ be empty arrays
+        \State Let $\mathbf{X}_k \in \mathbb{R}^{n_k \times d}, (n_k < n)$ be the matrix of data samples with class label $k$
+        \State $\mathcal{P}_k \gets$ \Call{getPolytopes}{$\mathbf{X}_k$} \Comment{$\mathcal{P}_k = (\mathcal{P}_k^{(1)}, \mathcal{P}_k^{(2)}, \dots, \mathcal{P}_k^{(|\mathcal{P}_k|)}) $ contains the polytope IDs of class label $k$}
+        \For{$l = 1, \dots, |\mathcal{P}_k|$}
+            \State Let $\mathbf{X}_k^{(l)} \in \mathbb{R}^{n_l \times d}, (n_l < n_k)$ be the matrix of data samples with class label $k$ that belong to $\mathcal{P}_k^{(l)}$
+            \If{$n_l = 0$}
+                \State \textbf{continue}
+            \EndIf
+            \State $\mu_k^{(l)}, \Sigma_k^{(l)} \gets $ GM.\Call{fit}{$\mathbf{X}_k^{(l)}$} \Comment{fit a Gaussian Mixture over $\mathbf{X}_k^{(l)}$}
+            \State $\mu_k$.\Call{insert}{$\mu_k^{(l)}$}
+            \State $\Sigma_k$.\Call{insert}{$\Sigma_k^{(l)}$}
+        \EndFor
+        \State $\mu[k] \gets \mu_k$
+        \State $\Sigma[k] \gets \Sigma_k$
     \EndFor
-\EndProcedure
+    \State \textbf{return} $(\mu, \Sigma)$
+\EndFunction
 \end{algorithmic}
 \end{algorithm}
+
+
+\begin{algorithm}
+\caption{Inference using the Kernel Density Network}\label{alg:cap}
+\hspace*{\algorithmicindent} \textbf{Input:} (1) $(\mathbf{X}, \mathbf{y})  \in \mathbb{R}^{n \times d} \times \mathcal{Y}^n$ where $\mathcal{Y} = \{1, \dots, K \}$ \\
+\hspace*{\algorithmicindent} \textbf{Output:} (1) Gaussian mixture means $\mu$ of each class, Gaussian mixture covariances, (2) $\Sigma$ of each class
+\begin{algorithmic}[1]
+\Function{fit}{$\mathbf{X}, \mathbf{y}$}
+    \State $\theta \gets$ NN.\Call{fit}{$\mathbf{X}, \mathbf{y}$} \Comment{$\theta = \{ \mathbf{W}_i, \mathbf{b}_i \}_{i=1}^{L}$ is the set of parameters of the NN with $L$ layers}
+    \State Let $\mu, \Sigma$ be $k$-length arrays
+    \For{$k = 1, \dots, K$}
+        \State Let $\mu_k, \Sigma_k$ be empty arrays
+        \State Let $\mathbf{X}_k \in \mathbb{R}^{n_k \times d}, (n_k < n)$ be the matrix of data samples with class label $k$
+        \State $\mathcal{P}_k \gets$ \Call{getPolytopes}{$\mathbf{X}_k$} \Comment{$\mathcal{P}_k = (\mathcal{P}_k^{(1)}, \mathcal{P}_k^{(2)}, \dots, \mathcal{P}_k^{(|\mathcal{P}_k|)}) $ contains the polytope IDs of class label $k$}
+        \For{$l = 1, \dots, |\mathcal{P}_k|$}
+            \State Let $\mathbf{X}_k^{(l)} \in \mathbb{R}^{n_l \times d}, (n_l < n_k)$ be the matrix of data samples with class label $k$ that belong to $\mathcal{P}_k^{(l)}$
+            \If{$n_l = 0$}
+                \State \textbf{continue}
+            \EndIf
+            \State $\mu_k^{(l)}, \Sigma_k^{(l)} \gets $ GM.\Call{fit}{$\mathbf{X}_k^{(l)}$} \Comment{fit a Gaussian Mixture over $\mathbf{X}_k^{(l)}$}
+            \State $\mu_k$.\Call{insert}{$\mu_k^{(l)}$}
+            \State $\Sigma_k$.\Call{insert}{$\Sigma_k^{(l)}$}
+        \EndFor
+        \State $\mu[k] \gets \mu_k$
+        \State $\Sigma[k] \gets \Sigma_k$
+    \EndFor
+    \State \textbf{return} $(\mu, \Sigma)$
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
 
 \end{document}
