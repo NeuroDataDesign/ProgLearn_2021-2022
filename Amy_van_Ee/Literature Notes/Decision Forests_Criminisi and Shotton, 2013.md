@@ -187,3 +187,21 @@ Criminisi and Shotton, 2013.
         - Ferns are much faster, but SIFT does not require training which can be advantageous
 - Discussion
     - Compared to averaging probabilities like in random forests, ferns that use Naïve-Bayesian combination of classifiers perform better
+
+**Chapter 10: Extremely Randomized Trees and Random Subwindows for Image Classification, Annotation, and Retrieval**
+- Random Subwindow-Based Image Analysis
+    - Training Stage
+    - Prediction Stage
+    - Discussion
+        - Subwindows Extraction
+        - Subwindows Transformation
+        - Feature Extraction
+- Extremely Randomized Trees
+    - Extremely and Totally Randomized Trees
+    - Multiple Output Trees
+    - Kernel View of Tree-Based Ensembles
+- Applications
+    - Content-Based Image Retrieval
+    - Image Classification
+    - Interest Point Detection
+    - Image Segmentation
