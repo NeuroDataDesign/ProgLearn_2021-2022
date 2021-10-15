@@ -190,18 +190,40 @@ Criminisi and Shotton, 2013.
 
 **Chapter 10: Extremely Randomized Trees and Random Subwindows for Image Classification, Annotation, and Retrieval**
 - Random Subwindow-Based Image Analysis
+    - goal is to, from a training set of images, each with output, make a function from space of images to space of labels to predict possible output label for any new image 
     - Training Stage
+        - There are 5 main steps
+            - extract randomly many possible overlapping subwindows within training images
+            - apply several image transformations/normalizations to render subwindow model invarient to variations
+            - extract features from each subwindow
+            - associate each subwindow with an output, derived from output of its parent image
+            - apply to training sample to get prediction model
     - Prediction Stage
+        - also consists of many steps
+            - extract subwindows and perform transformation and then extract features
+            - get an output prediction for each subwindow, yielding a per-subwindow output computation
+            - aggregate all predictions over all subwindows of a test image to get a final prediction for that test image
     - Discussion
         - Subwindows Extraction
+            - this helps to reduce the dimensionality
         - Subwindows Transformation
+            - this helps introduce robustness and less variance into the model
         - Feature Extraction
+            - there are many advantages to using raw pixels af features, including that the representation is fast to compute
 - Extremely Randomized Trees
     - Extremely and Totally Randomized Trees
+        - extremely randomized trees have even more randomness when splitting decision tree nodes
     - Multiple Output Trees
+        - many outputs can be predicted at once by building on basic classification and regression models
     - Kernel View of Tree-Based Ensembles
+        - a similarity metric between input feature vectors can be designed
 - Applications
+    - Applications of this method are below
     - Content-Based Image Retrieval
+        - this focuses on getting a ranked list of images based on their content      
     - Image Classification
+        - this involves building a model that can predict the classes of images
     - Interest Point Detection
+        - this invovles training a model to predict points of interest in images, such as the location of a tumor
     - Image Segmentation
+        - this involves a model that can predict the label of each pixel (as belonging to a specific object)
