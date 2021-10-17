@@ -7,3 +7,4 @@
 - **life_long_learning_paper_annod_kf.pdf**: notes/annotations on lifelonglearning [paper](https://arxiv.org/pdf/2004.12908.pdf)
 - **plot_unveil_tree_structure.ipynb**: understanding the decision tree structure [tutorial](https://scikit-learn.org/stable/auto_examples/tree/plot_unveil_tree_structure.html)
 - **proglearn_tutorials_notes.md**: notes on proglearn tutorials
+- **towards_a_theory_jovo2021.md**: notes on Towards a theory of out-of-distribution learning [paper](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=DWPfdT4AAAAJ&sortby=pubdate&citation_for_view=DWPfdT4AAAAJ:Jxw8hHINxX0C)
