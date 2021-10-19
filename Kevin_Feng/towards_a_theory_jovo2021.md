@@ -41,4 +41,41 @@ Weak OOD learnablility
 
 ![image](https://user-images.githubusercontent.com/89429238/137251623-340fb484-66d4-4fe5-bbdb-045e6d119620.png)
 
-(pg10)
+Strong OOD learnability 
+
+![image](https://user-images.githubusercontent.com/89429238/137827290-590228bf-4fe3-4f29-b2be-9d50494cbb73.png)
+
+- definition of learning: f (the learner) learns from S_n (the dataset) on task *t* when R_XY(hhat_n) (risk) improves which is definition of weak OOD learnability above
+
+### 4 Theoretical Results
+for task *t*, if we have strong ood learned at target sample size n, then we have weakly ood learned at target sample size n (strong impolies weak)
+- strongly ood learned means that we can get arbitrarily to optimal performance with arbitrarily high probability 
+- weak ood learn means to perform better than base performance R_XY(hhat_n) with arbitrarily high probability
+- peroforming arbitrarily well implies performing better than base
+
+Strong implies non-uniform. for task t, if we have strongly ood learned at sample size n, then we non-uniformly ood learned at sample size n
+- non-uniformly ood learn: we can get arb close to optimal performance with arb high probability for all distributions in the task model given a certain number of data points that depends on the distribution
+
+Positive transfer is weaker than ood learning. for arb task t, if f weakly ood learnd from S^B, then f also positvely transfers from S^B. however converse is not always true. -> class of pos transfer learning problems bigger than class of weakly ood learning problems
+
+Weak ood meta learner: exists tasks t suc hthat with zero data sampled from the eval distribution of that task, f can weakly ood learn, but f does not strongly ood learn
+- implies that class of weakly ood learning problems is smaller than class of strongly ood learning problems
+
+Weak meta-learning does not imply non-uniform meta-learning. There are tasks t for which weak ood meta-learning does not imply non-uniform ood meta-learing
+
+### 5 
+learning efficiency for in-distribution learning 
+- we say f learns in this task if log LE > 0
+
+![image](https://user-images.githubusercontent.com/89429238/137832428-4a8a19d8-6ad8-4fad-b6dd-11e69d26722f.png)
+
+Transfer learning is arguably the simplest OOD learning scenario with one udnerlying task t along with an explicit set of J datasets {S^1,...,S^j}
+- S^1 data associated with task t often called target data
+- S^2-S6J sometimes called side info or source data, avail to assist in learning and producing a better hypothesis
+
+Learning Efficiency for transfer learning
+- We say that f transfer learns in this supertask if log LE > 0 
+
+![image](https://user-images.githubusercontent.com/89429238/137833732-5cd12291-9de8-469d-b4d2-5973dd629251.png)
+
+- identical to previous, transfer learning is a generalization of in-distribution learning 
