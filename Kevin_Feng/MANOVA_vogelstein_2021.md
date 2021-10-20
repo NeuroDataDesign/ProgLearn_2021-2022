@@ -38,3 +38,13 @@
 
 ![image](https://user-images.githubusercontent.com/89429238/138187781-9d7b6e42-0812-46cd-9d1a-6241ead3625b.png)
 
+![image](https://user-images.githubusercontent.com/89429238/138188308-7e8d9c9b-2f67-4a35-9d5e-95b5d1e1184a.png)
+
+![image](https://user-images.githubusercontent.com/89429238/138188327-04934427-794e-40bc-8a8f-05ea87403a4d.png)
+
+![image](https://user-images.githubusercontent.com/89429238/138188346-00626e0c-228a-421c-b89d-b4df99fb6d37.png)
+
+## Conclusion
+- k-sample tests goated
+- k sample testing can run multiway and multileve tests to real data too large for MANOVA
+- procedure doesnt add any additional comp complexity to algos
