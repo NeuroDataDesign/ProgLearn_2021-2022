@@ -79,3 +79,59 @@ Learning Efficiency for transfer learning
 ![image](https://user-images.githubusercontent.com/89429238/137833732-5cd12291-9de8-469d-b4d2-5973dd629251.png)
 
 - identical to previous, transfer learning is a generalization of in-distribution learning 
+
+Learning efficiency for multitask learning:
+
+![image](https://user-images.githubusercontent.com/89429238/138001485-82fa1e1a-7405-4282-8478-db6494ba6f22.png)
+
+- to quant learning across tasks: intro non-neg weights per task, *w* = (w_1, w_2, ...) where sum(w_t) = 1
+
+Multitask learning 
+
+![image](https://user-images.githubusercontent.com/89429238/138002338-e6232bf5-a868-47ee-b05e-409fd3c2905d.png)
+
+- weights important cuz we may have multiple tasks but only be interested in the transfer to one task
+
+Meta-learning: learning to learn
+- goal is to see if having multiple datasets improves eff on task t and compared to just having one new dataset
+
+![image](https://user-images.githubusercontent.com/89429238/138002800-5fe5caf1-08db-4bc4-9ef8-476dfdc76f76.png)
+
+- if environment T=T_k then meta-learning = multitask learning, meaning meta-learning is a generalization of multitask learning
+- key diff is meta-learning has unobserved tasks, whereas in multitask learner as a prior access to all tasks
+- weak meta-learing like weak multitask learning, corresponds to setting where log of avg learning efficiencies is pos
+- strong meta-learning like strong multitask learning, corresponds to setting where log of each learning efficiency is pos, f pos transfers for each task in the environment
+
+Continual learning 
+- anything about a task can change in any moment
+- must have computational upper bound of o(n) space and/or O(n^2) time, in practice be far more efficient
+
+Given task of interest t, S^<t = set of data points up to and including the last data point from task t
+LE for FT 
+
+![image](https://user-images.githubusercontent.com/89429238/138005658-18533e92-9115-44d6-9129-0bbddb3082a2.png)
+
+LE for BT
+
+![image](https://user-images.githubusercontent.com/89429238/138005680-c6186b51-dec3-41c1-9d17-e9598dbb2ea9.png)
+
+Multiplying both above gives LE for that task 
+
+![image](https://user-images.githubusercontent.com/89429238/138005721-0c32d5df-74a2-4b4a-bae7-338025b0abb1.png)
+
+So,
+
+![image](https://user-images.githubusercontent.com/89429238/138005778-c03fdbb0-e11b-4925-9bf1-541ba4a6a3f3.png)
+
+Lifelong Learning
+- lifelong learning differs from continual learning because in lifelong learning the weights of each task may change over time (more like biological learning, ie frog doesnt need to know how to swim as tadpole so that task weight becomes 0)
+- lifelong learning comp contraints can change over lifetime 
+- should also be able to re-allocate resources to ensure it doesn't forget crucial skills (ie how to breath)
+
+![image](https://user-images.githubusercontent.com/89429238/138006297-a0455e27-8309-4b3a-b9a8-53adabe4eab3.png)
+
+### 6 Discussion
+- introduced learning efficiency: ask whether something has learned = whether something has log pos LE
+- LE also provides measure to quantify how much a given learner has learned
+- we can use learning curves to compare performances of different learners: LE as a function of sample size n
+- 
