@@ -26,3 +26,4 @@
   - e.g. are there an equal number of large things and metal spheres?
   - e.g. what size is the cylinder that is left of the brown metal thing that is left of the big sphere?
 - questions are represented as natural language and functional program
+- code to generate the dataset: https://github.com/facebookresearch/clevr-dataset-gen
