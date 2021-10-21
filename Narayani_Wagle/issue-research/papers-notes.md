@@ -25,4 +25,12 @@
   - 
 
 # Deep Learning in Radiology: https://www.jacr.org/article/S1546-1440(17)30969-9/fulltext
-## Introduction
+- weak supervision - bounding box instead of pixel level label, doesn't work well for deep networks
+- weak supervision not great for medical applications
+- goal: reduce radiologist error, diagnose changes in pancreas to signal cancer
+- step 1 - annotate images 
+- step 2 - train on normal CT scans to identify normal pancreas
+- step 3 - train on abnormal pancreas to identify variety of abnormalities
+- annotations include segmentation of pancreas, adjacent organs, and vessels
+- 800 cases annotated
+- velocity is software used for annotation
