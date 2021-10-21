@@ -82,7 +82,7 @@ Hey! Welcome to my progress tracking folder. This includes the defintions of don
     * Understanding the KDN code (jointly with Tiffany, Jacob, and Seth)
 * Read the GTL/ OOD paper
 
-### Week of 2021-9-27 
+### Week of 2021-10-4 
 
 * Weekly Work on KDG:
     * Understood the KDN Code
@@ -109,6 +109,17 @@ Hey! Welcome to my progress tracking folder. This includes the defintions of don
     * Experiment with all FC layers vs. Penultimate layer activation patterns (when computing polytope membership) [Done]
 * Read about kernel density estimation and parameter estimation
 * Read the GTL/OOD paper
+
+### Week of 2021-10-18
+
+* Read the Deep Boltzmann Machines paper
+* Read about ensemble methods
+* Work on weighted KDNs
+    * Understand the weighting schemes
+    * Implement the TM, FM, and LL weighting schemes for KDN/ KDCNN
+    * Write scripts to plot distance vs. weights (for GSP)
+* Work on KDCNNs
+    * Test the KDCNN for TM and FM weighting schemes
 
 
 
