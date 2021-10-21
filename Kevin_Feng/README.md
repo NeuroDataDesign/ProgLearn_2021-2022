@@ -1,5 +1,6 @@
 # This folder is for tracking Kevin Feng's progress in NDD 21-22:
 - **Breiman_2001_notes.md:** notes on Brieman Random Forest [paper](https://link.springer.com/content/pdf/10.1023/A:1010933404324.pdf)
+- **MANOVA_vogelstein_2021.md:** notes on [Vogelstein etal. 2021](https://arxiv.org/pdf/1910.08883.pdf)
 - **SPORF_notes.md:** notes on SPORF [paper](https://arxiv.org/pdf/1506.03410.pdf)
 - **meeting_notes**: md files of notes taken during NDD class meetings
 - **understanding_desicision_trees**: folder containing notes on this [article](https://medium.com/@valentin.jean.richer/understanding-decision-trees-once-and-for-all-2d891b1be579?source=friends_link&sk=451fa478c53f2b288aec0d46eb83d90d) with accompanying code
