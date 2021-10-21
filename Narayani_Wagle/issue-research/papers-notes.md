@@ -22,7 +22,15 @@
   - object category is defined as the set of all valid configs that are produced by grammar with its probability learned to reproduce the natural freq of instances occurring in the observed ensemble
   - probability model used sparse coding (wavelet coding), stochastic context free grammars (SCFG) with descriptive models lke markov random fields and graphical models
 - objective 2 - scalable and recursive top-down/bottom-up computation
-  - xyz
+- objective 3 - small sample learning and generalization
+  - and-or graphs have recursive structures with 2 types of nodes
+  - e.g. or node represents car object and child nodes augment to new view
+  - rectangular surface project onto image plane
+  - grammar rules represent organizations like alignments of rectangles
+  - image parsing task takes an image and make a most probable parse graph 
+  - bottom-up detecting and binding
+  - top-down on line template composition and matching
+- x
 
 # Deep Learning in Radiology: https://www.jacr.org/article/S1546-1440(17)30969-9/fulltext
 *One of the paper's with Dr. Yuille and Jovo's dad, not sure if this was among the correct ones but it summarizes how segmentation tasks are prepared prior to model work.*
