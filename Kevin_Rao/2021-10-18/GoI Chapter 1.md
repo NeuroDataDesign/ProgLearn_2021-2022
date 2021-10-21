@@ -1,0 +1,57 @@
+ # Introduction
+ - Problems in Image Segmentation
+  - Large amount of information in images to potentially extract
+  - Large computational complexity to extract this information which is difficult to scale for generalization
+  - "Semantic gap" between pixels and symbolic token representation
+- Paper objectives
+  - Common framework for visual knowledge representation and object categorization
+    - Grammar to provide hierarchy and structure
+    - And-Or graph representation where each Or-node points to a subconfiguration and an And-node decomposed into a number of components
+    - Probabilistic model for And-Or graph with maximum likelihood
+    - Object categorization problem.
+      - Object cattegory is the set of all possible valid configuration produced by a grammar and its associated learned probability
+      - Probability integrates with popular generative models
+  - Scalable recrusive top-down/bottom-up computation
+    - And-Or graph has recrusive structures making it easily scalable
+    - Grammar rules represents rules of geometry organization
+  - Small sample learning and generalization
+  - Mapping the visual vocabulary to fill semantic gaps
+    - Visual dictionaries
+      - Organized through graph composition (can form larger structures)
+      - Distinct from other sensors
+- Image Grammar
+  - Representational Concepts and Data Structures
+    - And-Or graph
+      - And-Nodes
+        - Decomposition of an entity
+        - Horizontal links between children of an And-node to represent relations and contraints
+      - Or-nodes
+        - Act as switches for alternative sub-structures
+      - Terminal-nodes
+    - Parse graph
+      - Hierarchic generative interpretation of an image created from a parse tree
+      - Derived from And-Or graph by selecting switches or classification labels at Or-Nodes
+    - Configuration
+      - Planar attribute graph formed linking open bonds of primitives in image plane
+      - Markov network with
+      - Mixed random field extends Markvo random field models
+    - Visual vocabulary 
+      - Terminal nodes can appear at all levels of an And-Or graph
+      - Terminal nodes take instances from a certain set called a dictionary
+    - Language
+      - Set of all possible configurations produced by the grammar
+- How to build the grammar and where is the dataset?
+  - Collecting data more challenging than learning
+  - Unsupervised learning less practical than structured compositional models
+    - Visual learning guided by objectives instead of statistical information
+    - Unsupervised trainers need to select data carefully for contrast
+  - Learn image semi-automatically
+    - Start with supervised learning with annotated images and object to produce parse graph
+    - Construct And-Or graph for object and scene categories and learn probability model of And-Or graph (guided by minimax entropy and maximum likelihood)
+      1. Learn probability at Or-nodes to get co-occurance frequency
+      2. Learn and pursue Markov models on horizontal links to account for spatial relations
+      Learn And-Or graph structures and dictionaries with terminal nodes learned through clustering
+  - Schocastic context-sensitive grammar combines reconfigurability of SCFG with constraints of graphical models
+    - Compositional power for intra-class variation by being able to generate large number of configurations
+    - Recursive structures for scalable computing
+    - Small sample for effective learning

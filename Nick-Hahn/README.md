@@ -20,4 +20,10 @@
   - Potential Issues: [Issues](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_4/potential_issues.md), [Q Learning Annotated Paper](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_4/qlearning.pdf)
 - Week 5: October 7, 2021
   - Notes: [Streaming Decision Trees & Forests](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_5/streaming_trees_and_forests.md)
-  - [Mining High Speed Data Streams](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_5/highspeeddatastreams.pdf)
+  - Notes: [Mining High Speed Data Streams](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_5/highspeeddatastreams.pdf)
+- Week 6: October 14, 2021
+  - Notes: [Machine Learning for Data Streams: Ensemble Methods (continued)](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_5/streaming_trees_and_forests.md)
+  - Notes: [Adaptive Random Forests](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_6/adaptive_random_forests.md)
+- Week 7: October 21, 2021
+  - [Streaming Decision Trees & Forests preprint](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_7/SDTF.pdf)
+  - [XOR, RXOR, XOR experiment notes](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_7/experiment_notes.md)

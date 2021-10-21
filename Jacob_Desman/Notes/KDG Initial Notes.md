@@ -1,0 +1,101 @@
+# KDG Initial Notes
+Created: 2021-09-27, 10:00
+
+Edited: 2021-09-27
+
+**Tags**: #ndd
+
+**References:** 
+
+## Notes
+- Use some prior model to fit data into kernel based bins
+- Concept of the kernel
+	- Replace each bin of the histogram with a normal distribution. How likely a piece of data is to fit into a bin
+	- Precisely: kernel is a dome shaped function. If you get an input a certain point, the output should be higher. But if you move away, ti decreaes
+		- Ex. Gaussian. Value at mean is maximum, but after you go further from the mean, it decreases. 
+- Kernel density estimation is something like a convolutino
+	- Give a discrete point from distribution --> ask to estimate the distribution
+	- If you convolve the distribution with Gaussian, you smooth it --> also becomes continuous
+- Consider a 2D feature space --> if you convolve with Gaussian, it becomes smoother
+	- You get a summation of Gaussians. Shift multiply and add
+	- You get a point for every region in your 2D feature space
+- Kernel density estimators already exist in the literature
+	- Convolving function can be anything, but is must be a kernel. At some point, it should be maximum, and as you go further away, the value of the function should decrease.
+	- Filtering
+	- You **assume** that the points are more likely to be around the sampled data. We sampled the points, so you are most likely to observe them (**Maximum Liklihood Estimation**)
+		- We want to maximize the probability of estimating the points we have observed
+		- We assume the points are the maximum likely points
+- Normal Kernel Density estimator is a consistent estimator
+	- If you give infinite sample points, you will get the distribution very correct
+	- If the value of the dstribution is higher, you will get more points. Vice versa for lower values --> fewer points. 
+	- **More points of higher probability increase their contribution to a sum**
+- In a broad sense, Random Forests are a kernel density estimator
+	- Random forest is just a summation of polytopes
+- **Problem with approach in random forest**: at the decision boundary, the confidence in our prediction drops, essentially
+	- At the center of that box, the likelihood should be maximal. Decrease towards the edge. Perfectly a kernel
+- Back to kernel density estimator
+	- Get a bunch of points, convolve with Gaussian kernel. 
+	- We can use variable bandwith Gaussians rather than constants, as we convolve the points. 
+		- **Question: how do determine?**
+		- Variable kernel density estimator
+- Again, Kernel density estimator is **consistent**
+- The goal is to perform better have little sample size
+- For each tree in forest, different approach.
+	- Suppose you have a forest with 10 trees. Each tree gives you some boxes with samples within boxes. 
+	- We can fit a Gaussian in each box (maybe using MLE). 
+	- If you do that for all boxes over all trees, you can a GMM
+	- The problem: number of boxes increases really fast
+		- If you use 500 trees, you use like millions of Gaussians --> **you need to store the entire covariance matrix**
+		- **Advantage:** you can throw away the structure after you've learned it. You can just throw a point into a Gaussian
+- The goal is to make well calibrated posteriors
+	- You don't want to be overconfident, especially if you start getting away from the convex hull of the data
+	- The main goal is to give lower likelihood as you move away from the data
+	- Sharp discontinuities --> the algorithm is bad because we're fitting Gaussians
+		- The assumption is that you're decision is smooth --> sharp changes are bad due to the kernel
+- **So far:** They want to reduce the number of Gaussians
+	- They want to throw away the model and operate only on the Gaussians
+- **One more benefit**: in proglearn, we have to save previous task data
+	- If we have a Gaussian Mixture, we can sample from that --> it is a generative model 
+	- You get both a **representer and generative model**. You can recruit Gaussians that are more likely to perform similarly, and might get better transfer
+	- Has to do with replay, we need to keep that day
+- Comparision:
+	- Each neuron in the brain has a tuning curve --> input, can get certain output. 
+	- Each neuron likes and dislikes certain inputs (response decay vs. firing)
+	- Also helps to do this in an **unsupervised way**. You can feed the Gaussians only on X
+- Trying to make better:
+	- Gets more complicated when they try to reduce Gaussians
+	- First
+		- When you combine trees, their union/intersection gives a new set of polytopes. 
+			- Get overlap, or seperate, or none at all
+			- More polytopes, points inside poytopes become harder to estimate Gaussian
+	- Second (now)
+		- For now, at each point, fits a Gaussian.
+		- You cannot fit a Gaussian on a single point
+		- You need a bunch of points to fit a Gaussian
+		- Consider two trees: 2 samples, push 2 samples through those two trees. They will end up at the leaves. 
+			- Looking at one tree, push through tree. Ends up at leaves. If in the same leaf, they are a group. 
+			- At each point, you see what are the other points that share the same leaf --> **use the tree to cluster**
+			- Fit a Gaussian to the clusters
+			- But whenever they do this on OpenML dataset, it doesn't perform that well compared to Random Forest. Basically, there must be something they are doing wrong.
+		- Started doing simulations for higher dimensions (since they are tricky)
+			- Things are easy in lower dimensions, more difficult in higher dimensions
+			- Go through SPORF paper: itll show the popular high dimensional simulations
+		- They weighted all the samples by the fraction of leaves they share
+			- It gives a better estimate
+		- There are some samples that share every leaf with the current one
+- Kernel Density Network
+	- Works better than neural networks!
+	- We are using a model to cluster the data
+		- In a neural network, consider a FC network. At one layer, can excite many points in many layers (rather than a RF)
+	- If they share the same set of activated nodes, consider them an activated group
+		- Basically draw a map of the activated notes, trace
+		- Two points, if they share same activation path, they are a group. Then fit a Gaussian to those points!!!
+	- This is a big improvement
+	- Now you don't need the structure anymore, you just get the voter, representer, and the decider!!!
+	- You are learning the representer on one data set, and you learn the voter on a holdout data set. --> reduce the bias, better calibration. But now they don't need to use the whole dataset. It gives a better estimate of structure since you dont need to hold out data
+- We can locally install the repo and make branches out of the main
+	- One thing: see how it performs on other data
+- Two source files
+	- kdf and kdn
+	- helper functions in utils
+	- 2 or 3 hours

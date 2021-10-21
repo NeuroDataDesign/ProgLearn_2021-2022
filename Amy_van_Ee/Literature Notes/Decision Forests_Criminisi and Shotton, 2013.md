@@ -158,3 +158,72 @@ Criminisi and Shotton, 2013.
 - Examples, Model Parameters
     - Compared to transductive SVMs, the forest captures more uncertainty, with more noise in the input translating to lower prediction confidence
     - Increasing tree depth results in more accurate and confident output
+
+**Chapter 9: Keypoint Recognition Using Random Forests and Random Ferns**
+- Introduction
+    - Goal is to move much of computational burden to training phase so run-time detection fast and reliable
+    - method: match interest points taken from tarining images with interest points taken from input images acquired at run-time
+        - match interest points by make affine-invariant desriptors of image patches surrounding the points, compare across many images
+- Wide-Baseline Point Matching as a Classification Problem
+    -   Method is to match keypoints in an input image to those in a target object
+- Keypoint Recognition with Classification Forests
+    - Random Classification Forests
+        - A negative side to using classification forests is their greedy use of memory, with memory size increasing exponentially with depth and linearly with number of trees
+    - Node Tests
+        - A simple binary test is performed between two pixel intensities at two points adjacent to the keypoint 
+    - Building the Tree
+        - Many trees are used to increase the rate of recognition
+        - Instead of top-down construction of trees, they will be made by randomly picking a set, and this results in a faster and simpler method
+- Keypoint Recognition with Random Ferns
+    - Random Ferns
+        - The approach is powerful because groups of binary tests are combined thereby improving classification rates, not based on a feature of the tree structure itself
+    - Training the Ferns
+        - This involves estimating the class conditional probabilities for each fern and class
+- Comparing Random Forests, Random Ferns, and SIFT
+    - Empirical Comparisons of Trees and Ferns
+        - To convert a tree into a fern, the tree must perform the same test across a hierarchy level (so same test independent of path chosen), and the hierarchy structure is removed to just have feature values at each level 
+        - Ferns are essentially simplified trees
+    - Empirical Comparisons Between SIFT and Ferns
+        - Ferns are much faster, but SIFT does not require training which can be advantageous
+- Discussion
+    - Compared to averaging probabilities like in random forests, ferns that use Naïve-Bayesian combination of classifiers perform better
+
+**Chapter 10: Extremely Randomized Trees and Random Subwindows for Image Classification, Annotation, and Retrieval**
+- Random Subwindow-Based Image Analysis
+    - goal is to, from a training set of images, each with output, make a function from space of images to space of labels to predict possible output label for any new image 
+    - Training Stage
+        - There are 5 main steps
+            - extract randomly many possible overlapping subwindows within training images
+            - apply several image transformations/normalizations to render subwindow model invarient to variations
+            - extract features from each subwindow
+            - associate each subwindow with an output, derived from output of its parent image
+            - apply to training sample to get prediction model
+    - Prediction Stage
+        - also consists of many steps
+            - extract subwindows and perform transformation and then extract features
+            - get an output prediction for each subwindow, yielding a per-subwindow output computation
+            - aggregate all predictions over all subwindows of a test image to get a final prediction for that test image
+    - Discussion
+        - Subwindows Extraction
+            - this helps to reduce the dimensionality
+        - Subwindows Transformation
+            - this helps introduce robustness and less variance into the model
+        - Feature Extraction
+            - there are many advantages to using raw pixels af features, including that the representation is fast to compute
+- Extremely Randomized Trees
+    - Extremely and Totally Randomized Trees
+        - extremely randomized trees have even more randomness when splitting decision tree nodes
+    - Multiple Output Trees
+        - many outputs can be predicted at once by building on basic classification and regression models
+    - Kernel View of Tree-Based Ensembles
+        - a similarity metric between input feature vectors can be designed
+- Applications
+    - Applications of this method are below
+    - Content-Based Image Retrieval
+        - this focuses on getting a ranked list of images based on their content      
+    - Image Classification
+        - this involves building a model that can predict the classes of images
+    - Interest Point Detection
+        - this invovles training a model to predict points of interest in images, such as the location of a tumor
+    - Image Segmentation
+        - this involves a model that can predict the label of each pixel (as belonging to a specific object)
