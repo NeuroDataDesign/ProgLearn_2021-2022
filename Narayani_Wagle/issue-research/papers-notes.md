@@ -22,9 +22,10 @@
   - object category is defined as the set of all valid configs that are produced by grammar with its probability learned to reproduce the natural freq of instances occurring in the observed ensemble
   - probability model used sparse coding (wavelet coding), stochastic context free grammars (SCFG) with descriptive models lke markov random fields and graphical models
 - objective 2 - scalable and recursive top-down/bottom-up computation
-  - 
+  - xyz
 
 # Deep Learning in Radiology: https://www.jacr.org/article/S1546-1440(17)30969-9/fulltext
+*One of the paper's with Dr. Yuille and Jovo's dad, not sure if this was among the correct ones but it summarizes how segmentation tasks are prepared prior to model work.*
 - weak supervision - bounding box instead of pixel level label, doesn't work well for deep networks
 - weak supervision not great for medical applications
 - goal: reduce radiologist error, diagnose changes in pancreas to signal cancer
