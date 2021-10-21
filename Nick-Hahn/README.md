@@ -24,3 +24,6 @@
 - Week 6: October 14, 2021
   - Notes: [Machine Learning for Data Streams: Ensemble Methods (continued)](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_5/streaming_trees_and_forests.md)
   - Notes: [Adaptive Random Forests](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_6/adaptive_random_forests.md)
+- Week 7: October 21, 2021
+  - [Streaming Decision Trees & Forests preprint](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_7/SDTF.pdf)
+  - [XOR, RXOR, XOR experiment notes](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_7/experiment_notes.md)
