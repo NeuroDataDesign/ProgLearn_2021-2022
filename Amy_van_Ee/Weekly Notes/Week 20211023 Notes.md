@@ -1,4 +1,4 @@
-#Weekly Notes: 2021-10-25
+# Weekly Notes: 2021-10-25
 
 **Group Meeting (2021-10-23)**
 - Split up tasks
