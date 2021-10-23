@@ -4,6 +4,8 @@ The datasets below were recommended by Jovo to become familiar with so we can te
 
 - Challenges
   - https://www.image-net.org/challenges/LSVRC/index.php
+- Specifically will look at ADE20K
+  - http://groups.csail.mit.edu/vision/datasets/ADE20K/
 
 # CLEVR
 (Compositional Language and Elementary Visual Reasoning)
