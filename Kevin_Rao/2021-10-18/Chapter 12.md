@@ -1,0 +1,40 @@
+# Hough-Based Tracking of Deformable Objects
+- Online learning for object tracking
+  - Alternation between object detection and online learning, iterative predictions update the classifier
+  - Requires only initial bounding box containing object of interest
+  - Templatae update problem
+    - Distinguish between allowed and invalid transformations
+  - Approaches limited by bounding bounding box representation
+  - Part-based representation require large amount of labeling data which is a problem for tracking unknown objects
+  - Avidian uses pixel-wise classification and mean-shift to find object positioning and uses a rejection scheme for pixels too hard to classify to overcome bounding box problem
+  - Grabner overcomes drifting by only labeling very first frame as a semi-supervised learning problem
+- Online Hough Ferns
+  - Given an image patch of size $n \times n$, $\mathbf{v}$, each node $j$ splits training samples $\mathcal{S}_j$ into two subsets by the splitting function $h(\mathbf{v}, \boldsymbol\theta_j)$.
+  - Splitting is performed recursively until subsets are of the same class or maximum tree depth reached.
+  - Internal consistency measured by Gini or entropy and splitting functions optimize for information gain.
+  - Splitting function defined $$h(\mathbf{v}, \boldsymbol\theta) = \left[ \boldsymbol\phi(\mathbf{v}) \cdot \boldsymbol\psi > \tau \right]$$ where $\boldsymbol(\mathbf{v})$ randomly selects two entries from $\mathbf{v}$, $\boldsymbol\psi = (1-1)^T$, and $\tau$ is a random threshold.
+  - Within each leaf node $l$, the object probability $p(c=1|l)$ is stored.
+  - Overall probability $p(c|\mathbf{v})$ computed by averaging individual leaf probabilities.
+  - Class prediction computed by $$c(\mathbf{v}) = \arg\max_c \sum_{t=1}^T p_t(c|\mathbf{v})$$
+  - Random forest drawbacks
+    - Need largre training data
+    - Streaming data and incremental learning not supported since node tests cannot be adjusted after training time
+    - Node tests hierarchically dependent on eachother introduces conditioanl jumps in pipeline.
+- Random Ferns
+  - Uses flat node structures to make tests independent from one another, allowing for aprallel evaluation
+  - Ferns used with completely randomized tests and not optimized using training data
+    - Since only first frame labeled, limited data to optimize for in fern structure
+    - Usigon only very first frame for optimization may result in tailored node tests
+- Hough Voting
+  - Hough forests also store a displacement vevctor that point to where the expectected object center.
+  - Negative training samples have no displacement vector since there is no relation towards the center
+  - Voting map generated generated using leaf displacement vectors weighted by probabilities.
+- Online Adaptation
+  - Forgetting function $\omega_l(c=1) = \sum_{q=-\infty}^{q_0} \|\mathcal{S}_l^q(c=1)\| \cdot f^{q_0-q}$ where $\omega_l(c=1)$ is the current weight of positive class in leaf $l$ and $\|S_l^q(c=1)\|$ is the number of positive samples in leaf $l$ at time q, $q_0$ is the current time, and $f$ is the forgetting factor
+  - Foreground probability of leaf $l$ is $$p(c=1|l = \frac{\omega_l(c=1)}{\sum_{i\in C_k}\omega_l(c=i)}$$
+- Closing Tracking Loop
+  - Segment object using its center as initialization using GrabCut algorithm
+  - Use maximum likelihood for foreground and a bounding rectangle as background to divide image into foreground, background, and unknown pixels
+  - Unknown pixels labeled and binary separation complete
+  - Region between foreground and background omitted
+  - Object center repositioned to center of mass of foreground

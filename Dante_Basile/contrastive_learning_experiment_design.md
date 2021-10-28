@@ -1,10 +1,13 @@
 # Contrastive Learning Experiment Design
+Issue [#426](https://github.com/neurodata/ProgLearn/issues/426)
+
 Dante Basile
 
 ## Datasets
 * [CIFR](https://www.cs.toronto.edu/~kriz/cifar.html)
     * CIFR-10
     * CIFR-100
+* Replicate Gaussian XOR from Proglearn Tutorials
 
 ## Design
 * Task division

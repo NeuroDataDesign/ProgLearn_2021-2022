@@ -1,0 +1,12 @@
+function that can give you gaussian sim data (xor, rxor)
+- can be found in kdg (generate_gaussian_parity, spec num samples, and angle)
+- make xor and rxor (100 samples from each)
+- how sensitive is hyppo (use fast decode)
+- gradually change the angle and see how sensitive it is to the change in angle
+
+can also pick rxor angle and change the number of samples like figure 2ciii in omni paper
+how much sample you need to detect shift in distribution
+we need this because whenever there is a major shift so we need to learn a new representor 
+look at the pvalue 
+
+detect the change in distribution 
