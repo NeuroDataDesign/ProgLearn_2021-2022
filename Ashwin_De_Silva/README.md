@@ -121,6 +121,20 @@ Hey! Welcome to my progress tracking folder. This includes the defintions of don
 * Work on KDCNNs
     * Test the KDCNN for TM and FM weighting schemes
 
+### Week of 2021-10-25
+
+* Weighted KDNs (weighted_kdn)
+* Implement the AP weighting scheme (with and without inactivated nodes)
+    * DoD: slides
+* Plot distance vs. weights graph for FM, TM, LL and AP methods
+    * DoD: Slides
+* Run the noise penetration experiment  
+    * DoD: Slides
+* Read the Deep Boltzmann Machines paper
+    * DoD: notes
+* Read Brieman 2001
+
+
 
 
 
