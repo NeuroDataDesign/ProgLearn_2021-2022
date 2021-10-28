@@ -27,3 +27,5 @@
 - Week 7: October 21, 2021
   - [Streaming Decision Trees & Forests preprint](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_7/SDTF.pdf)
   - [XOR, RXOR, XOR experiment notes](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_7/experiment_notes.md)
+- Week 8: October 28, 2021 
+  - [Notes on XOR-RXOR]() 
