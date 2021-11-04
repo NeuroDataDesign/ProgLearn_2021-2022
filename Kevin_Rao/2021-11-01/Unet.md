@@ -1,0 +1,35 @@
+- Convolution NN limited by availability of training set and size of networks
+- ImageNet data set analysis by Krizhevsky using 8 layers and 1 million parameters.
+- Ciresan created sliding-window to predict class label in a local region.
+  - Drawbacks
+    - Slow since must run separately for each patch
+    - Tradeoff between accuracy and context
+- Created more elegant architecture
+  - Works with few training image and more precise segmentation
+  - Upsampling use feature channels for propagation of information to higher layers
+  - Expansive path symmetric to contracting
+  - Seamless segmentation using overlap-tile strategy
+  - Data augmentation with elastic deformation
+- Network Architecture
+  - Contracting path
+    - Typical convolution neural network, application of two 3x3 convolutions
+    - ReLu
+    - 2x2 max pooling with stride 2
+    - At each downsampling step, double number of features
+  - Expansive path
+    - Upsampling feature math volowed by 2x2 convolution that halves feature channels
+    - Concatenation with cropped feature map from contracting path
+    - two 3x3 convolutions
+    - ReLU
+    - Cropping needed due to loss of border pixels
+  - Final 1x1 convolution to map feature vector to classes
+- Traaining
+  - Output image smaller than input by constant border width
+  - Large input tiles over large batch size, batch of single image
+  - High momentum so previously seen samples determine update optimization
+  - Energy function is pixel-wise softmax over final feature map with cross entropy loss function
+  - Weight map for each ground truth compensates for different frequency of pixels
+  - Initial weights should be taken from a Gaussian distribution with standard deviation sqrt(2/N)
+- Data Augmentation
+  - Random deformation
+  - Drop-out layers
