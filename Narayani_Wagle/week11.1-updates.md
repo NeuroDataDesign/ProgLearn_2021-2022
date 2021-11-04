@@ -5,3 +5,7 @@
 
 
 See team repo https://github.com/KhelmholtzR/ProglearnSceneSegmentation and weekly slides
+Tasks worked on:
+- data loader
+- NN in proglearn
+- U-Net
