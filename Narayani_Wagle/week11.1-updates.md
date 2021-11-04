@@ -1,4 +1,4 @@
-#Team Meeting Notes
+# Team Meeting Notes
 - Amy - implement random forest using proglearn with the flattened images
 - Kevin - start working on implementing NN in proglearn and look into u-net
 - Narayani - finish data loader, start working on implementing NN in proglearn and look into u-net
