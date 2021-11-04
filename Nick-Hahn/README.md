@@ -29,3 +29,5 @@
   - [XOR, RXOR, XOR experiment notes](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_7/experiment_notes.md)
 - Week 8: October 28, 2021 
   - [Notes on XOR-RXOR]() 
+- Week 9: November 4, 2021
+- [XOR-RXOR-XOR Benchmark Plots](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_9/streaming_benchmarks.md)
