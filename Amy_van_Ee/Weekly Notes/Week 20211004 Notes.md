@@ -1,4 +1,4 @@
-# Week 04102021 Notes
+# Weekly Notes: 2021-10-04
 
 - https://github.com/numpy/numpy/issues/12016
 - still issues with installing ProgLearn it seems?
