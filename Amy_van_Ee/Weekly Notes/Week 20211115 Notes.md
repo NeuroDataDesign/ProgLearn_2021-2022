@@ -7,6 +7,12 @@
   - https://github.com/neurodata/ProgLearn/blob/main/docs/experiments/xor_xnor_exp.ipynb
   - https://github.com/neurodata/ProgLearn/blob/main/proglearn/tests/test_forest.py
 
+**Next Steps**
+- Investigate Scikit repo to learn more about how they perform segmentation
+  - https://github.com/scikit-image/scikit-image
+- Use following resource as suggested by Hao to overcome dimension issue
+  - https://scikit-learn.org/stable/modules/generated/sklearn.utils.check_X_y.html
+
 **Group Meeting**
 - Gave updates
 - Discuss using different images and just binary segmentation to simplify the problem for now
