@@ -35,3 +35,5 @@
   - [Updated Plots w/ Mondrian Forest](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_10/benchmark_plots.md) 
 - Week 11: November 18, 2021 
   - [PR Gaussian XOR Experiments to SDTF](https://github.com/neurodata/SDTF/pull/30)
+- Week 12: December 2, 2021
+  - [Adding proglearn to plots: updates](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_12/updates.md) 
