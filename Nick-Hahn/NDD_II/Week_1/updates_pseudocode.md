@@ -70,3 +70,18 @@ ERROR      0.30000000000000004
 after the first call to `update_task` error does not decrease
 
 ## Pseudocode for `update_task`
+```
+forest.update_task
+    calls progressive_learner.update_task
+        check if task id is given (error if not)
+        update current X data for task with additional X data 
+        update current y data for task with additional y data 
+        split into transformer/voter and decider data 
+        call update_transformer 
+            for all transformers referring to task
+                partial fit transformer
+        set voter 
+        set decider 
+
+```
+
