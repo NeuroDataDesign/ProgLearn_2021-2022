@@ -1,0 +1,30 @@
+https://www.sciencedirect.com/science/article/pii/S209580991930503X#f0005
+
+This paper provides an overview of different adversarial attack methods as well as ways to counter them.
+
+Adversarial methods focus on minimizing Distance(x, x') where x is the original data and x' is the adversarially altered data, while ensuring f(x') != y, where y = correct label (ideally, y = f(x))
+
+Distance can be calculated using Hamming/L0 distance, Euclidean/L2 distance, K-L Divergence, etc
+
+Adversarial attacks can be black-box/grey-box/white-box, in increasing order of awareness of the underlying algorithm
+
+Black-box: access to x-y pairs. Query the ML algorithm to gain insights on specific inputs.
+Grey-box: access to model architecture, ex: algorithm, but not specific weights
+White-box: complete awareness of all parameters. Strongest, and hardest to defend against.
+
+Adversarial attack methods:
+All below listed are white-box algorithms designed to interfere with images.
+- Limited-memory Broyden–Fletcher–Goldfarb–Shanno algorithm (L-BFGS)
+Minimize distance D(x, x'). f(x') != y. This optimization problem is intractable however
+- fast gradient sign method (FGSM)
+Generate interference by moving up the gradient descent slope. Requires knowing weights (whitebox)
+- basic iterative method (BIM)
+Repeat FGSM across multiple steps
+....
+- projected gradient descent (PGD)
+" projects the updated adversarial sample into the ∊–L_inf neighbor and a valid range."?
+- distributionally adversarial attack
+
+- Carlini and Wagner (C&W) attacks
+- Jacobian-based saliency map attack (JSMA)
+- DeepFool [10]
