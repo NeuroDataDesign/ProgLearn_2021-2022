@@ -1,4 +1,4 @@
-# [Task-Continual Learning](https://openaccess.thecvf.com/content_CVPR_2019/papers/Aljundi_Task-Free_Continual_Learning_CVPR_2019_paper.pdf)
+# [Task-Free Continual Learning](https://openaccess.thecvf.com/content_CVPR_2019/papers/Aljundi_Task-Free_Continual_Learning_CVPR_2019_paper.pdf)
 
 Aljundi etal.
 
@@ -23,3 +23,30 @@ Identified **Memory Aware Synapses** (MAS) as most promising method for the foll
 - due to strong non-iid conditions and very low number of samples used for the gradient step, system is vulnerable to catastrophic interference between recent samples and prev samples and face difficutly in accumulating the knowledge over time 
 
 ### MAS
+- after each traing phase/task, method estimates importance of parameter to the prev learned task, doe sthis by computing sensitivity of learned function to parameter changes
+- when learning new task, changes to important params are penalized 
+
+
+When to update importance weights
+- in task aware setting, importance weights are updated after each task, when learning has converged
+- in online/streaming setting, we look at the surface of the loss function
+- plateaus in loss function indicate stable learning regimes, when model is such a stable area, it's a good time to consolidate the knowledge by updating the importance weights
+- this allows us to ID params that are important for the currently acquired knowledge
+
+Detecting plateaus in the loss surface:
+- use sliding window over consecutive losses during training 
+- trigger importance weight update when mean and variance of losses in the window are lower than a given threshold
+- dont keep re-estimating importance weights; only re-check for plateaus in loss surface after observing a peak
+- peak when window loss mean becomes high than 85% of a normal distribution estimated on the loss window of the previous plateau
+
+Small buffer with hard samples:
+- use a small buffer of hard samples thats updated at each learning step by keeping the samples with highest loss among the new samples and the current buffer = stabilizes online learning
+- important since previous samples cant be revisted hence gives the system the advantage to re-process those hard samples and adjust its params towards better predictions in addtion to getting a better estimate of the gradient step by avg'ing over recent and hard samples
+- hard buffer better est of acquired knowledge than a few recent samples, hence allows for a better ID of importance weights
+
+Accumulating importance weights:
+- maintain a cumulative moving avg of the estimated importance weights
+- could use a decaying factor that allows replacing old knowledge in long term but authors found that cumulative working avg showed more stable results
+
+<img width="663" alt="Screen Shot 2022-02-01 at 5 54 28 PM" src="https://user-images.githubusercontent.com/89429238/152065133-d1a9995b-0e72-44bd-a4e1-b46fe9e1e054.png">
+
