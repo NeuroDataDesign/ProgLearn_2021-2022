@@ -77,3 +77,13 @@ Hard buffer size of 100 tripletes and fixed loss window of 5
 ### Self-supervised results
 ![image](https://user-images.githubusercontent.com/89429238/152278399-29dbf6d5-f841-4155-884d-b3b3ed13f237.png)
 
+### Monocular Collision Avoidance
+Train a neural network to perform this task, at test time, based on single RGB images
+
+![image](https://user-images.githubusercontent.com/89429238/152279141-03222152-5e48-4116-acd8-490e086da7ca.png)
+
+### Conclusion
+- importance of weight regularization appears most effective in online training scenarios when large changes in the learned distribution occur
+- the closer online data stream is to i.i.d samples, the smaller the positive continual learning effect
+- some cases, continual learning tends to slow down adaptation to newly seen data, esp when new data is much more informative or representative than the old = cont learning initially has a neg effect on the training
+- whether stabilizing effect of cont learning good or not, depends on time scale of changes in data
