@@ -1,0 +1,53 @@
+#+TITLE: Literature Notes
+#+AUTHOR: Kevin Rao
+#+Date: <2022-02-03 Thu>
+
+* CondNet: Conditional Classifier for Scene Segmentation
+- Conditional classifier for pixel-wise recognition.
+  - Generate kernels for specific samples allowing for intra-class distinction.
+- Classifier parts
+  - Class-feature aggregation module
+    - Aggregates features into semantic categories via weighted average.
+    - Allows for distinction of objects within the same category and the same sample.
+  - Kernel generation module
+    - Creates sample-specific kernels based on sample-specific class average.
+    - Applied to sample to predict masks.
+- Merits
+  - Conditional classifier more discriminative due to learning based on sample-specific distinction of a particular category.
+  - Incorporable into arbitrary FCN architectures, replacing global classifier
+- Architecture
+  - Can replace original classifier with conditional classifier using sample-specific class center which is easier than a global class center.
+  - Class feature aggregation
+    - Embed sample-specific class center
+    - Computes a class-center embedding by computing the weighted average of features belonging to a prticular category.
+  - Kernel Generation
+    - Uses the embedding with kernels to compute a new weight on the embeddings.
+  - Loss
+    - \[L = \lambda L_{prob} + L_{seg}\]
+- Results
+  - 47.38% mIoU and 82.49% on pixel accuracy, outperforming DeeplabV3+ by 1.03, CPNet by 1.11, and RGNet by 1.58.
+
+* Multi-scale Attention U-NET (MsAUNet): A Modified U-NEt Architecture for Scene Segmentation
+- Multiscaling property increases robustness and effectiveness of attention blocks.
+- Multiscaling techniques replace feature maps.
+- Multiscale attention upsampling with local features improves performance but is reduced when applied to global features.
+** Architecture
+- Multi-scaled convolution layers using $2\times2$, $4\times4$ and $6\times 6$ convolution kernels in attention blocks while up-sampling.
+- Pretrained DenseNet169 as foundation of architecture with multi-scaled attention for extracting lower dimensional features from encoder.
+- Five upsampling layers where first three have multi-scaled attention and later two have no multi-scaling but attention.
+- Each transpose convolution followed by batch normalization and connected to pyramid pooling layer with leaky ReLu.
+
+** Attention Block
+- Attention gates take feature from encoder and output of pyramid pool as input; output concatenated with up-sampled output from previous pyramid-pool layer and mapped to next layer.
+- Attention block produces product of output of previous layer and attention coefficient.
+  - Attention coefficient close 1 means region has high importance.
+  - Allows for focus in certain regions of images.
+- Attention block takes feature vector of specific layer of encoder and passes through convolution layers. Upsampling performed on input feature map and concatenated with previous convolution block and passed through ReLU. Output of ReLu passed through another convolution and sigmoid activation.
+** Loss Function
+- \[L_{f} = L_{iou} + 0.01L_{Dice} + 0.8L_{WCE}\]
+  - IOU Loss
+  - Dice Loss
+  - Weighted Cross Entropy
+** Experiment Results
+*** ADE20K
+- DenseNet169 performs 81.41% on pixel accuracy and 44.59% mean IoU
