@@ -50,3 +50,30 @@ Accumulating importance weights:
 
 <img width="663" alt="Screen Shot 2022-02-01 at 5 54 28 PM" src="https://user-images.githubusercontent.com/89429238/152065133-d1a9995b-0e72-44bd-a4e1-b46fe9e1e054.png">
 
+### Experiments
+1. learn actor identites from watching soap series
+2. robot navigation
+
+Soap series 
+- weak supervision case, assume there is an annotator telling the agen whether two consecutive tracks are of the same identity or not
+- self supervised case, use fact that if two faces are detected in the same image then their tracks must belong to two different actors
+
+**SETUP:** start from AlexNet architecture with convolutional layers pre-trained on ImageNet nad fully connected layer inited randomly
+- use triple margin loss which has been shown to work well in face recog apps
+
+Dataset: ep's from big bang theory, breaking bad, and mad men
+
+Hard buffer size of 100 tripletes and fixed loss window of 5
+
+**BASELINES:**
+1. *Initial*: the pretrained model, before training on any ep's
+2. *Ounline Baseline*: model trained in the explained online setting but without the MAS importance weight regularizer
+3. *Online Joint Training*: model trained online, without MAS regularization, but with shuffled tracks across ep's to obtain i.i.d drawn data
+4. *Offline Joint Training*: model that differs from online joint training by going multiple epochs over the whole data. upper bound
+
+### Weak supervision results
+![image](https://user-images.githubusercontent.com/89429238/152277173-2519a9c5-8301-422a-b77f-e51cd928ffe2.png)
+
+### Self-supervised results
+![image](https://user-images.githubusercontent.com/89429238/152278399-29dbf6d5-f841-4155-884d-b3b3ed13f237.png)
+
