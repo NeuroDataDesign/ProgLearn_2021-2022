@@ -27,12 +27,31 @@ Amanda Rios and Laurent Itti
 
 ![image](https://user-images.githubusercontent.com/89429238/153300346-8919a645-3c1c-40e8-93cd-e53d45d74a74.png)
 
-For any given sample, find closest store prototype and use its task label as the predicted task:
+- For any given sample, find closest store prototype and use its task label as the predicted task:
 
 ![image](https://user-images.githubusercontent.com/89429238/153300445-b79ea106-fddc-4cc2-b59c-394af88570b0.png)
 
 2. *Gaussian Mixture Model Classifier (GMMC)*: Guassian Mixtures (GM) to perform task-wise incremental prototype generation. Encode variance information and perform soft-assignment, more robust to outliers during clustering vs NMC. For each new task, K GM prototypes are computed from extracted fixed embedding of that task with overall distribution: 
 
 ![image](https://user-images.githubusercontent.com/89429238/153300995-9cb98db7-4705-4a29-86a8-1472d74d7381.png)
+
+- \mu_i, \sigma_i are mean and covariance of each of the K Gaussian distributions
+-  Also save K Gaussian weights, w_i, per task
+-  At each task switch we re-norm them to:
+
+![image](https://user-images.githubusercontent.com/89429238/153301297-a390af53-e04f-41b5-911b-ef59147b3fdc.png)
+
+- task mapper then becomes a distionary containing assignments from GM params to task super-labels: 
+
+![image](https://user-images.githubusercontent.com/89429238/153301423-1cd694f9-0407-4245-8635-b65bad3bc540.png)
+
+3. *Fuzzy ART Classifier:* In this variant we generate the incremental prototypes with an unsupervised fuzzy ART network
+- ART networks were initially proposed to overcome the stability-plasticity dilemma by accepting and adapting a stored prototype only when an input is sufficiently similar to it
+- when new input pattern not close to any existing proto, new node is created with that input as a proto template
+- similarity depends on vigilance param p, with 0 < p < 1, when p small similarity cond is easier to achieve = coarse categorization with few protos
+- p close to 1 results in many finely divided categories at cost of large memory consumption
+- One further specification of ART is that an input x of dimension D undergoes a pre-processing step called complement coding, which doubles its dimension to 2D while keeping a constant norm, x∗ = [x,~1 − x]. This procedure prevents category proliferation [19] but makes each prototype also occupy double amount of space.
+
+![image](https://user-images.githubusercontent.com/89429238/153302140-49b5e2e5-8c26-4dc8-b534-45d1e9897a17.png)
 
 
