@@ -1,4 +1,4 @@
-# [Lifelong Learning With a Task Oracle](https://arxiv.org/pdf/2011.04783.pdf)
+# [Lifelong Learning Without a Task Oracle](https://arxiv.org/pdf/2011.04783.pdf)
 Amanda Rios and Laurent Itti
 
 ## Abstract
@@ -54,4 +54,11 @@ Amanda Rios and Laurent Itti
 
 ![image](https://user-images.githubusercontent.com/89429238/153302140-49b5e2e5-8c26-4dc8-b534-45d1e9897a17.png)
 
+- during learning of each task, if for x a proto w_i is sufficiently similar by satisfying: 
+
+![image](https://user-images.githubusercontent.com/89429238/153346153-62794df9-edad-4d0b-9726-c04fa8fff617.png)
+
+then w_i can be updated according to:
+
+![image](https://user-images.githubusercontent.com/89429238/153346276-36673ada-5062-42ca-aa15-efeddf0e0d4b.png)
 
