@@ -1,1 +1,38 @@
 
+% WIP pseudocode for update_task
+
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsfonts}
+\usepackage{bbm}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+\begin{document}
+    
+
+\begin{algorithm}[htb!]
+    \caption{update task}\label{alg:updatetask}
+    \begin{algorithmic}[1]
+    \Require
+    \Statex (1) $\mathcal{D}^t_u=(\mathbf{x}^t_u,\mathbf{y}^t_u)$ \Comment{Data to update task }
+    \Statex (2) $t$ \Comment{task id}
+    \Ensure 
+    \Statex (1) SynX \Comment updated progressive learner
+    \Function{progressive\_learner.update\_task}{$X,y,t$}
+        \State $\mathcal{D}^t_n \leftarrow \mathcal{D}^t_n+\mathcal{D}^t_u $ \Comment{Concatenate existing data and new data}
+        \For{each $u_t$} \Comment{For all task $t$ transformers}
+        \State $u_t$.partial\_fit$(\mathbf{x}^t_u,\mathbf{y}^t_u)$ \Comment{Partial fit with new data}
+        \EndFor
+        \For{$t'=0, \dots, t'=t-1$} \Comment{For backwards task ids}
+        \State SynX.set\_voters($t',u_{t'},(\mathbf{\tilde{x}}^t_n,\mathbf{y}^t_n),\mathcal{I}^{t'}_{OOB}$) \Comment{append voter}
+        \State SynX.set\_decider($t', u_t$) \Comment{updates transformers and voters with decider.fit}
+        \EndFor
+    \State \Return SynX \Comment{}
+    \EndFunction
+    \end{algorithmic}
+    \end{algorithm}
+
+\end{document}
