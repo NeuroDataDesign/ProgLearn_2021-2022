@@ -1,4 +1,7 @@
 ## Nick Hahn's Progress for NeuroData Design 21-22
+<table><tr><td valign="top" width="49%"> 
+
+## NDD I
 - Week 1: September 9, 2021
   -  Notes: [Omnidirectional Transfer for Quasilinear Lifelong Learning](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_1/omnidirectional_transfer.pdf)
   -  Notes: [The Abstract Forest Model](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_1/Ch3_The_Abstract_Forest_Model.pdf)
@@ -37,3 +40,27 @@
   - [PR Gaussian XOR Experiments to SDTF](https://github.com/neurodata/SDTF/pull/30)
 - Week 12: December 2, 2021
   - [Adding proglearn to plots: updates](https://github.com/NeuroDataDesign/ProgLearn_2021-2022/blob/main/Nick-Hahn/Week_12/updates.md) 
+
+<!-- Column 2                               -->
+</td><td valign="top" width="50%">
+
+## NDD II
+- Week 1: Current State of Streaming
+  - Notes: [Current State of Streaming in Proglearn/SDTF](https://github.com/nhahn7/ProgLearn_2021-2022/blob/main/Nick-Hahn/NDD_II/Week_1/updates_pseudocode.md)
+- Week 2: Studying Proglearn code
+  - Notes: [ProgLearn Code Notes](https://github.com/nhahn7/ProgLearn_2021-2022/blob/main/Nick-Hahn/NDD_II/Week_2/notes.md)
+- Week 3/4: Studying Proglearn code/working on pseudocode
+  - Pseudocode: [Markdown pseudocode](https://github.com/nhahn7/ProgLearn_2021-2022/blob/main/Nick-Hahn/NDD_II/Week_4/updated_pseudocode.md)
+- Week 5: Debugged `update_task`
+  - notebook: [Synergistic Forest Streaming Example](https://nbviewer.org/github/nhahn7/ProgLearn_2021-2022/blob/main/Nick-Hahn/NDD_II/Week_5/synf_example.ipynb)
+  - updated pseudocode: [LaTeX pseudocode](https://github.com/nhahn7/ProgLearn_2021-2022/blob/main/Nick-Hahn/NDD_II/Week_5/pseudocode.md)
+- Week 6: Update Gaussian Simulation Experiments in SDTF
+  - notebook: [SynF performance on Gaussian Simulation Experiments](https://sdtf.neurodata.io/xor_experiments.html)
+  - PR : [SDTF PR](https://github.com/neurodata/SDTF/pull/42)
+
+
+
+
+
+
+</td></tr></table>
