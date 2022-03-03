@@ -7,7 +7,16 @@ Graph partitioning problem is dividing vertices of graph $G = (V, E)$ into equal
 
 Problem is strongly NP complete.
 
-* Coarse T-partitioning
+In first phase, graph decomposed with recursive decomposition where a separation algorithm divides a graph into two subsets. It aims to produce a cut that divides a graph into two parts greater than $\frac{\epsilon}{3 + \epsilon}$ while cutting minimum edges and producing a balanced cut.
+
+
 A T-partitioning contains only subsets of $T$ and coarse if does not contain any small subsets, specifically whereby a subset does not contain less than $\frac{en}{3k}$ nodes.
 
-Algorithm tries creating coarse $T$-partitionings and merging subsets, but this is not always possible. A $T$ partitioning is $(1+\epsilon)$ feasible if an index of sets can be partitioned into $k$ distinct index sets such that
+Algorithm tries creating coarse $T$-partitionings to reduce the search space of potential partitionings where $T$ are decomposition trees.
+
+A $T$ partitioning gives a $(k, 1+\epsilon)$ partitioning. Tree sets smaller than $\frac{\epsilon n}{3k}$ or larger than $(1+\epsilon)^{n}$ do not need to be considered because of definition of course partitioning and optimal solution constraints.
+
+Removing all nodes from the tree sets that correspond to any sets of the incompatible sizes allow for partitioning of the tree set into smaller sub-trees where the height of the tree is less than $O\left( \frac{1}{\epsilon} \log \frac{1}{\epsilon} \right )$ and each node contains at most $2^{O(1/\epsilon \log 1/\epsilon})}$. Using dynamic programming, optimal partitioning of subtrees depends only on set of size chosen in subtrees by solving a bin-partitioning problem on the subtrees.
+
+* Running time
+Overall run time is $O\left( \frac{|V|^{2}}{\epsilon} \right)$ but can be improved on with dynamic programming.
