@@ -1,0 +1,13 @@
+#+TITLE: Balanced Graph Partition
+
+10.1145/1007912.1007931
+
+
+Graph partitioning problem is dividing vertices of graph $G = (V, E)$ into equally sized parts $V_1, \ldots, V_{k}$ while minimizing the capacity of cut edges.
+
+Problem is strongly NP complete.
+
+* Coarse T-partitioning
+A T-partitioning contains only subsets of $T$ and coarse if does not contain any small subsets, specifically whereby a subset does not contain less than $\frac{en}{3k}$ nodes.
+
+Algorithm tries creating coarse $T$-partitionings and merging subsets, but this is not always possible. A $T$ partitioning is $(1+\epsilon)$ feasible if an index of sets can be partitioned into $k$ distinct index sets such that
