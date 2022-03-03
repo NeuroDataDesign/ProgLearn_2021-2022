@@ -348,6 +348,7 @@ class MLKNNClassificationVoter(BaseClassificationVoter):
         self.mlknn_ = MLkNN(k, **self.kwargs)
         self.mlknn_.fit(X, y)
 
+        # missing label indices should not be issue in scene segmentation
         num_classes = len(np.unique(y))
         self.missing_label_indices_ = []
 
@@ -407,4 +408,5 @@ class MLKNNClassificationVoter(BaseClassificationVoter):
         NotFittedError
             When the model is not fitted.
         """
+        # needs to be modified for multi-class - see at OH
         return self.classes[np.argmax(self.predict_proba(X), axis=1)]
