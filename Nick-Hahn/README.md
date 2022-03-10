@@ -57,9 +57,9 @@
 - Week 6: Update Gaussian Simulation Experiments in SDTF
   - notebook: [SynF performance on Gaussian Simulation Experiments](https://sdtf.neurodata.io/xor_experiments.html)
   - PR : [SDTF PR](https://github.com/neurodata/SDTF/pull/42)
-- Week 7: Work on streaming SynN
+- Week 7: Add streaming capability for SynN
   - notebook [Streaming vs Batch Forests (SynF and DF) experiments](https://nbviewer.org/github/nhahn7/ProgLearn_2021-2022/blob/main/Nick-Hahn/NDD_II/Week_7/batch_vs_streaming_synf.ipynb)
-  - SynN update task
+  - notebook [SynN update task simple example](https://github.com/nhahn7/ProgLearn_2021-2022/blob/main/Nick-Hahn/NDD_II/Week7/synN_update_task.ipynb)
 
 
 
