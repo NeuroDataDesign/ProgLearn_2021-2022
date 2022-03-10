@@ -409,4 +409,5 @@ class MLKNNClassificationVoter(BaseClassificationVoter):
             When the model is not fitted.
         """
         # needs to be modified for multi-class - see at OH
-        return self.classes[np.argmax(self.predict_proba(X), axis=1)]
+        #return self.classes[np.argmax(self.predict_proba(X), axis=1)]
+        return np.argmax(self.predict_proba(X)
