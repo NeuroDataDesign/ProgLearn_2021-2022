@@ -1,13 +1,15 @@
 # Pseudocode for KNNClassificationVoter Class
 Functions:
-- init
-- fit
-- predict_proba
-- predict
+- init - initialize the voter object
+- fit - fit the sklearn knn object
+- predict_proba - use the sklearn knn object to predict on new data
+- predict - output the class predictions on new data
 
 KNNClassificationVoter.predict:
-- Parameters - X - an array of shape [n_samples, n_features] which represents the transformed input data
-- Returns - y_hat - an ndarray of shape [n_samples] with the predicted class label per example
+- Parameters 
+  - X - an array of shape [n_samples, n_features] which represents the transformed input data
+- Returns
+  - y_hat - an ndarray of shape [n_samples] with the predicted class label per example
 1) call the predict_proba function (detailed below)
 2) take the max probability for each row of the output (find the class with the highest probability)
 3) take the list of indices output by argmax and select the corresponding classes to output
