@@ -5,6 +5,8 @@
 - https://github.com/Trusted-AI/adversarial-robustness-toolbox
 	- One repo that seems to be fairly popular as far as github stars and implements a number of the algorithms discussed below
 	- Based on examples, could be compatible with KDG
+- https://github.com/bethgelab/foolbox
+	- Adversarial examples for neural networks
 
 ## Articles
 ### Adversarial Machine Learning Applied to Intrusion and Malware Scenarios: A Systematic Review
