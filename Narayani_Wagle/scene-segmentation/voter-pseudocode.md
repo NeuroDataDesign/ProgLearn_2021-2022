@@ -1,21 +1,21 @@
 # Pseudocode for KNNClassificationVoter Class
 Functions:
-init
-fit
-predict_proba
-predict
+- init
+- fit
+- predict_proba
+- predict
 
 KNNClassificationVoter.predict:
-Parameters - X - an array of shape [n_samples, n_features] which represents the transformed input data
-Returns - y_hat - an ndarray of shape [n_samples] with the predicted class label per example
+- Parameters - X - an array of shape [n_samples, n_features] which represents the transformed input data
+- Returns - y_hat - an ndarray of shape [n_samples] with the predicted class label per example
 1) call the predict_proba function (detailed below)
 2) take the max probability for each row of the output (find the class with the highest probability)
 3) take the list of indices output by argmax and select the corresponding classes to output
 4) return the class predictions
 
 KNNClassificationVoter.predict_proba:
-Parameters - X - an array of shape [n_samples, n_features] which represents the transformed input data
-Returns - y_proba_hat - an ndarray of shape [n_samples, n_classes] which represent the posteriors per example
+- Parameters - X - an array of shape [n_samples, n_features] which represents the transformed input data
+- Returns - y_proba_hat - an ndarray of shape [n_samples, n_classes] which represent the posteriors per example
 1) check if the KNNClassificationVoter is fitted first, if not, raise error
 2) check if X is a non-empty 2D array
 3) call the predict_prob function of the knn object on X to get the class probabilities per sample, assign output to votes_per_example
@@ -23,8 +23,8 @@ Returns - y_proba_hat - an ndarray of shape [n_samples, n_classes] which represe
 5) return the votes_per_example
 
 KNNClassificationVoter.fit:
-Parameters - X - array of shape [n_samples, n_features] which represents the transformed data that will be used for training, y - an array of shape [n_samples] which represents the label for class membership of the X data
-Returns - a KNNClassificationVoter object
+- Parameters - X - array of shape [n_samples, n_features] which represents the transformed data that will be used for training, y - an array of shape [n_samples] which represents the label for class membership of the X data
+- Returns - a KNNClassificationVoter object
 1) check that the dimensions of X and y are consistent
 2) if the class attribute k has already been set, then assign it to k
 3) if the class attribute k has not been set, then take the log2 of the # of samples and assign it to k
@@ -35,8 +35,8 @@ Returns - a KNNClassificationVoter object
 8) return the KNNClassificationVoter object
 
 KNNClassificationVoter.__init__:
-Parameters - k - int representing the number of neighbors used for prediction by the knn object for fitting and voting, kwargs - a dictionary containing all the keyword arguments for the underlying knn object, classes - a list of all possible output label values
-Class attributes - missing_label_indices - list of label values that exist are in the classes parameter but are missing from the fit function call, knn_ - the KNeighborsClassifier classifier
+- Parameters - k - int representing the number of neighbors used for prediction by the knn object for fitting and voting, kwargs - a dictionary containing all the keyword arguments for the underlying knn object, classes - a list of all possible output label values
+- Class attributes - missing_label_indices - list of label values that exist are in the classes parameter but are missing from the fit function call, knn_ - the KNeighborsClassifier classifier
 1) set k input to the class attribute k
 2) set the kwargs input to the class attribute kwargs
 3) set the classes input to an array and assign to the the class attribute classes
