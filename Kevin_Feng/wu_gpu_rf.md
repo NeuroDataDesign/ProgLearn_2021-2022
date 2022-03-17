@@ -1,4 +1,4 @@
-# [GPU-based State Adaptive Random Forest for Evolving Data Streams] (https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9207333)
+# [GPU-based State Adaptive Random Forest for Evolving Data Streams](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9207333)
 Wu etal
 
 ## Abstract
