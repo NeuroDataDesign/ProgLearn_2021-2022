@@ -50,3 +50,17 @@ ARF pseudocode:
 ## Accuracy in the immediate setting 
 ![image](https://user-images.githubusercontent.com/89429238/158679784-e79249fa-6d21-4950-8e4d-fbfd99e8a50e.png)
 
+Next few pages go over different forms of ARF, how they are more/less efficient than other ensemble methods.
+
+![image](https://user-images.githubusercontent.com/89429238/158731813-58641bdb-e44a-4c43-b038-a9d9b48e5a7c.png)
+
+## Conclusion
+- ARF enables random forests algo for evolving data stream learning
+- provide a serial and a parallel implementation (ARF[S], ARF[M])
+- show that the parallel version can process the same amount of instances in reasonable time without any decrease in the classification performance
+- can implement warning detection and background trees in other ensemble methods
+- ARF obtains good results in terms of classification performance (accuracy, kappa m, and kappa temporal), reasonable performance resources usage
+- ARF good classification perf on both delayed and immediate settings, esp on real word data sets
+- ARF can be used to process data streams w/ a large number of features, using rel small number of tress (100)
+- can train its base trees in parallel without affecting its classification perf
+- might not be able to imporove on data sets where all features are necessary to build a reasonable model
