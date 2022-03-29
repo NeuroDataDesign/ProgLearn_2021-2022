@@ -408,6 +408,4 @@ class MLKNNClassificationVoter(BaseClassificationVoter):
         NotFittedError
             When the model is not fitted.
         """
-        # needs to be modified for multi-class - see at OH
-        #return self.classes[np.argmax(self.predict_proba(X), axis=1)]
-        return np.argmax(self.predict_proba(X)
+        return self.classes[np.argmax(self.predict_proba(X), axis=3)]
