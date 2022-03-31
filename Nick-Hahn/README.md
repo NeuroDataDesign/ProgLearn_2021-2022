@@ -63,6 +63,8 @@
   - Open Streaming functionality PR to ProgLearn for networks and forests [PR](https://github.com/neurodata/ProgLearn/pull/537)
 - Week 8: Learning Efficiency Plots and `update_task` test
   - Learning Efficiency added to notebook: [nbviewer](https://nbviewer.org/github/nhahn7/ProgLearn_2021-2022/blob/main/Nick-Hahn/NDD_II/Week_8/batch_vs_streaming_synf.ipynb)
+- Week 9: `update_task` tutorial/Gaussian experiments 
+    - [notebook](https://nbviewer.org/github/nhahn7/ProgLearn_2021-2022/blob/main/Nick-Hahn/NDD_II/Week_9/streaming_synf_experiments_.ipynb)
 
 
 
