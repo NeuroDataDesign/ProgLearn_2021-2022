@@ -343,6 +343,8 @@ class MLKNNClassificationVoter(BaseClassificationVoter):
         self : MLKNNClassificationVoter
             The object itself.
         """
+        y[y > 0] = 1
+        y[y <= 0] = 0
         X, y = check_X_y(X, y, multi_output=True)
         k = int(np.log2(len(X))) if self.k == None else self.k
         self.mlknn_ = MLkNN(k, **self.kwargs)
