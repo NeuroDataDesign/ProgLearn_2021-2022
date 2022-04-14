@@ -410,4 +410,4 @@ class MLKNNClassificationVoter(BaseClassificationVoter):
         NotFittedError
             When the model is not fitted.
         """
-        return self.classes[np.argmax(self.predict_proba(X), axis=3)]
+        return (self.predict_proba(X) > 0.5).astype(int)
