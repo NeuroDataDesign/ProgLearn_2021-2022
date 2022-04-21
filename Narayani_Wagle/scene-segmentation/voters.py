@@ -343,6 +343,8 @@ class MLKNNClassificationVoter(BaseClassificationVoter):
         self : MLKNNClassificationVoter
             The object itself.
         """
+        y[y > 0] = 1
+        y[y <= 0] = 0
         X, y = check_X_y(X, y, multi_output=True)
         k = int(np.log2(len(X))) if self.k == None else self.k
         self.mlknn_ = MLkNN(k, **self.kwargs)
@@ -408,4 +410,4 @@ class MLKNNClassificationVoter(BaseClassificationVoter):
         NotFittedError
             When the model is not fitted.
         """
-        return self.classes[np.argmax(self.predict_proba(X), axis=3)]
+        return (self.predict_proba(X) > 0.5).astype(int)
