@@ -65,6 +65,14 @@
   - Learning Efficiency added to notebook: [nbviewer](https://nbviewer.org/github/nhahn7/ProgLearn_2021-2022/blob/main/Nick-Hahn/NDD_II/Week_8/batch_vs_streaming_synf.ipynb)
 - Week 9: `update_task` tutorial/Gaussian experiments 
     - [notebook](https://nbviewer.org/github/nhahn7/ProgLearn_2021-2022/blob/main/Nick-Hahn/NDD_II/Week_9/streaming_synf_experiments_.ipynb)
+- Week 10: 
+  - Ran BLE v Angle and BLE v nsamples experiments (not showing expected results)
+  - [Experiments](https://nbviewer.org/github/nhahn7/ProgLearn_2021-2022/blob/main/Nick-Hahn/NDD_II/Week_10/4_07_streaming_synf_experiments.ipynb)
+- Week 11: 
+  - Extended BLE plots to min sample size 
+  - [notebook](https://nbviewer.org/github/nhahn7/ProgLearn_2021-2022/blob/main/Nick-Hahn/NDD_II/Week_11/streaming_synf_experiments.ipynb)
+- Week 12: Fixed `ValueError` and `IndexError` when updating transformers
+  - [updated proglearn code](https://github.com/neurodata/ProgLearn/pull/537/commits/36bc5aefba819d27fd1ac5e31e89c2724c85220b)
 
 
 
