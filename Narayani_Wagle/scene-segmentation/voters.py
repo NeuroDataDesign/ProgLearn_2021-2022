@@ -1,6 +1,9 @@
 """
 Main Author: Will LeVine 
 Corresponding Email: levinewill@icloud.com
+
+MLKNNClassificationVoter Author: Narayani Wagle
+Corresponding Email: nwagle1@jhu.edu or nhwagle@gmail.com
 """
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
@@ -345,10 +348,15 @@ class MLKNNClassificationVoter(BaseClassificationVoter):
         """
         y[y > 0] = 1
         y[y <= 0] = 0
-        X, y = check_X_y(X, y, multi_output=True)
+        # X, y = check_X_y(X, y, multi_output=True)
         k = int(np.log2(len(X))) if self.k == None else self.k
         self.mlknn_ = MLkNN(k, **self.kwargs)
-        self.mlknn_.fit(X, y)
+
+        # flatten X and y such that each sample is one dimensional
+        X_flattened = X.reshape(X.shape[0], -1)
+        y_flattened = y.reshape(y.shape[0], -1)
+
+        self.mlknn_.fit(X_flattened, y_flattened)
 
         # missing label indices should not be issue in scene segmentation
         num_classes = len(np.unique(y))
@@ -381,8 +389,12 @@ class MLKNNClassificationVoter(BaseClassificationVoter):
             When the model is not fitted.
         """
         check_is_fitted(self)
-        X = check_array(X)
-        votes_per_example = self.mlknn_.predict_proba(X)
+        # X = check_array(X)
+
+        # flatten X such that each sample is one dimensional
+        X_flattened = X.reshape(X.shape[0], -1)
+
+        votes_per_example = self.mlknn_.predict_proba(X_flattened)
 
         if len(self.missing_label_indices_) > 0:
             for i in self.missing_label_indices_:
